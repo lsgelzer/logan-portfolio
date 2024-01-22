@@ -25,7 +25,7 @@
 import { revalidateTag } from 'next/cache'
 import { parseBody } from 'next-sanity/webhook'
 
-import { revalidateSecret } from '../../sanity/lib/api'
+import { revalidateSecret } from '../../../sanity/lib/api'
 
 export async function POST(req) {
   try {
