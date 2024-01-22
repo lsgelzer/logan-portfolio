@@ -1,5 +1,4 @@
 import { toPlainText } from '@portabletext/react'
-import { Metadata, ResolvingMetadata } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
@@ -12,13 +11,13 @@ const ProjectPreview = dynamic(
   () => import('../../../../components/pages/project/ProjectPreview'),
 )
 
-export async function generateMetadata(params, parent) {
+export async function generateMetadata({ params }, parent) {
   const { data: project } = await loadProject(params.slug)
   const ogImage = urlForOpenGraphImage(project?.coverImage)
 
   return {
-    title: project.title,
-    description: project.overview
+    title: project?.title,
+    description: project?.overview
       ? toPlainText(project.overview)
       : (await parent).description,
     openGraph: ogImage
