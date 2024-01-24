@@ -1,5 +1,3 @@
-const { theme } = require('@sanity/demo/tailwind')
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,7 +6,17 @@ module.exports = {
     './intro-template/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    ...theme,
+    extend: {
+      animation: {
+        'fade-in': 'fadeIn 2s ease-in 1s forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+    },
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
       mono: 'var(--font-mono)',

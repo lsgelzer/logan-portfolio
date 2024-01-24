@@ -1,5 +1,4 @@
 import { toPlainText } from '@portabletext/react'
-import { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 import { Suspense } from 'react'
@@ -17,7 +16,7 @@ export async function generateMetadata() {
     loadHomePage(),
   ])
 
-  // const ogImage = urlForOpenGraphImage(settings.ogImage)
+  const ogImage = urlForOpenGraphImage(settings.ogImage)
   return {
     title: homePage.title
       ? {
@@ -27,7 +26,7 @@ export async function generateMetadata() {
       : undefined,
     description: homePage.overview ? toPlainText(homePage.overview) : undefined,
     openGraph: {
-      //images: ogImage ? [ogImage] : [],
+      images: ogImage ? [ogImage] : [],
     },
   }
 }
@@ -43,9 +42,9 @@ export default async function IndexRoute({ children }) {
         <Suspense>
           <Navbar />
         </Suspense>
-        <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">
-          <Suspense>{children}</Suspense>
-        </div>
+
+        <Suspense>{children}</Suspense>
+
         <Suspense>
           <Footer />
         </Suspense>

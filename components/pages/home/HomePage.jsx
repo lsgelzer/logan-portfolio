@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ProjectListItem } from '../../../components/pages/home/ProjectListItem'
 import { Header } from '../../../components/shared/Header'
 import { resolveHref } from '../../../sanity/lib/utils'
+import HeroSection from '../../sections/hero-section'
 
 export function HomePage({ data, encodeDataAttribute }) {
   // Default to an empty object to allow previews on non-existent documents
@@ -10,8 +11,7 @@ export function HomePage({ data, encodeDataAttribute }) {
 
   return (
     <div className="space-y-20">
-      {/* Header */}
-      {title && <Header centered title={title} description={overview} />}
+      <HeroSection />
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
