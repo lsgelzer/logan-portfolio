@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const config = {
+	images: {
+		remotePatterns: [{ hostname: "cdn.sanity.io" }, { hostname: "source.unsplash.com" }, { hostname: "via.placeholder.com" }],
+	},
 
-export default nextConfig;
+	eslint: {
+		/// Set this to false if you want production builds to abort if there's lint errors
+		ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
+	},
+	logging: {
+		fetches: {
+			fullUrl: true,
+		},
+	},
+	experimental: {
+		taint: true,
+	},
+}
+
+export default config
