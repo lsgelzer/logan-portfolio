@@ -8,7 +8,7 @@ import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
 import { loadProject } from '@/sanity/loader/loadQuery'
 const ProjectPreview = dynamic(
-  () => import('@/components/pages/project/ProjectPreview'),
+  () => import('@/components/page-components/project/ProjectPreview'),
 )
 
 export async function generateMetadata({ params }, parent) {

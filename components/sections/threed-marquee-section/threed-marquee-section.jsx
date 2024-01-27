@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Suspense } from 'react'
 
-import { urlForImage } from '@/sanity/lib/utils'
 import { loadClients } from '@/sanity/loader/loadQuery'
 
 import styles from './styles.module.css' // Update the path according to your file structure
