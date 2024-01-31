@@ -2,9 +2,9 @@ import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
 
+import { HomePage } from '@/components/page-components/home/HomePage'
 import { studioUrl } from '@/sanity/lib/api'
 import { loadHomePage } from '@/sanity/loader/loadQuery'
-import { HomePage } from '@/components/page-components/home/HomePage'
 
 const HomePagePreview = dynamic(
   () => import('@/components/page-components/home/HomePage'),

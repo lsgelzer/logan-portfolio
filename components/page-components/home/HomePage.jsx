@@ -13,9 +13,6 @@ export function HomePage({ data, encodeDataAttribute }) {
 
   return (
     <div>
-      <HeroSection />
-      <ThreeDMarqueeSection />
-
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
@@ -40,6 +37,8 @@ export function HomePage({ data, encodeDataAttribute }) {
           })}
         </div>
       )}
+      <HeroSection />
+      <ThreeDMarqueeSection />
     </div>
   )
 }
