@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -49,13 +50,19 @@ export default function HeroSection() {
           <li className="pl-6">Full Stack Developer</li>
           <li className="pl-12">UI/UX Designer</li>
         </ul>
-
         <Link
-          className="opacity-0 animate-fade-in ml-4 border bg-green-50 bg-opacity-10 border-green-500  text-white px-6 py-2 rounded-full"
+          className="opacity-0 animate-fade-in ml-4 border   bg-green-500  text-white px-6 py-2 rounded-full"
           href="#projects"
         >
           See my work
         </Link>
+        <Link
+          className="opacity-0 animate-fade-in ml-4 border bg-green-50 bg-opacity-10 border-green-500  text-white px-6 py-2 rounded-full"
+          href="/?modal=true"
+        >
+          See my Bio
+        </Link>
+
         <div className={styles.iconContainer}>
           {icons.map((Icon, i) => {
             const angle = ((2 * Math.PI) / icons.length) * i
@@ -78,5 +85,13 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+  )
+}
+function Modal() {
+  return (
+    <div>
+      <h1>I am a modal</h1>
+      <Link href="/">Close</Link>
+    </div>
   )
 }
