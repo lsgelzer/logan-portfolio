@@ -1,0 +1,40 @@
+.swiper-slide-active {
+  z-index: 2;
+  transition: opacity 1s;
+}
+.swiper-wrapper {
+  padding: 40px 0;
+}
+
+.swiper-slide-active .project-card__image__overlay {
+  opacity: 0.4;
+  transition: opacity 1s;
+}
+.swiper-slide-active .tags {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.swiper-slide-active .projectCardImage {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.projectCardImage {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.projects-section {
+  display: flex;
+  align-items: start;
+  margin-top: 100px;
+}
+.swiper {
+  overflow: hidden;
+}
+.swiper-slide-prev {
+  opacity: 0;
+}
+@media (max-width: 768px) {
+  .swiper-slide-prev {
+    opacity: 1;
+  }
+}

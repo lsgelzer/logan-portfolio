@@ -40,6 +40,20 @@ export const projectBySlugQuery = groq`
     title,
   }
 `
+export const projectsQuery = groq`
+  *[_type == "project" ] {
+    _id,
+    coverImage{asset->{...}},
+    clientImage{asset->{...}},
+    overview,
+    present,
+    duration,
+    site,
+    client,
+    tags,
+
+  }
+`
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{

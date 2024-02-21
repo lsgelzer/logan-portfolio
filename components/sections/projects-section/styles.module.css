@@ -1,0 +1,15 @@
+.sliderContainer {
+  width: 75%;
+  display: block;
+}
+.titleContainer {
+  width: 25vw;
+}
+@media (max-width: 768px) {
+  .titleContainer {
+    width: 100%;
+  }
+  .sliderContainer {
+    width: 100%;
+  }
+}

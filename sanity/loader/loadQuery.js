@@ -9,6 +9,7 @@ import {
   homePageQuery,
   pagesBySlugQuery,
   projectBySlugQuery,
+  projectsQuery,
   settingsQuery,
 } from '../../sanity/lib/queries'
 import { token } from '../../sanity/lib/token'
@@ -68,6 +69,9 @@ export function loadSettings() {
 }
 export function loadClients() {
   return loadQuery(clientsQuery, {}, { next: { tags: ['client'] } })
+}
+export function loadProjects() {
+  return loadQuery(projectsQuery, {}, { next: { tags: ['project'] } })
 }
 
 export function loadHomePage() {

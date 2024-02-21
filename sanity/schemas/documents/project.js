@@ -10,23 +10,11 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
-      name: 'title',
-      description: 'This field is the title of your project.',
-      title: 'Title',
+      name: 'client',
+      title: 'Client',
       type: 'string',
-      validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-        isUnique: (value, context) => context.defaultIsUnique(value, context),
-      },
-      validation: (rule) => rule.required(),
-    }),
+
     defineField({
       name: 'overview',
       description:
@@ -68,14 +56,26 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'clientImage',
+      title: 'Client Logo',
+      description:
+        'This image will be used as the logo image for the project. ',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: 'duration',
       title: 'Duration',
       type: 'duration',
     }),
     defineField({
-      name: 'client',
-      title: 'Client',
-      type: 'string',
+      name: 'present',
+      title: 'Current Project',
+      type: 'boolean',
     }),
     defineField({
       name: 'site',
@@ -90,67 +90,6 @@ export default defineType({
       options: {
         layout: 'tags',
       },
-    }),
-    defineField({
-      name: 'description',
-      title: 'Project Description',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-          },
-          styles: [],
-        }),
-        // Custom blocks
-        defineArrayMember({
-          name: 'timeline',
-          type: 'timeline',
-        }),
-        defineField({
-          type: 'image',
-          icon: ImageIcon,
-          name: 'image',
-          title: 'Image',
-          options: {
-            hotspot: true,
-          },
-          preview: {
-            select: {
-              imageUrl: 'asset.url',
-              title: 'caption',
-            },
-          },
-          fields: [
-            defineField({
-              title: 'Caption',
-              name: 'caption',
-              type: 'string',
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt text',
-              description:
-                'Alternative text for screenreaders. Falls back on caption if not set',
-            }),
-          ],
-        }),
-      ],
     }),
   ],
 })

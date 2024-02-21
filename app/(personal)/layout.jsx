@@ -5,8 +5,6 @@ import { Suspense } from 'react'
 
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
-import { Footer } from '@/components/global/Footer'
-import { Navbar } from '@/components/global/Navbar'
 
 const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
@@ -15,8 +13,7 @@ export async function generateMetadata() {
     loadSettings(),
     loadHomePage(),
   ])
-
-  // const ogImage = urlForOpenGraphImage(settings.ogImage)
+  const ogImage = urlForOpenGraphImage(settings.ogImage)
   return {
     title: homePage.title
       ? {
@@ -26,7 +23,7 @@ export async function generateMetadata() {
       : undefined,
     description: homePage.overview ? toPlainText(homePage.overview) : undefined,
     openGraph: {
-      //images: ogImage ? [ogImage] : [],
+      images: ogImage ? [ogImage] : [],
     },
   }
 }
@@ -39,15 +36,7 @@ export default async function IndexRoute({ children }) {
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white text-black">
-        <Suspense>
-          <Navbar />
-        </Suspense>
-
         <Suspense>{children}</Suspense>
-
-        <Suspense>
-          <Footer />
-        </Suspense>
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </>
