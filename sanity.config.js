@@ -9,32 +9,15 @@ import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
-import { client } from '@/sanity/lib/client'
 import { locate } from '@/sanity/plugins/locate'
-import { singletonPlugin } from '@/sanity/plugins/settings'
 import clientSchema from '@/sanity/schemas/documents/clients'
 import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
 import settings from '@/sanity/schemas/singletons/settings'
 
-import ProjectCard from './components/sections/projects-section/project-card'
-import { projectsQuery } from './sanity/lib/queries'
-
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Logan's Portfolio"
 
-const projectsPreview = async ({ document }) => {
-  const projects = await client.fetch(projectsQuery)
-  const projectMatch = projects.find((p) => p._id === document.displayed._id)
-  return (
-    <div
-      style={{ width: '600px' }}
-      className="swiper slide swiper-slide-active relative"
-    >
-      <ProjectCard project={projectMatch} />
-    </div>
-  )
-}
 export const defaultDocumentNodeResolver = (S, { schemaType }) => {
   if (schemaType === 'project') {
     return S.document().views([
