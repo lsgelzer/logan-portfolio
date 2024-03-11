@@ -6,9 +6,6 @@ import { draftMode } from 'next/headers'
 import { client } from '../../sanity/lib/client'
 import {
   clientsQuery,
-  homePageQuery,
-  pagesBySlugQuery,
-  projectBySlugQuery,
   projectsQuery,
   settingsQuery,
 } from '../../sanity/lib/queries'
@@ -72,24 +69,4 @@ export function loadClients() {
 }
 export function loadProjects() {
   return loadQuery(projectsQuery, {}, { next: { tags: ['project'] } })
-}
-
-export function loadHomePage() {
-  return loadQuery(homePageQuery, {}, { next: { tags: ['home', 'project'] } })
-}
-
-export function loadProject(slug) {
-  return loadQuery(
-    projectBySlugQuery,
-    { slug },
-    { next: { tags: [`project:${slug}`] } },
-  )
-}
-
-export function loadPage(slug) {
-  return loadQuery(
-    pagesBySlugQuery,
-    { slug },
-    { next: { tags: [`page:${slug}`] } },
-  )
 }

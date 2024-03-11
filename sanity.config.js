@@ -8,27 +8,30 @@ import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
-import ProjectPage from '@/components/page-components/project/ProjectPage'
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
+import { client } from '@/sanity/lib/client'
 import { locate } from '@/sanity/plugins/locate'
-import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
-import client from '@/sanity/schemas/documents/clients'
-import page from '@/sanity/schemas/documents/page'
+import { singletonPlugin } from '@/sanity/plugins/settings'
+import clientSchema from '@/sanity/schemas/documents/clients'
 import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
-import milestone from '@/sanity/schemas/objects/milestone'
-import timeline from '@/sanity/schemas/objects/timeline'
-import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+import ProjectCard from './components/sections/projects-section/project-card'
+import { projectsQuery } from './sanity/lib/queries'
 
-const projectsPreview = ({ document }) => {
+const title =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Logan's Portfolio"
+
+const projectsPreview = async ({ document }) => {
+  const projects = await client.fetch(projectsQuery)
+  const projectMatch = projects.find((p) => p._id === document.displayed._id)
   return (
-    <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">
-      <ProjectPage data={document.displayed} />
+    <div
+      style={{ width: '600px' }}
+      className="swiper slide swiper-slide-active relative"
+    >
+      <ProjectCard project={projectMatch} />
     </div>
   )
 }
@@ -50,20 +53,23 @@ export default defineConfig({
     // If you want more content types, you can add them to this array
     types: [
       // Singletons
-      home,
       settings,
       // Documents
-      client,
+      clientSchema,
       duration,
-      page,
       project,
-      // Objects
-      milestone,
-      timeline,
     ],
   },
   plugins: [
     structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.documentListItem().id('settings').schemaType('settings'),
+            S.documentTypeListItem('client'),
+            S.documentTypeListItem('project'),
+          ]),
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     presentationTool({
@@ -75,7 +81,7 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

@@ -3,7 +3,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'client',
-  title: 'Client',
+  title: 'Clients',
   type: 'document',
   icon: DocumentIcon,
   // Uncomment below to have edits publish automatically as you type

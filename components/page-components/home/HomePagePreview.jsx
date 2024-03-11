@@ -1,12 +1,12 @@
 'use client'
 
-import { homePageQuery } from '@/sanity/lib/queries'
-import { useQuery } from '@/sanity/loader/useQuery'
+import { settingsQuery } from '@/sanity/lib/queries'
+
 import HomePage from './HomePage'
 
 export default function HomePagePreview(props) {
   const { initial } = props
-  const { data, encodeDataAttribute } = useQuery(homePageQuery, {}, { initial })
+  const { data, encodeDataAttribute } = useQuery(settingsQuery, {}, { initial })
 
   if (!data) {
     return (

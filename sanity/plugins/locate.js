@@ -27,24 +27,19 @@ export const locate = (params, context) => {
           (doc) => doc._type === 'settings',
         )
         switch (params.type) {
-          case 'home':
+          case 'settings':
             return isReferencedBySettings
               ? {
                   locations: [
                     {
                       title:
-                        docs?.find((doc) => doc._type === 'home')?.title ||
-                        'Home',
+                        docs?.find((doc) => doc._type === 'settings')?.title ||
+                        'Settings',
                       href: resolveHref(params.type),
                     },
                   ],
-                  tone: 'positive',
-                  message: 'This document is used to render the front page',
                 }
-              : {
-                  tone: 'critical',
-                  message: `The top menu isn't linking to the home page. This might make it difficult for visitors to navigate your site.`,
-                }
+              : {}
           case 'page':
             return {
               locations: docs

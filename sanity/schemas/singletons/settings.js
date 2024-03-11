@@ -10,37 +10,22 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
-      name: 'menuItems',
-      title: 'Menu Item list',
-      description: 'Links displayed on the header of your site.',
-      type: 'array',
-      of: [
-        {
-          title: 'Reference',
-          type: 'reference',
-          to: [
-            {
-              type: 'home',
-            },
-            {
-              type: 'page',
-            },
-            {
-              type: 'project',
-            },
-          ],
-        },
-      ],
+      name: 'title',
+      description: 'This field is the title of your personal website.',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'footer',
+      name: 'overview',
       description:
-        'This is a block of text that will be displayed at the bottom of the page.',
-      title: 'Footer Info',
+        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+      title: 'Description',
       type: 'array',
       of: [
+        // Paragraphs
         defineArrayMember({
-          type: 'block',
+          lists: [],
           marks: {
             annotations: [
               {
@@ -56,9 +41,22 @@ export default defineType({
                 ],
               },
             ],
+            decorators: [
+              {
+                title: 'Italic',
+                value: 'em',
+              },
+              {
+                title: 'Strong',
+                value: 'strong',
+              },
+            ],
           },
+          styles: [],
+          type: 'block',
         }),
       ],
+      validation: (rule) => rule.max(155).required(),
     }),
     defineField({
       name: 'ogImage',
@@ -73,7 +71,7 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Menu Items',
+        title: 'Settings',
       }
     },
   },

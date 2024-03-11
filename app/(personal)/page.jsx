@@ -4,14 +4,14 @@ import Link from 'next/link'
 
 import { HomePage } from '@/components/page-components/home/HomePage'
 import { studioUrl } from '@/sanity/lib/api'
-import { loadHomePage } from '@/sanity/loader/loadQuery'
+import { loadSettings } from '@/sanity/loader/loadQuery'
 
 const HomePagePreview = dynamic(
   () => import('@/components/page-components/home/HomePage'),
 )
 
 export default async function IndexRoute() {
-  const initial = await loadHomePage()
+  const initial = await loadSettings()
 
   if (draftMode().isEnabled) {
     return <HomePagePreview initial={initial} />

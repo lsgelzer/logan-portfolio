@@ -19,7 +19,6 @@ export const urlForImage = (source) => {
 export function urlForOpenGraphImage(image) {
   return urlForImage(image)?.width(1200).height(627).fit('crop').url()
 }
-
 export function resolveHref(documentType, slug) {
   switch (documentType) {
     case 'home':

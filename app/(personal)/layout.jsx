@@ -4,24 +4,24 @@ import { draftMode } from 'next/headers'
 import { Suspense } from 'react'
 
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
-import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { loadSettings } from '@/sanity/loader/loadQuery'
 
 const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
 export async function generateMetadata() {
-  const [{ data: settings }, { data: homePage }] = await Promise.all([
-    loadSettings(),
-    loadHomePage(),
-  ])
+  const [{ data: settings }] = await Promise.all([loadSettings()])
+  console.log(settings)
   const ogImage = urlForOpenGraphImage(settings.ogImage)
   return {
-    title: homePage.title
+    title: settings.title
       ? {
-          template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Personal website',
+          template: `%s | ${settings.title}`,
+          default:
+            settings.title ||
+            'Logan Gelzer - Ecommerce Expert | Software Developer | UI/UX Designer',
         }
       : undefined,
-    description: homePage.overview ? toPlainText(homePage.overview) : undefined,
+    description: settings.overview ? toPlainText(settings.overview) : undefined,
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },

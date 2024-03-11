@@ -43,7 +43,8 @@ const ProjectsSection = ({ projects }) => {
             slidesPerView={2}
             autoplay={{
               delay: 4500,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             loop={true}
             onSlideChange={() => console.log('slide change')}
