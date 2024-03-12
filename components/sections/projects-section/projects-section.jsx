@@ -42,7 +42,7 @@ const ProjectsSection = ({ projects }) => {
             spaceBetween={0}
             slidesPerView={2}
             autoplay={{
-              delay: 405500,
+              delay: 4500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
