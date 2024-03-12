@@ -18,15 +18,6 @@ import settings from '@/sanity/schemas/singletons/settings'
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Logan's Portfolio"
 
-export const defaultDocumentNodeResolver = (S, { schemaType }) => {
-  if (schemaType === 'project') {
-    return S.document().views([
-      S.view.form(),
-      S.view.component(projectsPreview).title('Preview'),
-    ])
-  }
-}
-
 export default defineConfig({
   basePath: studioUrl,
   projectId: projectId || '',
@@ -53,7 +44,6 @@ export default defineConfig({
             S.documentTypeListItem('client'),
             S.documentTypeListItem('project'),
           ]),
-      defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     presentationTool({
       locate,

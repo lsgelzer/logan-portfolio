@@ -19,15 +19,15 @@ import styles from './styles.module.css'
 
 export default function HeroSection() {
   const icons = [
-    figma,
-    javascript,
-    mongodb,
-    next,
-    node,
-    postgres,
-    react,
-    remix,
-    shopify,
+    { name: 'figma', src: figma },
+    { name: 'javascript', src: javascript },
+    { name: ' mongodb', src: mongodb },
+    { name: 'next', src: next },
+    { name: 'node', src: node },
+    { name: 'postgres', src: postgres },
+    { name: 'react', src: react },
+    { name: 'remix', src: remix },
+    { name: 'shopify', src: shopify },
   ]
   const [isOpen, setIsOpen] = useState(false)
   const toggleModal = () => {
@@ -80,11 +80,13 @@ export default function HeroSection() {
             const top = 50 + 50 * Math.sin(angle) // Convert to percentage
             return (
               <Image
+                height={25}
+                width={25}
                 priority
                 key={i}
                 className={styles.icon}
-                src={Icon}
-                alt={'icon'}
+                src={Icon.src}
+                alt={Icon.name}
                 style={{
                   position: 'absolute',
                   top: `${top}%`,

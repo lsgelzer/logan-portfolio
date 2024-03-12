@@ -34,7 +34,7 @@
   height: 800px;
   animation:
     spin2 35s linear infinite,
-    fadeIn 2s ease-in forwards;
+    fadeIn 50ms ease-in forwards;
   margin: 0;
   border: 1px dashed rgb(34, 197, 94);
   border-radius: 100%;

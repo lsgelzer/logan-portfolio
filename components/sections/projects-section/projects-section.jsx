@@ -42,13 +42,11 @@ const ProjectsSection = ({ projects }) => {
             spaceBetween={0}
             slidesPerView={2}
             autoplay={{
-              delay: 4500,
+              delay: 405500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
             loop={true}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             modules={[Autoplay]}
             breakpoints={{
               640: {
@@ -79,7 +77,6 @@ export default ProjectsSection
 
 const ProjectCard = ({ project, encodeDataAttribute }) => {
   const {
-    title,
     coverImage,
     client,
     clientImage,

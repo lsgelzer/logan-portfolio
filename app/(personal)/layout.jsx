@@ -10,7 +10,6 @@ const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
 export async function generateMetadata() {
   const [{ data: settings }] = await Promise.all([loadSettings()])
-  console.log(settings)
   const ogImage = urlForOpenGraphImage(settings.ogImage)
   return {
     title: settings.title
