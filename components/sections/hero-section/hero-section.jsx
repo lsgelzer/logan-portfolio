@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import figma from '@/public/images/figma.svg'
 import herobg from '@/public/images/hero-bg.png'
@@ -29,9 +29,19 @@ export default function HeroSection() {
     { name: 'remix', src: remix },
     { name: 'shopify', src: shopify },
   ]
+  const modalContentRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const toggleModal = () => {
     setIsOpen(!isOpen)
+    const modal = document.querySelector('.modal')
+    modal.scrollTo(0, -844)
+    if (!isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.height = '100vh'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.height = ''
+    }
   }
 
   return (
@@ -107,17 +117,16 @@ export default function HeroSection() {
           "
         >
           {/* ... */}
-          <div className="relative flex-col-reverse items-center align-bottom bg-white md:rounded-lg text-left h-screen w-screen md:h-full md:w-1/2 p-2 md:p-8 overflow-auto flex">
-            <button
-              className="absolute top-2 right-2 md:top-4 md:right-4"
-              onClick={toggleModal}
-            >
-              Close
-            </button>
+          <div className=" modal relative flex-col-reverse items-center align-top bg-white md:rounded-lg text-left h-screen w-screen md:h-full md:w-1/2 p-2 md:p-8 overflow-auto flex">
             <Image src={loganPic} alt="Logan Gelzer" height={300} width={300} />
-            <div>
+            <div className="relative">
               <h2 className="text-4xl mb-4">About Me</h2>
-
+              <button
+                className="absolute top-2 right-2 md:top-4 md:right-4"
+                onClick={toggleModal}
+              >
+                Close
+              </button>
               <p className="pb-2">
                 Hey there! I&apos;m Logan, based in Miami Florida, and my
                 12-year adventure in eCommerce has been nothing short of a wild
