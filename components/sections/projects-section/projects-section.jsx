@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { ICONS } from '@/components/shared/icons'
-import { PROJECTS } from '@/lib/portfolio-data'
 
 const ART_GRADIENTS = [
   'bg-gradient-to-br from-[var(--green)] to-[var(--green-deep)]',
@@ -230,11 +229,11 @@ function Modal({ project, onClose }) {
   )
 }
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ projects = [] }) {
   const [activeId, setActiveId] = useState(null)
   const open = useCallback((id) => setActiveId(id), [])
   const close = useCallback(() => setActiveId(null), [])
-  const active = activeId ? PROJECTS.find((p) => p.id === activeId) : null
+  const active = activeId ? projects.find((p) => p.id === activeId) : null
 
   return (
     <section
@@ -264,7 +263,7 @@ export default function ProjectsSection() {
         </p>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((p, i) => (
+        {projects.map((p, i) => (
           <ProjectCard key={p.id} project={p} index={i} onOpen={open} />
         ))}
       </div>

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import { ICONS } from '@/components/shared/icons'
-import { HERO_STATS, PROFILE } from '@/lib/portfolio-data'
 
 const ROLES = [
   'Shopify expert.',
@@ -196,8 +195,10 @@ function FloatCard({ icon, title, subtitle, className, alt, delay }) {
   )
 }
 
-export default function HeroSection() {
+export default function HeroSection({ profile, heroStats }) {
   const typed = useTypewriter(ROLES)
+  const roles = profile?.roles || []
+  const stats = heroStats || []
 
   return (
     <section
@@ -242,7 +243,7 @@ export default function HeroSection() {
               </span>
             </h2>
             <ul className="mt-2 flex flex-wrap gap-2 font-mono text-[12px]">
-              {PROFILE.roles.map((r) => (
+              {roles.map((r) => (
                 <li
                   key={r}
                   className="inline-flex items-center gap-2 rounded-full border border-line-strong bg-paper px-3.5 py-1.5 text-green-ink transition-colors hover:border-green hover:bg-blue"
@@ -290,7 +291,7 @@ export default function HeroSection() {
       </div>
 
       <div className="mt-8 grid gap-8 border-t border-line pt-7 font-mono text-[11px] text-ink-mute md:grid-cols-[1.2fr_1fr_1fr_1fr]">
-        {HERO_STATS.map((s) => (
+        {stats.map((s) => (
           <div key={s.label}>
             <b className="mb-1.5 block font-display text-[44px] font-medium leading-none -tracking-[0.03em] text-green-ink">
               {s.value}

@@ -34,6 +34,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${display.variable} ${mono.variable} ${openSans.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+      </head>
       <body>{children}</body>
     </html>
   )

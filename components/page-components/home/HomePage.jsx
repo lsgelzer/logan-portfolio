@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 import TopBar from '@/components/layout/topbar'
 import AboutSection from '@/components/sections/about-section/about-section'
 import ClientsSection from '@/components/sections/clients-section/clients-section'
@@ -9,15 +7,14 @@ import ProjectsSection from '@/components/sections/projects-section/projects-sec
 import SkillsSection from '@/components/sections/skills-section/skills-section'
 import SocialSection from '@/components/sections/social-section/social-section'
 import StatsStrip from '@/components/sections/stats-strip/stats-strip'
-import { PROFILE, PROJECTS, SOCIALS } from '@/lib/portfolio-data'
 
-function structuredDataBlocks() {
+function structuredDataBlocks({ profile, socials, projects }) {
   const person = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: PROFILE.name,
-    url: PROFILE.url,
-    email: `mailto:${PROFILE.email}`,
+    name: profile.name,
+    url: profile.url,
+    email: `mailto:${profile.email}`,
     jobTitle: 'Shopify Expert & Ecommerce Developer',
     description:
       'Miami-based freelance Shopify and ecommerce developer with 12+ years scaling direct-to-consumer brands — specializing in Shopify Plus, Hydrogen, custom theme development, and conversion optimization.',
@@ -27,10 +24,10 @@ function structuredDataBlocks() {
       addressRegion: 'FL',
       addressCountry: 'US',
     },
-    image: `${PROFILE.url}/portfolio/logan-author.png`,
-    sameAs: SOCIALS.filter((s) => !s.url.startsWith('mailto:')).map(
-      (s) => s.url,
-    ),
+    image: `${profile.url}/portfolio/logan-author.png`,
+    sameAs: (socials || [])
+      .filter((s) => s.url && !s.url.startsWith('mailto:'))
+      .map((s) => s.url),
     knowsAbout: [
       'Shopify',
       'Shopify Plus',
@@ -52,10 +49,10 @@ function structuredDataBlocks() {
   const service = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: `${PROFILE.name} — Shopify Development`,
-    url: PROFILE.url,
+    name: `${profile.name} — Shopify Development`,
+    url: profile.url,
     areaServed: 'Worldwide',
-    provider: { '@type': 'Person', name: PROFILE.name },
+    provider: { '@type': 'Person', name: profile.name },
     serviceType: 'Shopify Development, Ecommerce Consulting',
     description:
       'Freelance Shopify Plus, Hydrogen, and custom theme development, plus CRO for direct-to-consumer brands.',
@@ -64,13 +61,13 @@ function structuredDataBlocks() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Recent Projects',
-    itemListElement: PROJECTS.map((p, i) => ({
+    itemListElement: (projects || []).map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       item: {
         '@type': 'CreativeWork',
         name: p.name,
-        about: p.tags.join(', '),
+        about: (p.tags || []).join(', '),
         url: p.url,
         temporalCoverage: p.years,
       },
@@ -79,30 +76,49 @@ function structuredDataBlocks() {
   return [person, service, portfolio]
 }
 
-export function HomePage() {
-  const blocks = structuredDataBlocks()
+export function HomePage({ data }) {
+  const {
+    profile,
+    socials,
+    about,
+    stats,
+    heroStats,
+    statsStrip,
+    skills,
+    asideChips,
+    clients,
+    projects,
+  } = data
+
+  const blocks = structuredDataBlocks({ profile, socials, projects })
+
   return (
     <>
       {blocks.map((data, i) => (
-        <Script
+        <script
           key={i}
-          id={`jsonld-${i}`}
           type="application/ld+json"
-          strategy="beforeInteractive"
         >
-          {JSON.stringify(data)}
-        </Script>
+          {JSON.stringify(data).replace(/</g, '\\u003c')}
+        </script>
       ))}
       <TopBar />
       <main className="pt-[72px]">
-        <HeroSection />
-        <MarqueeSection />
-        <AboutSection />
-        <ClientsSection />
-        <StatsStrip />
-        <ProjectsSection />
-        <SkillsSection />
-        <SocialSection />
+        <HeroSection profile={profile} heroStats={heroStats} />
+        <MarqueeSection clients={clients} />
+        <AboutSection
+          profile={profile}
+          about={about}
+          clients={clients}
+          projects={projects}
+          socials={socials}
+          stats={stats}
+        />
+        <ClientsSection clients={clients} />
+        <StatsStrip statsStrip={statsStrip} />
+        <ProjectsSection projects={projects} />
+        <SkillsSection skills={skills} asideChips={asideChips} />
+        <SocialSection profile={profile} socials={socials} />
       </main>
     </>
   )

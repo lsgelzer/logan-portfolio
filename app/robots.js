@@ -1,6 +1,7 @@
-import { PROFILE } from '@/lib/portfolio-data'
+import { loadHomePageData } from '@/sanity/lib/loadData'
 
-export default function robots() {
+export default async function robots() {
+  const { profile } = await loadHomePageData()
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow: ['/studio/', '/api/'] },
@@ -19,7 +20,7 @@ export default function robots() {
       { userAgent: 'Bytespider', allow: '/' },
       { userAgent: 'meta-externalagent', allow: '/' },
     ],
-    sitemap: `${PROFILE.url}/sitemap.xml`,
-    host: PROFILE.url,
+    sitemap: `${profile.url}/sitemap.xml`,
+    host: profile.url,
   }
 }

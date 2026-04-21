@@ -1,5 +1,3 @@
-import { PROFILE, SOCIALS } from '@/lib/portfolio-data'
-
 const DISPLAY_SOCIALS = [
   { label: 'Email', find: 'Email' },
   { label: 'GitHub', find: 'Github' },
@@ -7,8 +5,8 @@ const DISPLAY_SOCIALS = [
   { label: 'Elsewhere', find: 'Twitter / X' },
 ]
 
-export default function SocialSection() {
-  const socialByLabel = Object.fromEntries(SOCIALS.map((s) => [s.label, s]))
+export default function SocialSection({ profile, socials = [] }) {
+  const socialByLabel = Object.fromEntries(socials.map((s) => [s.label, s]))
   return (
     <>
       <section
@@ -39,7 +37,7 @@ export default function SocialSection() {
             Got a project?
             <br />
             <a
-              href={`mailto:${PROFILE.email}`}
+              href={`mailto:${profile?.email || ''}`}
               className="italic text-green hover:[text-decoration:underline_var(--blue)_3px] hover:underline-offset-8"
             >
               Let&apos;s talk →
@@ -50,8 +48,8 @@ export default function SocialSection() {
               const s = socialByLabel[d.find]
               if (!s) return null
               const href =
-                d.label === 'Email' ? `mailto:${PROFILE.email}` : s.url
-              const value = d.label === 'Email' ? PROFILE.email : s.handle
+                d.label === 'Email' ? `mailto:${profile?.email || ''}` : s.url
+              const value = d.label === 'Email' ? profile?.email || '' : s.handle
               return (
                 <div key={d.label}>
                   <dt className="mb-2.5 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-mute">

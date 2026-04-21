@@ -1,20 +1,19 @@
 import { Suspense } from 'react'
 
-import { PROFILE } from '@/lib/portfolio-data'
+import { loadHomePageData } from '@/sanity/lib/loadData'
 
-const SITE_URL = PROFILE.url
-const DEFAULT_TITLE = `${PROFILE.name} — Shopify Expert, Software Developer, UI/UX Designer`
-const DEFAULT_DESC = `${PROFILE.name} is a Miami-based Shopify and ecommerce developer with 12+ years building high-performing online stores for DTC brands. Available for freelance engagements.`
-
-export function generateMetadata() {
+export async function generateMetadata() {
+  const { seo, profile } = await loadHomePageData()
+  const title = seo.title
+  const description = seo.description
   return {
-    metadataBase: new URL(SITE_URL),
-    title: { default: DEFAULT_TITLE, template: `%s | ${PROFILE.name}` },
-    description: DEFAULT_DESC,
-    applicationName: PROFILE.name,
-    authors: [{ name: PROFILE.name, url: SITE_URL }],
-    creator: PROFILE.name,
-    publisher: PROFILE.name,
+    metadataBase: new URL(seo.url || 'https://logangelzer.com'),
+    title: { default: title, template: `%s | ${profile.name}` },
+    description,
+    applicationName: profile.name,
+    authors: [{ name: profile.name, url: seo.url }],
+    creator: profile.name,
+    publisher: profile.name,
     keywords: [
       'Shopify expert',
       'Shopify developer',
@@ -29,24 +28,24 @@ export function generateMetadata() {
       'UI UX designer',
       'Liquid developer',
       'ecommerce consultant',
-      PROFILE.name,
+      profile.name,
     ],
-    alternates: { canonical: SITE_URL },
+    alternates: { canonical: seo.url },
     openGraph: {
-      title: DEFAULT_TITLE,
-      description: DEFAULT_DESC,
-      url: SITE_URL,
-      siteName: PROFILE.name,
-      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+      title,
+      description,
+      url: seo.url,
+      siteName: profile.name,
+      images: [{ url: seo.ogImage, width: 1200, height: 630 }],
       locale: 'en_US',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: DEFAULT_TITLE,
-      description: DEFAULT_DESC,
+      title,
+      description,
       creator: '@logangelzer',
-      images: ['/og-image.png'],
+      images: [seo.ogImage],
     },
     robots: {
       index: true,
@@ -63,7 +62,7 @@ export function generateMetadata() {
   }
 }
 
-export default function IndexRoute({ children }) {
+export default function PersonalLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
       <Suspense>{children}</Suspense>

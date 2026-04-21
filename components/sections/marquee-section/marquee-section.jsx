@@ -1,7 +1,5 @@
-import { CLIENTS } from '@/lib/portfolio-data'
-
-export default function MarqueeSection() {
-  const items = [...CLIENTS, ...CLIENTS]
+export default function MarqueeSection({ clients = [] }) {
+  const items = clients.length ? [...clients, ...clients] : []
   return (
     <div
       className="overflow-hidden whitespace-nowrap border-y border-line bg-green-ink py-4 text-cream"

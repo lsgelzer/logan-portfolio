@@ -1,8 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
-
-import { ABOUT, CLIENTS, PROFILE, PROJECTS, SOCIALS, STATS } from '@/lib/portfolio-data'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 const FORTUNES = [
   'Ship small, ship often.',
@@ -12,108 +10,87 @@ const FORTUNES = [
   'The best Shopify store is one that loads fast.',
 ]
 
-function makeInitialLines() {
-  return [
-    { type: 'comment', text: '// logan.os v12.0 — ecommerce runtime' },
-    { type: 'comment', text: "// type 'help' to explore. or just vibe." },
-    { type: 'blank' },
+function buildCommands({ profile, clients, projects, socials, stats }) {
+  const whoamiLines = [
     {
       type: 'kv',
       entries: [
-        ['name', `"${PROFILE.name}"`, 'str'],
-        ['location', `"${PROFILE.location}"`, 'str'],
+        ['name', `"${profile.name}"`, 'str'],
+        ['location', `"${profile.location}"`, 'str'],
         ['since', '2013', 'num'],
         [
           'roles',
-          `[${PROFILE.roles.map((r) => `"${r}"`).join(', ')}]`,
+          `[${(profile.roles || []).map((r) => `"${r}"`).join(', ')}]`,
           'arr',
         ],
       ],
-    },
-    { type: 'blank' },
-    {
-      type: 'comment',
-      text: '// try: stack, clients, projects, stats, fortune',
     },
   ]
-}
 
-const COMMANDS = {
-  help: () => [
-    { type: 'out', text: 'available commands:' },
-    { type: 'out-key', key: 'whoami', desc: 'who is logan' },
-    { type: 'out-key', key: 'stack', desc: 'my tech stack' },
-    { type: 'out-key', key: 'clients', desc: 'list all clients' },
-    { type: 'out-key', key: 'projects', desc: 'recent projects' },
-    { type: 'out-key', key: 'contact', desc: 'how to reach me' },
-    { type: 'out-key', key: 'stats', desc: 'by the numbers' },
-    { type: 'out-key', key: 'fortune', desc: 'a little wisdom' },
-    { type: 'out-key', key: 'clear', desc: 'wipe the screen' },
-  ],
-  whoami: () => [
-    {
-      type: 'kv',
-      entries: [
-        ['name', `"${PROFILE.name}"`, 'str'],
-        ['location', `"${PROFILE.location}"`, 'str'],
-        ['since', '2013', 'num'],
-        [
-          'roles',
-          `[${PROFILE.roles.map((r) => `"${r}"`).join(', ')}]`,
-          'arr',
-        ],
-      ],
-    },
-  ],
-  stack: () => {
-    const groups = {
-      frontend: ['React', 'Next.js', 'Remix', 'Liquid', 'TypeScript'],
-      backend: ['Node.js', 'Shopify APIs', 'Postgres', 'MongoDB'],
-      design: ['Figma', 'UI/UX systems', 'Prototyping'],
-      commerce: ['Shopify', 'WooCommerce', 'BigCommerce', 'Recharge'],
-    }
-    return Object.entries(groups).map(([k, v]) => ({
-      type: 'kv',
-      entries: [[k, `[${v.map((x) => `"${x}"`).join(', ')}]`, 'arr']],
-    }))
-  },
-  clients: () =>
-    CLIENTS.map((c, i) => ({
-      type: 'list-num',
-      n: String(i + 1).padStart(2, '0'),
-      text: c.name,
-    })),
-  projects: () => [
-    ...PROJECTS.map((p, i) => ({
-      type: 'list-project',
-      n: String(i + 1).padStart(2, '0'),
-      name: p.name,
-      years: p.years,
-    })),
-    { type: 'comment', text: '// scroll down for details' },
-  ],
-  contact: () =>
-    SOCIALS.map((s) => ({
-      type: 'social',
-      label: s.label,
-      handle: s.handle,
-      url: s.url,
-    })),
-  stats: () =>
-    STATS.map((s) => ({ type: 'stat', k: s.k, v: s.v })),
-  fortune: () => [
-    {
-      type: 'comment',
-      text: `// ${FORTUNES[Math.floor(Math.random() * FORTUNES.length)]}`,
-    },
-  ],
-  sudo: () => [{ type: 'comment', text: '// nice try.' }],
-  ls: () => COMMANDS.projects(),
-  cat: () => [{ type: 'comment', text: '// meow.' }],
-  vim: () => [{ type: 'comment', text: '// trapped forever.' }],
-  exit: () => [
-    { type: 'comment', text: "// you can't leave. this is a portfolio." },
-  ],
+  const stackGroups = {
+    frontend: ['React', 'Next.js', 'Remix', 'Liquid', 'TypeScript'],
+    backend: ['Node.js', 'Shopify APIs', 'Postgres', 'MongoDB'],
+    design: ['Figma', 'UI/UX systems', 'Prototyping'],
+    commerce: ['Shopify', 'WooCommerce', 'BigCommerce', 'Recharge'],
+  }
+
+  const commands = {
+    help: () => [
+      { type: 'out', text: 'available commands:' },
+      { type: 'out-key', key: 'whoami', desc: 'who is logan' },
+      { type: 'out-key', key: 'stack', desc: 'my tech stack' },
+      { type: 'out-key', key: 'clients', desc: 'list all clients' },
+      { type: 'out-key', key: 'projects', desc: 'recent projects' },
+      { type: 'out-key', key: 'contact', desc: 'how to reach me' },
+      { type: 'out-key', key: 'stats', desc: 'by the numbers' },
+      { type: 'out-key', key: 'fortune', desc: 'a little wisdom' },
+      { type: 'out-key', key: 'clear', desc: 'wipe the screen' },
+    ],
+    whoami: () => whoamiLines,
+    stack: () =>
+      Object.entries(stackGroups).map(([k, v]) => ({
+        type: 'kv',
+        entries: [[k, `[${v.map((x) => `"${x}"`).join(', ')}]`, 'arr']],
+      })),
+    clients: () =>
+      (clients || []).map((c, i) => ({
+        type: 'list-num',
+        n: String(i + 1).padStart(2, '0'),
+        text: c.name,
+      })),
+    projects: () => [
+      ...(projects || []).map((p, i) => ({
+        type: 'list-project',
+        n: String(i + 1).padStart(2, '0'),
+        name: p.name,
+        years: p.years,
+      })),
+      { type: 'comment', text: '// scroll down for details' },
+    ],
+    contact: () =>
+      (socials || []).map((s) => ({
+        type: 'social',
+        label: s.label,
+        handle: s.handle,
+        url: s.url,
+      })),
+    stats: () =>
+      (stats || []).map((s) => ({ type: 'stat', k: s.k, v: s.v })),
+    fortune: () => [
+      {
+        type: 'comment',
+        text: `// ${FORTUNES[Math.floor(Math.random() * FORTUNES.length)]}`,
+      },
+    ],
+    sudo: () => [{ type: 'comment', text: '// nice try.' }],
+    cat: () => [{ type: 'comment', text: '// meow.' }],
+    vim: () => [{ type: 'comment', text: '// trapped forever.' }],
+    exit: () => [
+      { type: 'comment', text: "// you can't leave. this is a portfolio." },
+    ],
+  }
+  commands.ls = () => commands.projects()
+  return commands
 }
 
 function Line({ line }) {
@@ -197,7 +174,38 @@ function Line({ line }) {
   }
 }
 
-function Terminal() {
+function Terminal({ profile, clients, projects, socials, stats }) {
+  const makeInitialLines = useCallback(() => {
+    return [
+      { type: 'comment', text: '// logan.os v12.0 — ecommerce runtime' },
+      { type: 'comment', text: "// type 'help' to explore. or just vibe." },
+      { type: 'blank' },
+      {
+        type: 'kv',
+        entries: [
+          ['name', `"${profile.name}"`, 'str'],
+          ['location', `"${profile.location}"`, 'str'],
+          ['since', '2013', 'num'],
+          [
+            'roles',
+            `[${(profile.roles || []).map((r) => `"${r}"`).join(', ')}]`,
+            'arr',
+          ],
+        ],
+      },
+      { type: 'blank' },
+      {
+        type: 'comment',
+        text: '// try: stack, clients, projects, stats, fortune',
+      },
+    ]
+  }, [profile])
+
+  const commands = useMemo(
+    () => buildCommands({ profile, clients, projects, socials, stats }),
+    [profile, clients, projects, socials, stats],
+  )
+
   const [lines, setLines] = useState(makeInitialLines)
   const [value, setValue] = useState('')
   const bodyRef = useRef(null)
@@ -223,29 +231,32 @@ function Terminal() {
     return () => document.removeEventListener('keydown', onSlash)
   }, [])
 
-  const runCommand = useCallback((raw) => {
-    const cmd = raw.trim().toLowerCase()
-    if (!cmd) return
-    const [c] = cmd.split(/\s+/)
-    const result = COMMANDS[c]
-      ? COMMANDS[c]()
-      : [
-          {
-            type: 'comment',
-            text: `// command not found: ${c}. type 'help' for options.`,
-          },
-        ]
-    if (c === 'clear') {
-      setLines(makeInitialLines())
-      return
-    }
-    setLines((prev) => [
-      ...prev,
-      { type: 'prompt', cmd: raw },
-      ...result,
-      { type: 'blank' },
-    ])
-  }, [])
+  const runCommand = useCallback(
+    (raw) => {
+      const cmd = raw.trim().toLowerCase()
+      if (!cmd) return
+      const [c] = cmd.split(/\s+/)
+      const result = commands[c]
+        ? commands[c]()
+        : [
+            {
+              type: 'comment',
+              text: `// command not found: ${c}. type 'help' for options.`,
+            },
+          ]
+      if (c === 'clear') {
+        setLines(makeInitialLines())
+        return
+      }
+      setLines((prev) => [
+        ...prev,
+        { type: 'prompt', cmd: raw },
+        ...result,
+        { type: 'blank' },
+      ])
+    },
+    [commands, makeInitialLines],
+  )
 
   return (
     <div className="overflow-hidden rounded-[14px] border border-green-deep bg-green-ink font-mono text-[13px] shadow-[0_30px_60px_-20px_oklch(0.25_0.05_165/0.4)]">
@@ -318,7 +329,15 @@ function Terminal() {
   )
 }
 
-export default function AboutSection() {
+export default function AboutSection({
+  profile,
+  about,
+  clients,
+  projects,
+  socials,
+  stats,
+}) {
+  const paragraphs = about || []
   return (
     <section
       id="about"
@@ -352,10 +371,12 @@ export default function AboutSection() {
             LG
           </div>
           <div className="relative z-[1]">
-            <p className="mb-4 font-display text-[20px] font-normal leading-[1.45] text-green-ink text-pretty">
-              {ABOUT[0]}
-            </p>
-            {ABOUT.slice(1).map((p, i) => (
+            {paragraphs[0] && (
+              <p className="mb-4 font-display text-[20px] font-normal leading-[1.45] text-green-ink text-pretty">
+                {paragraphs[0]}
+              </p>
+            )}
+            {paragraphs.slice(1).map((p, i) => (
               <p
                 key={i}
                 className="mb-4 font-openSans text-[15px] font-normal leading-[1.65] text-ink-dim"
@@ -366,7 +387,13 @@ export default function AboutSection() {
           </div>
         </article>
 
-        <Terminal />
+        <Terminal
+          profile={profile}
+          clients={clients}
+          projects={projects}
+          socials={socials}
+          stats={stats}
+        />
       </div>
     </section>
   )

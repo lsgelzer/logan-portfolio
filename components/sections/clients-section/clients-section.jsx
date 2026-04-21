@@ -1,8 +1,6 @@
 import Image from 'next/image'
 
-import { CLIENTS } from '@/lib/portfolio-data'
-
-export default function ClientsSection() {
+export default function ClientsSection({ clients = [] }) {
   return (
     <section
       id="clients"
@@ -30,7 +28,7 @@ export default function ClientsSection() {
         role="list"
         className="mt-10 grid grid-cols-2 overflow-hidden rounded-[14px] border border-line bg-paper md:grid-cols-5"
       >
-        {CLIENTS.map((c, i) => (
+        {clients.map((c, i) => (
           <li
             key={c.name}
             className="group relative flex min-h-[170px] flex-col justify-between gap-3.5 overflow-hidden border-b border-r border-line p-5 pt-6 transition-colors hover:bg-blue [&:nth-child(5n)]:md:border-r-0 last:border-b-0"

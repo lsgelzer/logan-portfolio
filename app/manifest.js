@@ -1,11 +1,11 @@
-import { PROFILE } from '@/lib/portfolio-data'
+import { loadHomePageData } from '@/sanity/lib/loadData'
 
-export default function manifest() {
+export default async function manifest() {
+  const { profile, seo } = await loadHomePageData()
   return {
-    name: PROFILE.name,
+    name: profile.name,
     short_name: 'Logan Gelzer',
-    description:
-      'Logan Gelzer — Miami-based Shopify Expert, software developer, and UI/UX designer with 12+ years of ecommerce experience.',
+    description: seo.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#f2efe3',

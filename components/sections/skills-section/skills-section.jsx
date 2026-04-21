@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react'
 
 import { ICONS } from '@/components/shared/icons'
-import { ASIDE_CHIPS, SKILLS } from '@/lib/portfolio-data'
 
 function SkillIcon({ name, className = '' }) {
   const C = ICONS[name]
@@ -27,7 +26,7 @@ function useIntersectionClass(selector, className, threshold = 0.3) {
   }, [selector, className, threshold])
 }
 
-export default function SkillsSection() {
+export default function SkillsSection({ skills = [], asideChips = [] }) {
   useIntersectionClass('.skill-row', 'in-view')
   const rootRef = useRef(null)
 
@@ -56,7 +55,7 @@ export default function SkillsSection() {
           className="flex flex-col gap-0.5 rounded-[14px] border border-line bg-paper px-6 py-2"
           role="list"
         >
-          {SKILLS.map((s, i) => (
+          {skills.map((s, i) => (
             <li
               key={s.name}
               className="skill-row grid grid-cols-[28px_24px_1fr_auto_140px] items-center gap-4 border-b border-line py-3.5 font-mono text-[12px] text-ink-dim transition-transform duration-300 last:border-b-0 hover:translate-x-1.5 [&:hover_.s-name]:text-green [&:hover_.s-ic]:bg-green [&:hover_.s-ic]:text-cream"
@@ -104,7 +103,7 @@ export default function SkillsSection() {
               the result into a design system you can ship against.
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {ASIDE_CHIPS.map((c) => (
+              {asideChips.map((c) => (
                 <span
                   key={c.label}
                   className="inline-flex items-center gap-1.5 rounded-full border border-[oklch(0.35_0.07_165)] bg-green-deep px-2 py-1 pl-1.5 font-mono text-[10px] tracking-[0.02em] text-blue"
