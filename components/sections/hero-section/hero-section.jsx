@@ -65,9 +65,14 @@ function PhoneMockup() {
         </div>
         <div className="flex flex-1 flex-col gap-3 overflow-hidden px-4 pb-4 pt-4.5">
           <div className="flex items-center justify-between gap-1.5">
-            <div className="grid size-8 place-items-center rounded-full bg-green-ink font-display text-[13px] font-semibold -tracking-[0.02em] text-cream">
-              LG
-            </div>
+            <Image
+              src="/portfolio/logan-author-headshot.png"
+              alt=""
+              aria-hidden
+              width={32}
+              height={32}
+              className="size-8 rounded-full object-cover"
+            />
             <div className="flex-1 font-mono text-[9px] text-ink-mute">
               @logangelzer
             </div>
@@ -96,7 +101,7 @@ function PhoneMockup() {
               AVAILABLE · Q2 &apos;26
             </div>
             <Image
-              src="/portfolio/logan-author.png"
+              src="/portfolio/logan-portrait.png"
               alt=""
               aria-hidden
               width={236}

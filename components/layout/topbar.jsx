@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const NAV = [
@@ -35,12 +36,15 @@ export default function TopBar() {
       role="banner"
     >
       <a href="#" className="inline-flex items-center gap-2.5 text-ink" aria-label="Logan Gelzer home">
-        <span
-          className="grid size-7 place-items-center rounded-[8px] bg-green font-display text-[13px] font-bold tracking-tight text-bg"
+        <Image
+          src="/portfolio/logan-author-headshot.png"
+          alt=""
           aria-hidden
-        >
-          L
-        </span>
+          width={28}
+          height={28}
+          priority
+          className="size-7 rounded-full object-cover"
+        />
         <b className="font-display text-[15px] font-semibold -tracking-[0.02em] text-green-ink">
           Logan Gelzer
         </b>
