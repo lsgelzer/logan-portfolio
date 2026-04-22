@@ -74,7 +74,7 @@ export const loadHomePageData = cache(async function loadHomePageData() {
   const defaultTitle =
     'Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in Miami'
   const defaultDescription =
-    "Freelance Shopify Plus and headless Hydrogen developer in Miami. 12+ years scaling DTC brands with custom themes, Checkout Extensibility, Shopify Functions, CRO, and A/B testing. Worked with Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, BaronFig, and Kudos. Available for freelance."
+    'Freelance Shopify Plus & Hydrogen developer in Miami. 12+ years scaling DTC brands — custom themes, checkout extensibility, CRO, A/B testing. Booking now.'
 
   return {
     seo: {
