@@ -4,6 +4,13 @@
   "engines": {
     "node": ">=24.0.0"
   },
+  "browserslist": [
+    "chrome >= 108",
+    "firefox >= 110",
+    "safari >= 16",
+    "edge >= 108",
+    "not dead"
+  ],
   "scripts": {
     "build": "next build",
     "dev": "next dev",

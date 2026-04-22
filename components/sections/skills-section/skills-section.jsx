@@ -86,6 +86,7 @@ export default function SkillsSection({ skills = [], asideChips = [] }) {
               <span
                 className="bar relative h-2.5 w-full overflow-hidden rounded-[5px] bg-bg-3"
                 role="progressbar"
+                aria-label={`${s.name} proficiency`}
                 aria-valuenow={s.pct}
                 aria-valuemin={0}
                 aria-valuemax={100}

@@ -34,8 +34,8 @@ function ProjectCard({ project, index, onOpen }) {
       type="button"
       onClick={() => onOpen(id)}
       className="group relative flex min-h-[340px] flex-col gap-3.5 overflow-hidden rounded-[16px] border border-line bg-paper p-[22px] text-left transition-all duration-300 [transition-timing-function:cubic-bezier(0.2,0.7,0,1)] hover:-translate-y-1.5 hover:border-green hover:shadow-[0_30px_60px_-30px_oklch(0.3_0.08_165/0.4)] focus-visible:-translate-y-1.5 focus-visible:border-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green"
-      aria-label={`Open case study for ${name}`}
     >
+      <span className="sr-only">{`${name} case study`}</span>
       <span
         aria-hidden
         className="absolute right-5 top-5 grid size-8 place-items-center rounded-full bg-bg-3 text-[14px] text-green-ink transition-all group-hover:rotate-45 group-hover:bg-green group-hover:text-cream"

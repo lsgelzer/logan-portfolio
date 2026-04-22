@@ -10,6 +10,9 @@ export default async function manifest() {
     display: 'standalone',
     background_color: '#f2efe3',
     theme_color: '#0a1f15',
-    icons: [{ src: '/favicon.png', sizes: 'any' }],
+    icons: [
+      { src: '/icon.png', sizes: '180x180', type: 'image/png' },
+      { src: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   }
 }
