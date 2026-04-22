@@ -257,13 +257,12 @@ export default function ProjectsSection({ projects = [] }) {
       </div>
       <div className="mb-10 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
         <h2 className="sec-title font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-          Each one a <em>creative playground</em>.
+          Shopify builds that <em>converted</em>.
         </h2>
-        <p className="max-w-[480px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
-          From jazzing up themes to make them shine, to weaving in clever plugins
-          that ramp up sales — every project&apos;s a chance to innovate.
-          Standout online stores with their own flair, that catch the eye and
-          deliver.
+        <p className="max-w-[520px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
+          Case studies across custom PDPs, headless migrations, variant
+          switchers, subscription and bundle flows, gift-with-purchase in
+          checkout, and performance wins. Click any card for the story.
         </p>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

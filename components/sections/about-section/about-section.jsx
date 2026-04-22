@@ -355,8 +355,13 @@ export default function AboutSection({
         <span>— a quick hello</span>
       </div>
       <h2 className="sec-title mb-6 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        Hey, I&apos;m Logan. I build <em>online stores</em> that convert.
+        Miami-based freelance <em>Shopify developer</em> for DTC brands.
       </h2>
+      <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
+        Shopify Plus, Hydrogen, and headless storefronts — plus the CRO program
+        that actually moves revenue. 12+ years shipping for direct-to-consumer
+        brands.
+      </p>
 
       <div className="mt-10 grid items-start gap-12 md:grid-cols-2">
         <article className="relative overflow-hidden rounded-[18px] border border-line bg-paper p-9">

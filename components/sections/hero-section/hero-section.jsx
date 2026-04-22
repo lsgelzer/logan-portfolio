@@ -226,8 +226,15 @@ export default function HeroSection({ profile, heroStats }) {
           </dl>
 
           <h1 className="flex flex-col font-display font-medium leading-[0.86] -tracking-[0.055em] text-green-ink text-[clamp(64px,11vw,180px)]">
-            <span>Logan</span>
-            <span className="italic text-green after:text-blue-deep after:content-['.'] after:not-italic">
+            <span className="sr-only">
+              Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in
+              Miami
+            </span>
+            <span aria-hidden="true">Logan</span>
+            <span
+              aria-hidden="true"
+              className="italic text-green after:text-blue-deep after:content-['.'] after:not-italic"
+            >
               Gelzer
             </span>
           </h1>

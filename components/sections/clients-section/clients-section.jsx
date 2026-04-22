@@ -18,11 +18,13 @@ export default function ClientsSection({ clients = [] }) {
         <span>— a partial list</span>
       </div>
       <h2 className="sec-title mb-3.5 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        From cool startups to <em>household names</em>.
+        DTC brands from startups to <em>household names</em>.
       </h2>
-      <p className="mt-3.5 max-w-[560px] font-openSans leading-[1.7] text-ink-dim">
-        For over 12 years I&apos;ve worked with all sorts of brands in ecommerce.
-        A rollercoaster of small and huge companies — honestly, a blast.
+      <p className="mt-3.5 max-w-[620px] font-openSans leading-[1.7] text-ink-dim">
+        12+ years partnering with Shopify and Shopify Plus merchants —
+        including Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, BaronFig,
+        and Kudos — on theme builds, headless migrations, checkout
+        customization, and CRO programs.
       </p>
       <ul
         role="list"

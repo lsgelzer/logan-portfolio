@@ -51,8 +51,13 @@ export default function SkillsSection({ skills = [], asideChips = [] }) {
         <span>— tools of the trade</span>
       </div>
       <h2 className="sec-title mb-6 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        A <em>full-stack</em> ecommerce kit.
+        A <em>full-stack</em> Shopify & ecommerce kit.
       </h2>
+      <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
+        Shopify Liquid, Hydrogen, Checkout Extensibility, Shopify Functions,
+        React, Next.js, Remix, Node.js, and Figma — plus the analytics and
+        testing stack to prove it works.
+      </p>
       <div className="mt-10 grid items-start gap-12 md:grid-cols-2">
         <ul
           className="flex flex-col gap-0.5 rounded-[14px] border border-line bg-paper px-6 py-2"

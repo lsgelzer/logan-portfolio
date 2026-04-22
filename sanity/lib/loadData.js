@@ -71,12 +71,15 @@ export const loadHomePageData = cache(async function loadHomePageData() {
     ? projects.map(shapeProject).filter((p) => p.name)
     : FALLBACK_PROJECTS
 
+  const defaultTitle =
+    'Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in Miami'
+  const defaultDescription =
+    "Freelance Shopify Plus and headless Hydrogen developer in Miami. 12+ years scaling DTC brands with custom themes, Checkout Extensibility, Shopify Functions, CRO, and A/B testing. Worked with Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, BaronFig, and Kudos. Available for freelance."
+
   return {
     seo: {
-      title: settings?.title || `${profile.name} — ${profile.tagline}`,
-      description:
-        settings?.overview ||
-        `${profile.name} — ${profile.tagline}. Based in ${profile.location}.`,
+      title: settings?.title || defaultTitle,
+      description: settings?.overview || defaultDescription,
       ogImage: settings?.ogImage || '/og-image.png',
       url: profile.url,
     },
