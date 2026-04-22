@@ -74,27 +74,12 @@ export const loadHomePageData = cache(async function loadHomePageData() {
   const defaultTitle =
     'Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in Miami'
   const defaultDescription =
-    "Freelance Shopify Plus and headless Hydrogen developer in Miami. 12+ years scaling DTC brands with custom themes, Checkout Extensibility, Shopify Functions, CRO, and A/B testing. Worked with Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, BaronFig, and Kudos. Available for freelance."
-
-  // Legacy Sanity boilerplate predates the SEO rewrite; prefer code defaults
-  // unless Sanity has been explicitly updated with tighter copy.
-  const isLegacyTitle = (t) =>
-    !t ||
-    /Ecommerce Expert \| Software Developer \| UI\/UX Designer/i.test(t)
-  const isLegacyDescription = (d) =>
-    !d ||
-    d.length > 240 ||
-    /Discover unparalleled digital transformation/i.test(d)
-
-  const seoTitle = isLegacyTitle(settings?.title) ? defaultTitle : settings.title
-  const seoDescription = isLegacyDescription(settings?.overview)
-    ? defaultDescription
-    : settings.overview
+    'Freelance Shopify Plus & Hydrogen developer in Miami. 12+ years scaling DTC brands — custom themes, checkout extensibility, CRO, A/B testing. Booking now.'
 
   return {
     seo: {
-      title: seoTitle,
-      description: seoDescription,
+      title: settings?.title || defaultTitle,
+      description: settings?.overview || defaultDescription,
       ogImage: settings?.ogImage || '/og-image.png',
       url: profile.url,
     },
