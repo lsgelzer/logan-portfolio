@@ -22,6 +22,7 @@ const config = {
       '@sanity/image-url',
       'next-sanity',
     ],
+    cssChunking: 'strict',
   },
 
   images: {
