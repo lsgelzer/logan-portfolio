@@ -1,49 +1,42 @@
 {
-	"name": "portfolio-logan",
-	"private": true,
-	"scripts": {
-		"build": "next build",
-		"dev": "next",
-		"format": "npx prettier --write . --ignore-path .gitignore",
-		"lint": "next lint -- --ignore-path .gitignore",
-		"lint:fix": "npm run format && npm run lint -- --fix",
-		"start": "next start",
-		"type-check": "tsc --noEmit"
-	},
-	"prettier": {
-		"semi": false,
-		"singleQuote": true
-	},
-	"dependencies": {
-		"@portabletext/react": "3.0.11",
-		"@sanity/demo": "1.0.2",
-		"@sanity/image-url": "1.0.2",
-		"@sanity/overlays": "2.3.6",
-		"@sanity/preview-url-secret": "1.5.2",
-		"@sanity/react-loader": "1.7.4",
-		"@sanity/vision": "3.25.0",
-		"@tailwindcss/typography": "0.5.10",
-		"classnames": "2.5.1",
-		"date-fns": "2.30.0",
-		"next": "14.1.0",
-		"next-sanity": "7.0.10",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"sanity": "3.25.0",
-		"sanity-plugin-asset-source-unsplash": "1.1.2",
-		"server-only": "0.0.1",
-		"styled-components": "6.1.8",
-		"swiper": "^11.0.5"
-	},
-	"devDependencies": {
-		"autoprefixer": "10.4.17",
-		"eslint": "8.56.0",
-		"eslint-config-next": "14.1.0",
-		"eslint-plugin-simple-import-sort": "10.0.0",
-		"postcss": "8.4.33",
-		"prettier": "3.2.4",
-		"prettier-plugin-packagejson": "2.4.9",
-		"prettier-plugin-tailwindcss": "0.5.11",
-		"tailwindcss": "3.4.1"
-	}
+  "name": "portfolio-logan",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "lint": "next lint",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@sanity/icons": "^3.7.4",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.21.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "next": "^16.2.4",
+    "next-sanity": "^12.3.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "sanity": "^5.21.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^16.2.4",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "postcss": "^8.5.10",
+    "prettier": "^3.8.3",
+    "prettier-plugin-packagejson": "^2.5.21",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^3.4.17"
+  }
 }

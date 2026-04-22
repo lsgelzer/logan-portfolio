@@ -1,43 +1,77 @@
-import { toPlainText } from '@portabletext/react'
-import dynamic from 'next/dynamic'
-import { draftMode } from 'next/headers'
 import { Suspense } from 'react'
 
-import { urlForOpenGraphImage } from '@/sanity/lib/utils'
-import { loadSettings } from '@/sanity/loader/loadQuery'
-
-const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
+import { loadHomePageData } from '@/sanity/lib/loadData'
 
 export async function generateMetadata() {
-  const [{ data: settings }] = await Promise.all([loadSettings()])
-  const ogImage = urlForOpenGraphImage(settings.ogImage)
+  const { seo, profile } = await loadHomePageData()
+  const title = seo.title
+  const description = seo.description
   return {
-    title: settings.title
-      ? {
-          template: `%s | ${settings.title}`,
-          default:
-            settings.title ||
-            'Logan Gelzer - Ecommerce Expert | Software Developer | UI/UX Designer',
-        }
-      : undefined,
-    description: settings.overview ? toPlainText(settings.overview) : undefined,
+    metadataBase: new URL(seo.url || 'https://logangelzer.com'),
+    title: { default: title, template: `%s | ${profile.name}` },
+    description,
+    applicationName: profile.name,
+    authors: [{ name: profile.name, url: seo.url }],
+    creator: profile.name,
+    publisher: profile.name,
+    keywords: [
+      'Shopify Plus developer',
+      'freelance Shopify developer',
+      'Miami Shopify developer',
+      'Shopify Hydrogen developer',
+      'headless Shopify developer',
+      'Shopify expert',
+      'Shopify Plus expert',
+      'Shopify Liquid developer',
+      'Shopify Functions developer',
+      'Shopify Checkout Extensibility',
+      'DTC Shopify developer',
+      'ecommerce developer Miami',
+      'Shopify CRO expert',
+      'Shopify A/B testing',
+      'Next.js ecommerce developer',
+      'React ecommerce developer',
+      'hire Shopify developer',
+      'freelance Shopify Plus',
+      'UI UX designer Shopify',
+      profile.name,
+    ],
+    alternates: { canonical: seo.url },
     openGraph: {
-      images: ogImage ? [ogImage] : [],
+      title,
+      description,
+      url: seo.url,
+      siteName: profile.name,
+      images: [{ url: seo.ogImage, width: 1200, height: 630 }],
+      locale: 'en_US',
+      type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@logangelzer',
+      images: [seo.ogImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    category: 'technology',
   }
 }
 
-export const viewport = {
-  themeColor: '#000',
-}
-
-export default async function IndexRoute({ children }) {
+export default function PersonalLayout({ children }) {
   return (
-    <>
-      <div className="flex min-h-screen flex-col bg-white text-black">
-        <Suspense>{children}</Suspense>
-      </div>
-      {draftMode().isEnabled && <VisualEditing />}
-    </>
+    <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <Suspense>{children}</Suspense>
+    </div>
   )
 }

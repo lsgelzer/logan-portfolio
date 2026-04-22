@@ -1,0 +1,13 @@
+/* TEAM */
+  Developer & Designer: Logan Gelzer
+  Contact: hello@logangelzer.com
+  From: Miami, FL, USA
+  Github: @lsgelzer
+  LinkedIn: /in/logan-gelzer
+  Site: https://logangelzer.com
+
+/* SITE */
+  Last update: 2026/04
+  Standards: HTML5, CSS3, JavaScript, JSON-LD
+  Components: Next.js 16 App Router, React 19, Tailwind CSS 3.4, Sanity v5
+  Fonts: Space Grotesk, JetBrains Mono, Open Sans

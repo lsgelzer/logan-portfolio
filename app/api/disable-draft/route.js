@@ -1,8 +1,8 @@
 import { draftMode } from 'next/headers'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
-export function GET(request) {
-  draftMode().disable()
-  const url = new URL(request.nextUrl)
-  return NextResponse.redirect(new URL('/', url.origin))
+export async function GET(req) {
+  ;(await draftMode()).disable()
+  const from = new URL(req.url).searchParams.get('slug') || '/'
+  return NextResponse.redirect(new URL(from, req.url))
 }

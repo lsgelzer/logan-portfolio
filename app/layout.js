@@ -1,41 +1,52 @@
 import 'tailwindcss/tailwind.css'
 import '@/styles/index.css'
 
-import {
-  IBM_Plex_Mono,
-  Open_Sans,
-  Palanquin_Dark,
-  PT_Serif,
-} from 'next/font/google'
+import { JetBrains_Mono, Open_Sans, Space_Grotesk } from 'next/font/google'
 
-const serif = PT_Serif({
-  variable: '--font-serif',
-  style: ['normal', 'italic'],
+const display = Space_Grotesk({
+  variable: '--font-display',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: 'Arial',
 })
-const sans = Palanquin_Dark({
-  variable: '--font-sans',
+const mono = JetBrains_Mono({
+  variable: '--font-mono',
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400'],
+  display: 'swap',
+  preload: true,
 })
 const openSans = Open_Sans({
   variable: '--font-open-sans',
   subsets: ['latin'],
-  weight: ['400', '700'],
-})
-const mono = IBM_Plex_Mono({
-  variable: '--font-mono',
-  subsets: ['latin'],
-  weight: ['500', '700'],
+  weight: ['400'],
+  display: 'swap',
+  preload: false,
 })
 
-export default async function RootLayout({ children }) {
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f2efe3' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a1f15' },
+  ],
+  colorScheme: 'light',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
+
+export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${mono.variable} ${sans.variable} ${openSans.variable} ${serif.variable}`}
+      className={`${display.variable} ${mono.variable} ${openSans.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+      </head>
       <body>{children}</body>
     </html>
   )
