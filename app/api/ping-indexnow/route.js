@@ -1,50 +1,38 @@
 import { NextResponse } from 'next/server'
 
+import { pingIndexNow } from '@/lib/indexnow'
 import { revalidateSecret } from '@/sanity/env'
-
-const INDEXNOW_KEY = 'c2ac0972b70a8fc490650bea7763d3ab'
 
 /**
  * Ping IndexNow to notify Bing, Yandex, Naver, Seznam, and other
- * participating engines that content has changed. One request fans out
- * across the IndexNow network.
+ * participating engines that content has changed. One request fans
+ * out across the entire network.
  *
- * Usage:
- *   GET /api/ping-indexnow?secret=<SANITY_REVALIDATE_SECRET>
- *   GET /api/ping-indexnow?secret=<secret>&url=https://logangelzer.com/
+ * Auth — accepts either:
+ *   ?secret=<SANITY_REVALIDATE_SECRET>   (manual calls, Sanity hooks)
+ *   Authorization: Bearer <CRON_SECRET>  (Vercel Cron)
  *
  * Google does not participate in IndexNow; use Search Console for that.
  */
 export async function GET(req) {
   const { searchParams } = new URL(req.url)
   const secret = searchParams.get('secret')
-  if (!revalidateSecret || secret !== revalidateSecret) {
-    return new NextResponse('Invalid secret', { status: 401 })
+  const authHeader = req.headers.get('authorization')
+  const cronSecret = process.env.CRON_SECRET
+
+  const isSecretValid = revalidateSecret && secret === revalidateSecret
+  const isCronValid =
+    cronSecret && authHeader === `Bearer ${cronSecret}`
+
+  if (!isSecretValid && !isCronValid) {
+    return new NextResponse('Unauthorized', { status: 401 })
   }
 
-  const host = 'logangelzer.com'
   const singleUrl = searchParams.get('url')
   const urlList = singleUrl
     ? [singleUrl]
-    : [`https://${host}/`, `https://${host}/sitemap.xml`]
+    : ['https://logangelzer.com/', 'https://logangelzer.com/sitemap.xml']
 
-  try {
-    const res = await fetch('https://api.indexnow.org/indexnow', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({
-        host,
-        key: INDEXNOW_KEY,
-        keyLocation: `https://${host}/${INDEXNOW_KEY}.txt`,
-        urlList,
-      }),
-    })
-    return NextResponse.json({
-      submitted: urlList,
-      status: res.status,
-      ok: res.ok,
-    })
-  } catch (err) {
-    return new NextResponse(err.message, { status: 500 })
-  }
+  const result = await pingIndexNow(urlList)
+  return NextResponse.json(result)
 }
