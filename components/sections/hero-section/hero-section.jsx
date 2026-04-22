@@ -1,47 +1,11 @@
-'use client'
-
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 
 import { ICONS } from '@/components/shared/icons'
-
-const ROLES = [
-  'Shopify expert.',
-  'Software developer.',
-  'UI/UX designer.',
-  'Ecommerce strategist.',
-]
 
 const Shopify = ICONS.shopify
 const Figma = ICONS.figma
 const React_ = ICONS.react
 const NextJsIcon = ICONS.nextjs
-
-function useTypewriter(words, { typeMs = 55, holdMs = 1800, eraseMs = 30 } = {}) {
-  const [idx, setIdx] = useState(0)
-  const [text, setText] = useState('')
-  const [phase, setPhase] = useState('typing')
-
-  useEffect(() => {
-    const word = words[idx]
-    let id
-    if (phase === 'typing') {
-      if (text.length < word.length) {
-        id = setTimeout(() => setText(word.slice(0, text.length + 1)), typeMs)
-      } else {
-        id = setTimeout(() => setPhase('erasing'), holdMs)
-      }
-    } else if (text.length > 0) {
-      id = setTimeout(() => setText(word.slice(0, text.length - 1)), eraseMs)
-    } else {
-      setIdx((i) => (i + 1) % words.length)
-      setPhase('typing')
-    }
-    return () => clearTimeout(id)
-  }, [text, phase, idx, words, typeMs, holdMs, eraseMs])
-
-  return text
-}
 
 function PhoneMockup() {
   return (
@@ -197,7 +161,6 @@ function FloatCard({ icon, title, subtitle, className, alt, delay }) {
 }
 
 export default function HeroSection({ profile, heroStats }) {
-  const typed = useTypewriter(ROLES)
   const roles = profile?.roles || []
   const stats = heroStats || []
 
@@ -240,21 +203,12 @@ export default function HeroSection({ profile, heroStats }) {
           </h1>
 
           <div>
-            <h2 className="max-w-[520px] font-display font-normal leading-[1.2] -tracking-[0.01em] text-ink text-[clamp(22px,2.4vw,32px)]">
-              An{' '}
-              <span className="sr-only">
-                {ROLES.map((r) => r.replace(/\.$/, '')).join(', ')}.
-              </span>
-              <span
-                className="font-medium italic text-green-ink"
-                aria-hidden="true"
-              >
-                {typed || 'ecommerce expert for 12+ years.'}
-                <span
-                  className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-green motion-safe:animate-blink"
-                  aria-hidden
-                />
-              </span>
+            <h2 className="max-w-[640px] font-display font-normal leading-[1.2] -tracking-[0.01em] text-ink text-[clamp(22px,2.4vw,32px)]">
+              Freelance{' '}
+              <span className="font-medium italic text-green-ink">
+                Shopify Plus &amp; Hydrogen developer
+              </span>{' '}
+              for DTC brands — 12+ years scaling ecommerce from Miami.
             </h2>
             <ul className="mt-2 flex flex-wrap gap-2 font-mono text-[12px]">
               {roles.map((r) => (

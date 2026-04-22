@@ -43,7 +43,6 @@ module.exports = {
         'scroll-x': 'scroll-x 60s linear infinite',
         pulse: 'pulseDot 2s infinite',
         bob: 'bob 2s infinite',
-        blink: 'blink 1s step-end infinite',
       },
       keyframes: {
         fadeIn: {
@@ -68,10 +67,6 @@ module.exports = {
         bob: {
           '0%,100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(6px)' },
-        },
-        blink: {
-          '0%,50%': { opacity: '1' },
-          '51%,100%': { opacity: '0' },
         },
       },
     },
