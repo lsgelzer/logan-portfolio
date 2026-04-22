@@ -11,23 +11,44 @@ const NAV = [
   { href: '#contact', label: 'Contact' },
 ]
 
+const CLOCK_FMT =
+  typeof Intl !== 'undefined'
+    ? new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      })
+    : null
+
 export default function TopBar() {
   const [clock, setClock] = useState('--:--:-- EST')
 
   useEffect(() => {
+    if (!CLOCK_FMT) return
+
+    let id
     const tick = () => {
-      const now = new Date()
-      const miami = new Date(
-        now.toLocaleString('en-US', { timeZone: 'America/New_York' }),
-      )
-      const hh = String(miami.getHours()).padStart(2, '0')
-      const mm = String(miami.getMinutes()).padStart(2, '0')
-      const ss = String(miami.getSeconds()).padStart(2, '0')
-      setClock(`${hh}:${mm}:${ss} EST`)
+      setClock(`${CLOCK_FMT.format(new Date())} EST`)
     }
-    tick()
-    const id = setInterval(tick, 1000)
-    return () => clearInterval(id)
+    const start = () => {
+      tick()
+      clearInterval(id)
+      id = setInterval(tick, 1000)
+    }
+    const stop = () => clearInterval(id)
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') start()
+      else stop()
+    }
+
+    start()
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      stop()
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
   }, [])
 
   return (

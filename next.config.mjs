@@ -10,9 +10,18 @@ const config = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  productionBrowserSourceMaps: false,
 
   turbopack: {
     root: __dirname,
+  },
+
+  experimental: {
+    optimizePackageImports: [
+      '@sanity/icons',
+      '@sanity/image-url',
+      'next-sanity',
+    ],
   },
 
   images: {
@@ -27,6 +36,7 @@ const config = {
       },
     ],
     minimumCacheTTL: 31536000,
+    dangerouslyAllowSVG: false,
   },
 
   async headers() {
@@ -60,6 +70,11 @@ const config = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',

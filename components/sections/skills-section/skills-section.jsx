@@ -10,25 +10,28 @@ function SkillIcon({ name, className = '' }) {
   return <C className={className} />
 }
 
-function useIntersectionClass(selector, className, threshold = 0.3) {
+export default function SkillsSection({ skills = [], asideChips = [] }) {
+  const rootRef = useRef(null)
+
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll(selector))
+    const root = rootRef.current
+    if (!root || typeof IntersectionObserver === 'undefined') return
+    const nodes = root.querySelectorAll('.skill-row')
+    if (!nodes.length) return
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add(className)
-        })
+      (entries, obs) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view')
+            obs.unobserve(e.target)
+          }
+        }
       },
-      { threshold },
+      { threshold: 0.3 },
     )
     nodes.forEach((n) => io.observe(n))
     return () => io.disconnect()
-  }, [selector, className, threshold])
-}
-
-export default function SkillsSection({ skills = [], asideChips = [] }) {
-  useIntersectionClass('.skill-row', 'in-view')
-  const rootRef = useRef(null)
+  }, [skills])
 
   return (
     <section

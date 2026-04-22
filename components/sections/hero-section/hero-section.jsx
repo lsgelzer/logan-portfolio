@@ -29,17 +29,13 @@ function useTypewriter(words, { typeMs = 55, holdMs = 1800, eraseMs = 30 } = {})
       if (text.length < word.length) {
         id = setTimeout(() => setText(word.slice(0, text.length + 1)), typeMs)
       } else {
-        id = setTimeout(() => setPhase('holding'), holdMs)
+        id = setTimeout(() => setPhase('erasing'), holdMs)
       }
-    } else if (phase === 'holding') {
-      id = setTimeout(() => setPhase('erasing'), 0)
-    } else if (phase === 'erasing') {
-      if (text.length > 0) {
-        id = setTimeout(() => setText(word.slice(0, text.length - 1)), eraseMs)
-      } else {
-        setIdx((i) => (i + 1) % words.length)
-        setPhase('typing')
-      }
+    } else if (text.length > 0) {
+      id = setTimeout(() => setText(word.slice(0, text.length - 1)), eraseMs)
+    } else {
+      setIdx((i) => (i + 1) % words.length)
+      setPhase('typing')
     }
     return () => clearTimeout(id)
   }, [text, phase, idx, words, typeMs, holdMs, eraseMs])
@@ -239,7 +235,13 @@ export default function HeroSection({ profile, heroStats }) {
           <div>
             <h2 className="max-w-[520px] font-display font-normal leading-[1.2] -tracking-[0.01em] text-ink text-[clamp(22px,2.4vw,32px)]">
               An{' '}
-              <span className="font-medium italic text-green-ink" aria-live="polite">
+              <span className="sr-only">
+                {ROLES.map((r) => r.replace(/\.$/, '')).join(', ')}.
+              </span>
+              <span
+                className="font-medium italic text-green-ink"
+                aria-hidden="true"
+              >
                 {typed || 'ecommerce expert for 12+ years.'}
                 <span
                   className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-green motion-safe:animate-blink"

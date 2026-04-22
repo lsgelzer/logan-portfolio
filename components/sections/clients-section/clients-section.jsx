@@ -42,6 +42,7 @@ export default function ClientsSection({ clients = [] }) {
                 alt={`${c.name} logo`}
                 width={140}
                 height={48}
+                sizes="(min-width: 768px) 140px, 40vw"
                 className={`h-auto max-h-14 w-auto max-w-full object-contain opacity-75 transition-[filter,opacity] duration-300 group-hover:opacity-100 ${
                   c.invert
                     ? '[filter:grayscale(1)_brightness(0.3)_contrast(1.2)] group-hover:[filter:none]'

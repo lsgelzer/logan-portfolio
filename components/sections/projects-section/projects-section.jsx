@@ -66,6 +66,7 @@ function ProjectCard({ project, index, onOpen }) {
             alt={`${name} mockup`}
             width={240}
             height={480}
+            sizes="(min-width: 1024px) 240px, (min-width: 640px) 40vw, 48vw"
             className="relative z-[2] h-auto max-h-[92%] w-auto max-w-[48%] translate-y-3 -rotate-2 rounded-xl border-2 border-[oklch(0.1_0.02_160)] shadow-[0_18px_36px_-12px_oklch(0.15_0.04_165/0.55),0_4px_10px_oklch(0.15_0.04_165/0.2)] transition-transform duration-500 [transition-timing-function:cubic-bezier(.2,.8,.2,1)] group-hover:translate-y-0 group-hover:rotate-0 group-hover:scale-[1.02]"
             loading="lazy"
           />
@@ -86,6 +87,7 @@ function ProjectCard({ project, index, onOpen }) {
             alt={name}
             width={100}
             height={24}
+            sizes="100px"
             className="h-auto max-h-6 w-auto max-w-[70%] object-contain opacity-85 [filter:grayscale(1)_contrast(0.9)] transition-[filter,opacity] duration-300 group-hover:opacity-100 group-hover:[filter:none]"
             loading="lazy"
             unoptimized={logo.endsWith('.svg')}
@@ -155,6 +157,7 @@ function Modal({ project, onClose }) {
                 alt={project.name}
                 width={200}
                 height={60}
+                sizes="200px"
                 className="h-auto max-h-[60px] w-auto max-w-[85%] object-contain [filter:brightness(0)_invert(1)]"
                 unoptimized={project.logo.endsWith('.svg')}
               />
@@ -170,6 +173,7 @@ function Modal({ project, onClose }) {
               alt={`${project.name} mockup`}
               width={480}
               height={960}
+              sizes="(min-width: 768px) 320px, 70vw"
               className="relative z-[1] mx-auto my-3.5 h-auto max-h-[62%] w-auto max-w-[70%] self-center rounded-[14px] border-2 border-[oklch(0.1_0.02_160)] shadow-[0_24px_50px_-15px_oklch(0.1_0.03_165/0.6)]"
             />
           )}
