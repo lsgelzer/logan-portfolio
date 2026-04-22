@@ -64,6 +64,16 @@ export async function generateMetadata() {
         'max-snippet': -1,
       },
     },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.YANDEX_VERIFICATION,
+      yahoo: process.env.YAHOO_VERIFICATION,
+      other: {
+        'msvalidate.01': process.env.BING_SITE_VERIFICATION,
+        'p:domain_verify': process.env.PINTEREST_VERIFICATION,
+        'facebook-domain-verification': process.env.FACEBOOK_DOMAIN_VERIFICATION,
+      },
+    },
     category: 'technology',
   }
 }
