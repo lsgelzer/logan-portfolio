@@ -1,7 +1,7 @@
 # Logan Gelzer: Senior Shopify Expert (Miami)
 
 > Logan Gelzer is a Senior Shopify Expert based in Miami, building for DTC brands.
-> 12+ years in ecommerce, 50+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
+> 12+ years in ecommerce, 17+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
 > Specialties: custom Shopify Plus themes, headless Hydrogen/Next.js/Builder.io
 > storefronts, Checkout Extensibility & Shopify Functions, subscriptions/bundles,
 > CRO/A-B testing, Core Web Vitals. Contact: hello@logangelzer.com.
@@ -45,7 +45,7 @@ Frontend: React, Next.js, Remix, Shopify Liquid, TypeScript, JavaScript, Tailwin
 Backend / data: Node.js, Shopify Admin & Storefront GraphQL APIs, Shopify Functions (Rust / JS), Postgres, MongoDB.
 Design: Figma, design systems, Polaris, UI/UX prototyping.
 Commerce platforms: Shopify, Shopify Plus, Hydrogen, Builder.io, WooCommerce, BigCommerce.
-Apps & integrations: Recharge, Klaviyo, Checkout Blocks, Bundle Builder, Shopify Scripts, Shopify Functions, GA4, GTM.
+Apps & integrations: Recharge, Klaviyo, Checkout Blocks, Bundle Builder, Shopify Functions, GA4, GTM.
 
 ## FAQ
 
@@ -53,7 +53,7 @@ Apps & integrations: Recharge, Klaviyo, Checkout Blocks, Bundle Builder, Shopify
 Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.
 
 ### What do you specialize in?
-Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing and CRO, and performance optimization.
+Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge, A/B testing and CRO, and performance optimization.
 
 ### How much does it cost to work with you?
 Engagements start at $100/hr with a $1,000 minimum project size. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.

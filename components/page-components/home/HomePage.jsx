@@ -166,7 +166,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     {
       question: 'What do you specialize in?',
       answer:
-        'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing, CRO, and performance optimization.',
+        'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge, A/B testing, CRO, and performance optimization.',
     },
     {
       question: 'Are you a freelancer or an agency?',
