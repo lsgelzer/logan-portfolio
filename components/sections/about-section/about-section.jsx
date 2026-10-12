@@ -39,7 +39,7 @@ export default function AboutSection({
       </h2>
       <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
         Senior Shopify Plus & Hydrogen development for DTC brands. Custom themes,
-        headless builds, Checkout Extensibility & CRO. 12+ years, 20+ brands.
+        headless builds, Checkout Extensibility & CRO. 12+ years, 200+ brands.
       </p>
 
       <div className="mt-10 grid items-start gap-12 md:grid-cols-2">
