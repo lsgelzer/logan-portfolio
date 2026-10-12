@@ -72,9 +72,9 @@ export const loadHomePageData = cache(async function loadHomePageData() {
     : FALLBACK_PROJECTS
 
   const defaultTitle =
-    'Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in Miami'
+    'Shopify Plus Developer & Hydrogen Agency in Miami | Logan Gelzer'
   const defaultDescription =
-    'Freelance Shopify Plus & Hydrogen developer in Miami. 12+ years scaling DTC brands — custom themes, checkout extensibility, CRO, A/B testing. Booking now.'
+    'Senior Shopify Plus & Hydrogen development for DTC brands. Custom themes, headless builds, Checkout Extensibility & CRO. 12+ yrs, 50+ brands. Book a call.'
 
   return {
     seo: {
