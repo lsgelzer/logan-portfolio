@@ -26,7 +26,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     email: `mailto:${profile.email}`,
     jobTitle: 'Senior Shopify Expert',
     description:
-      'Senior Shopify Expert with 12+ years building ecommerce for DTC brands — specializing in Shopify Plus, Hydrogen, headless storefronts, Checkout Extensibility, and CRO.',
+      'Senior Shopify Expert with 12+ years and 200+ brands — specializing in Shopify Plus, Hydrogen, headless storefronts, Checkout Extensibility, and CRO.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Miami',
@@ -161,12 +161,12 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     {
       question: 'Who is Logan Gelzer?',
       answer:
-        'Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.',
+        'Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.',
     },
     {
       question: 'What do you specialize in?',
       answer:
-        'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing, CRO, and performance optimization.',
+        'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge, A/B testing, CRO, and performance optimization.',
     },
     {
       question: 'Are you a freelancer or an agency?',
@@ -175,10 +175,10 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     },
     {
       question: 'Which brands have you worked with?',
-      answer: `Recent clients include ${(clients || [])
+      answer: `I've worked with 200+ brands including ${(clients || [])
         .slice(0, 10)
         .map((c) => c.name)
-        .join(', ')}, plus several other DTC brands.`,
+        .join(', ')}, and many more.`,
     },
     {
       question: 'Where are you based?',

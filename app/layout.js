@@ -3,6 +3,8 @@ import '@/styles/index.css'
 
 import { JetBrains_Mono, Open_Sans, Space_Grotesk } from 'next/font/google'
 
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
+
 const display = Space_Grotesk({
   variable: '--font-display',
   subsets: ['latin'],
@@ -47,7 +49,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
       </head>
-      <body>{children}</body>
+      <body>
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   )
 }

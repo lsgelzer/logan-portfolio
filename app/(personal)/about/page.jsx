@@ -34,7 +34,7 @@ const SPECIALTIES = [
   'Shopify Plus theme development (Liquid, Online Store 2.0, sections & blocks)',
   'Headless commerce on Shopify Hydrogen, Next.js, Remix, and Builder.io',
   'Checkout Extensibility — Checkout UI Extensions, Checkout Blocks, Shopify Functions',
-  'Subscription and bundle experiences — Recharge, Shopify Scripts, custom flows',
+  'Subscription and bundle experiences — Recharge, Shopify Functions, custom flows',
   'A/B testing programs, CRO audits, analytics implementation (GA4, GTM)',
   'Core Web Vitals and Lighthouse performance optimization',
   'Design-to-code from Figma with zero hand-off loss',
@@ -99,8 +99,7 @@ export default function AboutPage() {
                   I specialize in Shopify Plus and headless commerce with
                   Hydrogen and Next.js. Day-to-day that means custom Liquid
                   themes, Shopify Functions, Checkout Extensibility, Checkout
-                  Blocks, and subscription/bundle flows with Recharge and
-                  Shopify Scripts.
+                  Blocks, and subscription/bundle flows with Recharge.
                 </p>
                 <p>
                   A defining project was a Miami food brand where I took their

@@ -75,7 +75,7 @@ const SERVICES = [
   {
     title: 'Subscriptions & Bundles',
     description:
-      'Custom subscription portals, bundle builders, and gift-with-purchase flows. Recharge, Shopify Scripts, and native checkout.',
+      'Custom subscription portals, bundle builders, and gift-with-purchase flows. Recharge, Shopify Functions, and native checkout.',
     features: [
       'Recharge integration and customization',
       'Custom bundle builders',
