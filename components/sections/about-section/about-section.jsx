@@ -35,12 +35,11 @@ export default function AboutSection({
         <span>— a quick hello</span>
       </div>
       <h2 className="sec-title mb-6 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        Miami-based freelance <em>Shopify developer</em> for DTC brands.
+        Shopify Plus studio in <em>Miami</em> for DTC brands.
       </h2>
       <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
-        Shopify Plus, Hydrogen, and headless storefronts — plus the CRO program
-        that actually moves revenue. 12+ years shipping for direct-to-consumer
-        brands.
+        Senior Shopify Plus & Hydrogen development for DTC brands. Custom themes,
+        headless builds, Checkout Extensibility & CRO. 12+ years, 50+ brands.
       </p>
 
       <div className="mt-10 grid items-start gap-12 md:grid-cols-2">
