@@ -1,17 +1,46 @@
 import TopBar from '@/components/layout/topbar'
 import AboutSection from '@/components/sections/about-section/about-section'
 import ClientsSection from '@/components/sections/clients-section/clients-section'
+import FaqSection from '@/components/sections/faq-section/faq-section'
 import HeroSection from '@/components/sections/hero-section/hero-section'
 import MarqueeSection from '@/components/sections/marquee-section/marquee-section'
 import ProjectsSection from '@/components/sections/projects-section/projects-section'
 import SkillsSection from '@/components/sections/skills-section/skills-section'
 import SocialSection from '@/components/sections/social-section/social-section'
 import StatsStrip from '@/components/sections/stats-strip/stats-strip'
+import TestimonialsSection from '@/components/sections/testimonials-section/testimonials-section'
 
 function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
+  const orgId = `${profile.url}/#org`
   const personId = `${profile.url}/#person`
   const serviceId = `${profile.url}/#service`
   const websiteId = `${profile.url}/#website`
+
+  const organization = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': orgId,
+    name: 'Logan Gelzer',
+    alternateName: 'Logan Gelzer Shopify Development',
+    url: profile.url,
+    logo: `${profile.url}/icon.png`,
+    image: `${profile.url}/og-image.png`,
+    email: profile.email,
+    founder: { '@id': personId },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Miami',
+      addressRegion: 'FL',
+      addressCountry: 'US',
+    },
+    areaServed: ['US', 'Worldwide'],
+    sameAs: [
+      'https://www.linkedin.com/in/logan-gelzer/',
+      'https://github.com/lsgelzer',
+      'https://x.com/logangelzer',
+      'https://www.instagram.com/logangelzer',
+    ],
+  }
 
   const person = {
     '@context': 'https://schema.org',
@@ -20,82 +49,61 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     name: profile.name,
     givenName: 'Logan',
     familyName: 'Gelzer',
-    url: profile.url,
+    url: `${profile.url}/about`,
     email: `mailto:${profile.email}`,
-    jobTitle: 'Shopify Expert & Ecommerce Developer',
+    jobTitle: 'Shopify Plus & Hydrogen Developer',
+    worksFor: { '@id': orgId },
     description:
-      'Miami-based freelance Shopify and ecommerce developer with 12+ years scaling direct-to-consumer brands — specializing in Shopify Plus, Hydrogen, custom theme development, and conversion optimization.',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Miami',
-      addressRegion: 'FL',
-      addressCountry: 'US',
-    },
+      'Senior Shopify Plus and Hydrogen developer with 12+ years building ecommerce for DTC brands — specializing in custom themes, headless storefronts, Checkout Extensibility, and CRO.',
+    homeLocation: { '@type': 'Place', name: 'Miami, Florida' },
     image: `${profile.url}/portfolio/logan-author-headshot.png`,
-    sameAs: (socials || [])
-      .filter((s) => s.url && !s.url.startsWith('mailto:'))
-      .map((s) => s.url),
+    sameAs: [
+      'https://www.linkedin.com/in/logan-gelzer/',
+      'https://github.com/lsgelzer',
+      'https://x.com/logangelzer',
+      'https://twitter.com/logangelzer',
+      'https://www.instagram.com/logangelzer',
+      'https://www.facebook.com/lsgelzer/',
+    ],
     knowsAbout: [
-      'Shopify',
       'Shopify Plus',
       'Shopify Hydrogen',
-      'Shopify Liquid',
-      'Shopify Functions',
+      'Headless commerce',
       'Checkout Extensibility',
-      'Headless Commerce',
-      'Builder.io',
-      'React',
-      'Next.js',
-      'Remix',
-      'Node.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'Figma',
-      'UI/UX Design',
-      'Conversion Rate Optimization',
-      'A/B Testing',
+      'Shopify Functions',
+      'Liquid',
+      'Conversion rate optimization',
       'Core Web Vitals',
-      'Ecommerce',
-      'Direct-to-consumer',
-      'Recharge Subscriptions',
+      'Recharge',
       'Klaviyo',
+      'Builder.io',
     ],
-    hasOccupation: {
-      '@type': 'Occupation',
-      name: 'Freelance Shopify Developer',
-      occupationLocation: {
-        '@type': 'City',
-        name: 'Miami',
-      },
-      skills: (skills || []).map((s) => s.name).join(', '),
-    },
-    workLocation: {
-      '@type': 'Place',
-      name: 'Miami, Florida',
-    },
   }
 
   const service = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': serviceId,
-    name: `${profile.name} — Shopify Development`,
+    name: 'Logan Gelzer: Shopify Plus Development',
     url: profile.url,
-    areaServed: [
-      { '@type': 'Place', name: 'Worldwide' },
-      { '@type': 'Country', name: 'United States' },
-    ],
-    provider: { '@id': personId },
-    founder: { '@id': personId },
-    serviceType: 'Shopify Development, Ecommerce Consulting',
-    description:
-      'Freelance Shopify Plus, Hydrogen, and custom theme development, plus CRO for direct-to-consumer brands.',
-    priceRange: '$$$',
     image: `${profile.url}/og-image.png`,
-    knowsLanguage: 'English',
+    email: profile.email,
+    priceRange: '$$$',
+    parentOrganization: { '@id': orgId },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Miami',
+      addressRegion: 'FL',
+      addressCountry: 'US',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Miami' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Place', name: 'Worldwide' },
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Services',
+      name: 'Shopify development services',
       itemListElement: [
         'Shopify Plus theme development',
         'Headless / Hydrogen storefronts',
@@ -119,7 +127,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     '@id': websiteId,
     url: profile.url,
     name: profile.name,
-    publisher: { '@id': personId },
+    publisher: { '@id': orgId },
     inLanguage: 'en-US',
   }
 
@@ -167,57 +175,57 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     })),
   }
 
+  const faqData = [
+    {
+      question: 'How much does it cost to work with Logan Gelzer?',
+      answer:
+        'Engagements start at $100/hr with a $1,000 minimum project size. Logan Gelzer is a Shopify Plus studio led by a senior developer, so you work directly with the person writing the code. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.',
+    },
+    {
+      question: 'Who is Logan Gelzer?',
+      answer:
+        'Logan Gelzer is a Shopify Plus studio led by a senior developer, based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.',
+    },
+    {
+      question: 'What does Logan specialize in?',
+      answer:
+        'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing, CRO, and performance optimization.',
+    },
+    {
+      question: 'Are you a freelancer or an agency?',
+      answer:
+        'Logan Gelzer is a Shopify Plus studio led by a senior developer: you get senior-level hands on every project, with trusted specialists added only when scope requires it.',
+    },
+    {
+      question: 'Which brands has Logan worked with?',
+      answer: `Recent clients include ${(clients || [])
+        .slice(0, 10)
+        .map((c) => c.name)
+        .join(', ')}, plus several other DTC brands.`,
+    },
+    {
+      question: 'Where is Logan based?',
+      answer: 'Miami, Florida, USA — working remotely with brands worldwide.',
+    },
+  ]
+
   const faq = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Who is Logan Gelzer?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Logan Gelzer is a Miami-based freelance Shopify developer and UI/UX designer with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.',
-        },
+    mainEntity: faqData.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
       },
-      {
-        '@type': 'Question',
-        name: 'What does Logan specialize in?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, checkout extensibility, subscription/bundle experiences with Recharge, A/B testing, CRO, and performance optimization for direct-to-consumer brands.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Is Logan available for freelance work?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Yes. Logan is currently available for freelance engagements. Contact ${profile.email} to start a project.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Which brands has Logan worked with?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Recent clients include ${(clients || [])
-            .slice(0, 10)
-            .map((c) => c.name)
-            .join(', ')}, plus several other DTC brands.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Where is Logan based?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Miami, Florida, USA — working remotely with brands worldwide.',
-        },
-      },
-    ],
+    })),
   }
 
-  return [person, service, website, breadcrumb, portfolio, clientList, faq]
+  return {
+    blocks: [organization, person, service, website, breadcrumb, portfolio, clientList, faq],
+    faqData,
+  }
 }
 
 export function HomePage({ data }) {
@@ -234,7 +242,7 @@ export function HomePage({ data }) {
     projects,
   } = data
 
-  const blocks = structuredDataBlocks({
+  const { blocks, faqData } = structuredDataBlocks({
     profile,
     socials,
     projects,
@@ -268,6 +276,8 @@ export function HomePage({ data }) {
         <StatsStrip statsStrip={statsStrip} />
         <ProjectsSection projects={projects} />
         <SkillsSection skills={skills} asideChips={asideChips} />
+        <TestimonialsSection />
+        <FaqSection faqData={faqData} />
         <SocialSection profile={profile} socials={socials} />
       </main>
     </>
