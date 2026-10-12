@@ -11,5 +11,17 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    {
+      url: `${base}/services`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 }

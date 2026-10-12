@@ -51,7 +51,7 @@ export default function SkillsSection({ skills = [], asideChips = [] }) {
         <span>— tools of the trade</span>
       </div>
       <h2 className="sec-title mb-6 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        A <em>full-stack</em> Shopify & ecommerce kit.
+        Shopify <em>development services</em>.
       </h2>
       <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
         Shopify Liquid, Hydrogen, Checkout Extensibility, Shopify Functions,

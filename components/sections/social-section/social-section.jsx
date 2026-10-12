@@ -29,7 +29,7 @@ export default function SocialSection({ profile, socials = [] }) {
               aria-hidden
             />
             <span>
-              06 / <b className="font-semibold text-green-ink">Connect</b>
+              08 / <b className="font-semibold text-green-ink">Connect</b>
             </span>
             <span>— let&apos;s build something</span>
           </div>
@@ -44,7 +44,7 @@ export default function SocialSection({ profile, socials = [] }) {
             </a>
           </h2>
           <p className="mb-10 -mt-4 max-w-[680px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
-            Freelance Shopify Plus, Hydrogen, and CRO work for DTC brands.
+            Shopify Plus, Hydrogen, and CRO work for DTC brands.
             Remote-friendly from Miami. Currently booking new projects.
           </p>
           <dl className="grid gap-8 border-y border-line py-9 md:grid-cols-4 max-md:grid-cols-2">

@@ -18,7 +18,7 @@ export default function ClientsSection({ clients = [] }) {
         <span>— a partial list</span>
       </div>
       <h2 className="sec-title mb-3.5 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        DTC brands from startups to <em>household names</em>.
+        Shopify brands <em>I've worked with</em>.
       </h2>
       <p className="mt-3.5 max-w-[620px] font-openSans leading-[1.7] text-ink-dim">
         12+ years partnering with Shopify and Shopify Plus merchants —

@@ -5,8 +5,6 @@ export default async function robots() {
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow: ['/studio/', '/api/'] },
-      // Explicitly welcome AI crawlers (GEO) so Logan's profile can appear
-      // in generative answers about Shopify developers.
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
@@ -21,6 +19,5 @@ export default async function robots() {
       { userAgent: 'meta-externalagent', allow: '/' },
     ],
     sitemap: `${profile.url}/sitemap.xml`,
-    host: profile.url,
   }
 }
