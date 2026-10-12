@@ -144,7 +144,7 @@ export default function ProjectsSection({ projects = [] }) {
       </div>
       <div className="mb-10 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
         <h2 className="sec-title font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-          Shopify Plus case studies: <em>results we shipped</em>.
+          Shopify Plus case studies: <em>results I shipped</em>.
         </h2>
         <p className="max-w-[520px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
           Case studies across custom PDPs, headless migrations, variant

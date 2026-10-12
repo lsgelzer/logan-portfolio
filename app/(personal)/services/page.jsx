@@ -132,7 +132,7 @@ export default function ServicesPage() {
 
           <div className="mb-14 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
             <h1 className="font-display text-[clamp(42px,6vw,92px)] font-medium leading-[0.98] -tracking-[0.035em] text-green-ink">
-              Shopify <em>development services</em>.
+              Shopify services <em>I offer</em>.
             </h1>
             <p className="max-w-[520px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
               Senior Shopify Plus & Hydrogen development for DTC brands. Custom

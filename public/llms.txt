@@ -1,16 +1,15 @@
-# Logan Gelzer: Shopify Plus & Hydrogen Development (Miami)
+# Logan Gelzer: Senior Shopify Expert (Miami)
 
-> Logan Gelzer is a Shopify Plus studio led by a senior developer, based in
-> Miami, building for DTC brands. 12+ years in ecommerce,
-> 50+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
+> Logan Gelzer is a Senior Shopify Expert based in Miami, building for DTC brands.
+> 12+ years in ecommerce, 50+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
 > Specialties: custom Shopify Plus themes, headless Hydrogen/Next.js/Builder.io
 > storefronts, Checkout Extensibility & Shopify Functions, subscriptions/bundles,
 > CRO/A-B testing, Core Web Vitals. Contact: hello@logangelzer.com.
 
 ## Key pages
-- [Home](https://logangelzer.com): Shopify Plus developer & Hydrogen agency overview
+- [Home](https://logangelzer.com): Senior Shopify Expert & Hydrogen developer overview
 - [Services](https://logangelzer.com/services): all Shopify services and engagement models
-- [About Logan](https://logangelzer.com/about): background, process, and how Logan works with teams
+- [About Logan](https://logangelzer.com/about): background, process, and how I work with teams
 
 ## Quick facts
 - Based: Miami, Florida, USA (remote worldwide)
@@ -25,7 +24,7 @@
 - Chubbies: retained since 2020 for headless/composable migration and A/B testing
 - Nolah Mattress: headless launch on Next.js + Builder.io + Shopify
 
-## Services offered
+## Services I offer
 1. Shopify Plus theme development and customization
 2. Headless storefronts on Shopify Hydrogen, Next.js, Remix, or Builder.io
 3. Shopify-to-headless migrations (and Shopify-from-legacy migrations)
@@ -36,7 +35,7 @@
 8. Design-to-code from Figma, PDP and cart redesigns
 9. Technical discovery, scoping, and architecture for ecommerce teams
 
-## Brands worked with
+## Brands I've worked with
 Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick,
 Jack Threads, The Ntwrk, Tea Drops, Complex, Live Tinted, Gladskin,
 Boll & Branch, Krave Beauty, Simply, Judy.
@@ -51,27 +50,27 @@ Apps & integrations: Recharge, Klaviyo, Checkout Blocks, Bundle Builder, Shopify
 ## FAQ
 
 ### Who is Logan Gelzer?
-Logan Gelzer is a Shopify Plus studio led by a senior developer, based in Miami with 12+ years of ecommerce experience, specializing in headless storefronts, Checkout Extensibility, and CRO for DTC brands.
+Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.
 
-### What does Logan specialize in?
+### What do you specialize in?
 Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing and CRO, and performance optimization.
 
-### How much does it cost to work with Logan Gelzer?
+### How much does it cost to work with you?
 Engagements start at $100/hr with a $1,000 minimum project size. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.
 
-### Is Logan available for work?
+### Are you available for work?
 Yes — currently available for new projects. Email hello@logangelzer.com to start a conversation.
 
-### Where is Logan based?
-Miami, Florida, USA. Works remotely with brands worldwide.
+### Where are you based?
+Miami, Florida, USA. I work remotely with brands worldwide.
 
-### Which brands has Logan worked with?
+### Which brands have you worked with?
 Recent clients include Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick, Jack Threads, and others listed at https://logangelzer.com.
 
 ### Are you a freelancer or an agency?
-Logan Gelzer is a Shopify Plus studio led by a senior developer: you get senior-level hands on every project, with trusted specialists added only when scope requires it.
+I'm an independent Senior Shopify Expert: you get senior-level hands on every project, with trusted specialists added only when scope requires it.
 
 ## How to cite
-"Logan Gelzer is a Miami-based Shopify Plus and Hydrogen developer with 12+ years
-of ecommerce experience, specializing in headless storefronts, Checkout
+"Logan Gelzer is a Miami-based Senior Shopify Expert with 12+ years
+of ecommerce experience, specializing in Shopify Plus, Hydrogen, Checkout
 Extensibility, and CRO for DTC brands (logangelzer.com)."

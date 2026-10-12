@@ -72,10 +72,10 @@ function PhoneMockup() {
               className="pointer-events-none absolute -bottom-2 -right-2 z-[1] h-auto w-[118px] drop-shadow-[0_6px_12px_oklch(0.2_0.05_165/0.4)]"
             />
             <div className="relative z-[1] font-display text-[22px] font-medium -tracking-[0.03em] leading-none">
-              Shopify Plus
+              Shopify
               <br />
               <em className="italic text-blue not-italic [font-style:italic]">
-                Studio
+                Expert
               </em>
             </div>
             <div className="relative z-[1] self-start rounded-[20px] border border-[oklch(0.86_0.07_230/0.3)] bg-[oklch(0.25_0.04_165/0.6)] px-2.5 py-1.5 font-mono text-[10px] text-blue">
@@ -190,7 +190,7 @@ export default function HeroSection({ profile, heroStats }) {
 
           <h1 className="flex flex-col font-display font-medium leading-[0.86] -tracking-[0.055em] text-green-ink text-[clamp(64px,11vw,180px)]">
             <span className="sr-only">
-              Logan Gelzer — Shopify Plus & Hydrogen Development for DTC Brands
+              Logan Gelzer — Senior Shopify Expert & Hydrogen Developer in Miami
             </span>
             <span aria-hidden="true">Logan</span>
             <span
@@ -203,9 +203,8 @@ export default function HeroSection({ profile, heroStats }) {
 
           <div>
             <h2 className="max-w-[640px] font-display font-normal leading-[1.2] -tracking-[0.01em] text-ink text-[clamp(22px,2.4vw,32px)]">
-              A{' '}
               <span className="font-medium italic text-green-ink">
-                Shopify Plus studio led by a senior developer
+                Senior Shopify Expert
               </span>{' '}
               — 12+ years building for DTC brands from Miami.
             </h2>

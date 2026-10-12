@@ -4,9 +4,9 @@ import Link from 'next/link'
 import TopBar from '@/components/layout/topbar'
 
 export const metadata = {
-  title: 'About Logan Gelzer, Miami Shopify Plus Expert',
+  title: 'About Logan Gelzer, Senior Shopify Expert in Miami',
   description:
-    '12+ years building ecommerce for DTC brands. Background, process, partners and how Logan works with in-house teams.',
+    '12+ years building ecommerce for DTC brands. Background, process, and how I work with in-house teams.',
   alternates: {
     canonical: 'https://logangelzer.com/about',
   },
@@ -86,15 +86,14 @@ export default function AboutPage() {
 
             <div>
               <h2 className="mb-6 font-display text-[clamp(42px,5vw,72px)] font-medium leading-[0.98] -tracking-[0.035em] text-green-ink">
-                A Shopify Plus studio led by a <em>senior developer</em>.
+                Senior Shopify Expert in <em>Miami</em>.
               </h2>
 
               <div className="mb-10 space-y-4 font-openSans text-[16px] leading-[1.7] text-ink-dim">
                 <p>
-                  I'm Logan — and Logan Gelzer is a Shopify Plus studio led by a
-                  senior developer. For 12+ years I've been building, shipping,
-                  and scaling ecommerce experiences for direct-to-consumer
-                  brands from Miami.
+                  I'm Logan — a Senior Shopify Expert based in Miami. For 12+
+                  years I've been building, shipping, and scaling ecommerce
+                  experiences for direct-to-consumer brands.
                 </p>
                 <p>
                   I specialize in Shopify Plus and headless commerce with

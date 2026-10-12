@@ -35,7 +35,7 @@ export default function AboutSection({
         <span>— a quick hello</span>
       </div>
       <h2 className="sec-title mb-6 font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-        Shopify Plus studio in <em>Miami</em> for DTC brands.
+        Senior Shopify Expert in <em>Miami</em> for DTC brands.
       </h2>
       <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
         Senior Shopify Plus & Hydrogen development for DTC brands. Custom themes,

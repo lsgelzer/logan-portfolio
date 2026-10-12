@@ -11,36 +11,9 @@ import StatsStrip from '@/components/sections/stats-strip/stats-strip'
 import TestimonialsSection from '@/components/sections/testimonials-section/testimonials-section'
 
 function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
-  const orgId = `${profile.url}/#org`
   const personId = `${profile.url}/#person`
   const serviceId = `${profile.url}/#service`
   const websiteId = `${profile.url}/#website`
-
-  const organization = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': orgId,
-    name: 'Logan Gelzer',
-    alternateName: 'Logan Gelzer Shopify Development',
-    url: profile.url,
-    logo: `${profile.url}/icon.png`,
-    image: `${profile.url}/og-image.png`,
-    email: profile.email,
-    founder: { '@id': personId },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Miami',
-      addressRegion: 'FL',
-      addressCountry: 'US',
-    },
-    areaServed: ['US', 'Worldwide'],
-    sameAs: [
-      'https://www.linkedin.com/in/logan-gelzer/',
-      'https://github.com/lsgelzer',
-      'https://x.com/logangelzer',
-      'https://www.instagram.com/logangelzer',
-    ],
-  }
 
   const person = {
     '@context': 'https://schema.org',
@@ -49,13 +22,17 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     name: profile.name,
     givenName: 'Logan',
     familyName: 'Gelzer',
-    url: `${profile.url}/about`,
+    url: profile.url,
     email: `mailto:${profile.email}`,
-    jobTitle: 'Shopify Plus & Hydrogen Developer',
-    worksFor: { '@id': orgId },
+    jobTitle: 'Senior Shopify Expert',
     description:
-      'Senior Shopify Plus and Hydrogen developer with 12+ years building ecommerce for DTC brands — specializing in custom themes, headless storefronts, Checkout Extensibility, and CRO.',
-    homeLocation: { '@type': 'Place', name: 'Miami, Florida' },
+      'Senior Shopify Expert with 12+ years building ecommerce for DTC brands — specializing in Shopify Plus, Hydrogen, headless storefronts, Checkout Extensibility, and CRO.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Miami',
+      addressRegion: 'FL',
+      addressCountry: 'US',
+    },
     image: `${profile.url}/portfolio/logan-author-headshot.png`,
     sameAs: [
       'https://www.linkedin.com/in/logan-gelzer/',
@@ -84,12 +61,12 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': serviceId,
-    name: 'Logan Gelzer: Shopify Plus Development',
+    name: 'Logan Gelzer: Senior Shopify Expert',
     url: profile.url,
     image: `${profile.url}/og-image.png`,
     email: profile.email,
     priceRange: '$$$',
-    parentOrganization: { '@id': orgId },
+    provider: { '@id': personId },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Miami',
@@ -127,7 +104,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     '@id': websiteId,
     url: profile.url,
     name: profile.name,
-    publisher: { '@id': orgId },
+    publisher: { '@id': personId },
     inLanguage: 'en-US',
   }
 
@@ -179,33 +156,33 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     {
       question: 'How much does it cost to work with Logan Gelzer?',
       answer:
-        'Engagements start at $100/hr with a $1,000 minimum project size. Logan Gelzer is a Shopify Plus studio led by a senior developer, so you work directly with the person writing the code. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.',
+        'Engagements start at $100/hr with a $1,000 minimum project size. I work directly with you — no account managers or handoffs. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.',
     },
     {
       question: 'Who is Logan Gelzer?',
       answer:
-        'Logan Gelzer is a Shopify Plus studio led by a senior developer, based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.',
+        'Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts for DTC brands.',
     },
     {
-      question: 'What does Logan specialize in?',
+      question: 'What do you specialize in?',
       answer:
         'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge and Shopify Scripts, A/B testing, CRO, and performance optimization.',
     },
     {
       question: 'Are you a freelancer or an agency?',
       answer:
-        'Logan Gelzer is a Shopify Plus studio led by a senior developer: you get senior-level hands on every project, with trusted specialists added only when scope requires it.',
+        "I'm an independent Senior Shopify Expert: you get senior-level hands on every project, with trusted specialists added only when scope requires it.",
     },
     {
-      question: 'Which brands has Logan worked with?',
+      question: 'Which brands have you worked with?',
       answer: `Recent clients include ${(clients || [])
         .slice(0, 10)
         .map((c) => c.name)
         .join(', ')}, plus several other DTC brands.`,
     },
     {
-      question: 'Where is Logan based?',
-      answer: 'Miami, Florida, USA — working remotely with brands worldwide.',
+      question: 'Where are you based?',
+      answer: 'Miami, Florida, USA — I work remotely with brands worldwide.',
     },
   ]
 
@@ -223,7 +200,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
   }
 
   return {
-    blocks: [organization, person, service, website, breadcrumb, portfolio, clientList, faq],
+    blocks: [person, service, website, breadcrumb, portfolio, clientList, faq],
     faqData,
   }
 }
