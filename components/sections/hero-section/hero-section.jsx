@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { ICONS } from '@/components/shared/icons'
+import { getBookingHref } from '@/lib/site-config'
 
 const Shopify = ICONS.shopify
 const Figma = ICONS.figma
@@ -78,9 +79,12 @@ function PhoneMockup() {
                 Expert
               </em>
             </div>
-            <div className="relative z-[1] self-start rounded-[20px] border border-[oklch(0.86_0.07_230/0.3)] bg-[oklch(0.25_0.04_165/0.6)] px-2.5 py-1.5 font-mono text-[10px] text-blue">
+            <a
+              href={getBookingHref()}
+              className="relative z-[1] self-start rounded-[20px] border border-[oklch(0.86_0.07_230/0.3)] bg-[oklch(0.25_0.04_165/0.6)] px-2.5 py-1.5 font-mono text-[10px] text-blue transition-colors hover:bg-blue hover:text-green-ink"
+            >
               Book a call →
-            </div>
+            </a>
           </div>
           <div className="flex items-baseline justify-between font-display text-[13px] font-medium text-green-ink">
             <span>Recent wins</span>
@@ -219,6 +223,17 @@ export default function HeroSection({ profile, heroStats }) {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href={getBookingHref()}
+                className="inline-flex items-center gap-2 rounded-full bg-green px-5 py-2.5 font-mono text-[13px] text-cream transition-colors hover:bg-blue hover:text-green-ink"
+              >
+                Book a call →
+              </a>
+              <span className="font-mono text-[11px] text-ink-mute">
+                $100/hr · $1,000 minimum
+              </span>
+            </div>
           </div>
         </div>
 

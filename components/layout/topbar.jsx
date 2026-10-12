@@ -1,13 +1,16 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+import { getBookingHref } from '@/lib/site-config'
+
 const NAV = [
-  { href: '#about', label: 'About' },
+  { href: '/about', label: 'About', isPage: true },
+  { href: '/services', label: 'Services', isPage: true },
   { href: '#clients', label: 'Clients' },
   { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Stack' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -71,22 +74,40 @@ export default function TopBar() {
         </b>
       </a>
       <nav className="hidden gap-[22px] md:flex" aria-label="Primary">
-        {NAV.map((n) => (
-          <a
-            key={n.href}
-            href={n.href}
-            className="relative transition-colors before:opacity-40 before:content-['↗_'] hover:text-green"
-          >
-            {n.label}
-          </a>
-        ))}
+        {NAV.map((n) =>
+          n.isPage ? (
+            <Link
+              key={n.href}
+              href={n.href}
+              className="relative transition-colors before:opacity-40 before:content-['↗_'] hover:text-green"
+            >
+              {n.label}
+            </Link>
+          ) : (
+            <a
+              key={n.href}
+              href={n.href}
+              className="relative transition-colors before:opacity-40 before:content-['↗_'] hover:text-green"
+            >
+              {n.label}
+            </a>
+          ),
+        )}
       </nav>
-      <div className="flex items-center gap-2.5">
-        <span
-          className="size-2 rounded-full bg-green shadow-[0_0_10px_var(--green)] motion-safe:animate-pulse"
-          aria-hidden
-        />
-        <span aria-label="Current time in Miami">{clock}</span>
+      <div className="flex items-center gap-4">
+        <a
+          href={getBookingHref()}
+          className="hidden rounded-full bg-green px-4 py-1.5 font-mono text-[11px] text-cream transition-colors hover:bg-blue hover:text-green-ink sm:inline-flex"
+        >
+          Book a call →
+        </a>
+        <div className="flex items-center gap-2.5">
+          <span
+            className="size-2 rounded-full bg-green shadow-[0_0_10px_var(--green)] motion-safe:animate-pulse"
+            aria-hidden
+          />
+          <span aria-label="Current time in Miami">{clock}</span>
+        </div>
       </div>
     </header>
   )
