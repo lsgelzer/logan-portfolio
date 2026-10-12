@@ -58,7 +58,7 @@ function PhoneMockup() {
               aria-hidden
             />
             <div className="relative z-[1] font-mono text-[8px] tracking-[0.2em] text-blue">
-              AVAILABLE · Q2 &apos;26
+              AVAILABLE NOW
             </div>
             <Image
               src="/portfolio/logan-portrait.png"
@@ -72,10 +72,10 @@ function PhoneMockup() {
               className="pointer-events-none absolute -bottom-2 -right-2 z-[1] h-auto w-[118px] drop-shadow-[0_6px_12px_oklch(0.2_0.05_165/0.4)]"
             />
             <div className="relative z-[1] font-display text-[22px] font-medium -tracking-[0.03em] leading-none">
-              Freelance
+              Shopify Plus
               <br />
               <em className="italic text-blue not-italic [font-style:italic]">
-                Shopify Dev
+                Studio
               </em>
             </div>
             <div className="relative z-[1] self-start rounded-[20px] border border-[oklch(0.86_0.07_230/0.3)] bg-[oklch(0.25_0.04_165/0.6)] px-2.5 py-1.5 font-mono text-[10px] text-blue">
@@ -184,14 +184,13 @@ export default function HeroSection({ profile, heroStats }) {
             ))}
             <div className="flex flex-wrap gap-3">
               <dt className="w-[72px] shrink-0 text-ink-mute">/ status</dt>
-              <dd className="font-medium text-green">● available for freelance</dd>
+              <dd className="font-medium text-green">● available for new projects</dd>
             </div>
           </dl>
 
           <h1 className="flex flex-col font-display font-medium leading-[0.86] -tracking-[0.055em] text-green-ink text-[clamp(64px,11vw,180px)]">
             <span className="sr-only">
-              Logan Gelzer — Freelance Shopify Plus & Hydrogen Developer in
-              Miami
+              Logan Gelzer — Shopify Plus & Hydrogen Development for DTC Brands
             </span>
             <span aria-hidden="true">Logan</span>
             <span
@@ -204,11 +203,11 @@ export default function HeroSection({ profile, heroStats }) {
 
           <div>
             <h2 className="max-w-[640px] font-display font-normal leading-[1.2] -tracking-[0.01em] text-ink text-[clamp(22px,2.4vw,32px)]">
-              Freelance{' '}
+              A{' '}
               <span className="font-medium italic text-green-ink">
-                Shopify Plus &amp; Hydrogen developer
+                Shopify Plus studio led by a senior developer
               </span>{' '}
-              for DTC brands — 12+ years scaling ecommerce from Miami.
+              — 12+ years building for DTC brands from Miami.
             </h2>
             <ul className="mt-2 flex flex-wrap gap-2 font-mono text-[12px]">
               {roles.map((r) => (
