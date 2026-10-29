@@ -54,6 +54,11 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
       'Recharge',
       'Klaviyo',
       'Builder.io',
+      'AI-assisted software development',
+      'Claude Code',
+      'Cursor',
+      'Shopify AI Toolkit',
+      'Model Context Protocol (MCP)',
     ],
   }
 
@@ -167,6 +172,11 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
       question: 'What do you specialize in?',
       answer:
         'Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge, A/B testing, CRO, and performance optimization.',
+    },
+    {
+      question: 'Do you use AI tools like Claude Code or Cursor?',
+      answer:
+        "Yes. I use Claude Code, Cursor, Gemini and ChatGPT, connected to Shopify's AI Toolkit, to draft and validate code faster. I review and test every change myself, and nothing goes live without your approval. You get senior work delivered sooner, at the same rates.",
     },
     {
       question: 'Are you a freelancer or an agency?',
