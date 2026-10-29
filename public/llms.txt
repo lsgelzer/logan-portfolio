@@ -4,12 +4,14 @@
 > 12+ years in ecommerce, 200+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
 > Specialties: custom Shopify Plus themes, headless Hydrogen/Next.js/Builder.io
 > storefronts, Checkout Extensibility & Shopify Functions, subscriptions/bundles,
-> CRO/A-B testing, Core Web Vitals. Contact: hello@logangelzer.com.
+> CRO/A-B testing, Core Web Vitals, AI-assisted development. Contact: hello@logangelzer.com.
 
 ## Key pages
 - [Home](https://logangelzer.com): Senior Shopify Expert & Hydrogen developer overview
 - [Services](https://logangelzer.com/services): all Shopify services and engagement models
 - [About Logan](https://logangelzer.com/about): background, process, and how I work with teams
+- [AI-assisted Shopify development](https://logangelzer.com/services/ai-shopify-development): how I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit, plus guardrails and pricing
+- [Guides](https://logangelzer.com/guides): in-depth guides on Shopify development and AI workflows
 
 ## Quick facts
 - Based: Miami, Florida, USA (remote worldwide)
@@ -34,6 +36,7 @@
 7. Core Web Vitals and Lighthouse performance work
 8. Design-to-code from Figma, PDP and cart redesigns
 9. Technical discovery, scoping, and architecture for ecommerce teams
+10. AI-assisted Shopify development (Claude Code, Cursor, Gemini, ChatGPT + Shopify AI Toolkit/Dev MCP), with senior human review on every change; AI workflow setup for in-house teams
 
 ## Brands I've worked with
 Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick,
@@ -46,8 +49,12 @@ Backend / data: Node.js, Shopify Admin & Storefront GraphQL APIs, Shopify Functi
 Design: Figma, design systems, Polaris, UI/UX prototyping.
 Commerce platforms: Shopify, Shopify Plus, Hydrogen, Builder.io, WooCommerce, BigCommerce.
 Apps & integrations: Recharge, Klaviyo, Checkout Blocks, Bundle Builder, Shopify Functions, GA4, GTM.
+AI tooling: Claude Code, Cursor, Google Antigravity/Gemini, ChatGPT/Codex, Shopify AI Toolkit, Shopify Dev MCP, Shopify CLI.
 
 ## FAQ
+
+### Do you use AI for Shopify development?
+Yes. I use Claude Code, Cursor, Gemini and ChatGPT, connected to Shopify's AI Toolkit, to draft and validate code faster. I review and test every change myself, and nothing goes live without your approval. You get senior work delivered sooner, at the same rates.
 
 ### Who is Logan Gelzer?
 Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.

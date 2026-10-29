@@ -18,10 +18,28 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${base}/services/ai-shopify-development`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${base}/about`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${base}/guides`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/guides/claude-code-shopify`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
   ]
 }

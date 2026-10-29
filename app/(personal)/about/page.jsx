@@ -26,7 +26,7 @@ const TIMELINE = [
   {
     period: '2020 – Present',
     description:
-      'Full-time Shopify Plus studio. Working with brands like Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, BaronFig, and Kudos on headless builds, Checkout Extensibility, and CRO programs.',
+      "Independent Senior Shopify Expert, working directly with brands like Chubbies, Nolah, Alo Yoga, Overtime, Wild Wonder, Baronfig and Kudos on headless builds, Checkout Extensibility and CRO. Since 2025, I've built with AI coding agents (Claude Code, Cursor) connected to Shopify's AI Toolkit, with senior review on every change.",
   },
 ]
 
@@ -38,6 +38,7 @@ const SPECIALTIES = [
   'A/B testing programs, CRO audits, analytics implementation (GA4, GTM)',
   'Core Web Vitals and Lighthouse performance optimization',
   'Design-to-code from Figma with zero hand-off loss',
+  'AI-assisted Shopify development: Claude Code, Cursor, Gemini and ChatGPT with the Shopify AI Toolkit, Dev MCP and CLI, with human review and QA on every change',
 ]
 
 export default function AboutPage() {
@@ -100,6 +101,16 @@ export default function AboutPage() {
                   Hydrogen and Next.js. Day-to-day that means custom Liquid
                   themes, Shopify Functions, Checkout Extensibility, Checkout
                   Blocks, and subscription/bundle flows with Recharge.
+                </p>
+                <p>
+                  My workflow has changed a lot in the last two years. I now
+                  build with AI coding agents: Claude Code for multi-file theme
+                  and app work, Cursor for precise Liquid edits, Gemini for
+                  browser QA and ChatGPT for research and second-opinion
+                  reviews. All of them are connected to Shopify's official docs
+                  and schema validation. It makes me faster, but the judgment
+                  hasn't changed. I still decide the architecture, test the edge
+                  cases and press publish myself.
                 </p>
                 <p>
                   A defining project was a Miami food brand where I took their
