@@ -3,9 +3,9 @@ import Link from 'next/link'
 import TopBar from '@/components/layout/topbar'
 
 export const metadata = {
-  title: 'Shopify Development Services | Logan Gelzer',
+  title: 'Shopify Plus, Hydrogen & AI-Assisted Services | Logan Gelzer',
   description:
-    'Shopify Plus development, Hydrogen headless storefronts, Checkout Extensibility, CRO, and performance optimization for DTC brands.',
+    'Shopify Plus themes, Hydrogen, Checkout Extensibility, CRO, speed and AI-assisted development by a Senior Shopify Expert. From $100/hr, $1,000 minimum.',
   alternates: {
     canonical: 'https://logangelzer.com/services',
   },
@@ -15,7 +15,7 @@ const SERVICES = [
   {
     title: 'Shopify Plus Theme Development',
     description:
-      'Custom Shopify Plus themes, Online Store 2.0 sections and metafield-driven content built for speed and conversion. Full theme builds, redesigns, and migrations from legacy themes.',
+      'Custom Shopify Plus themes, Online Store 2.0 sections and metafield-driven content built for speed and conversion. Full theme builds, redesigns, and migrations from legacy themes. AI-assisted builds: agents draft sections and blocks, validated against Shopify\'s Liquid schemas. I refine and test every one.',
     features: [
       'Custom Liquid themes with OS 2.0 architecture',
       'Sections and blocks for merchant flexibility',
@@ -27,7 +27,7 @@ const SERVICES = [
   {
     title: 'Shopify Hydrogen & Headless',
     description:
-      'Hydrogen, Next.js & Builder.io headless storefronts on Shopify. Low-risk migrations from Liquid themes with performance gains.',
+      'Hydrogen, Next.js & Builder.io headless storefronts on Shopify. Low-risk migrations from Liquid themes with performance gains. Hydrogen projects use Shopify\'s version-matched agent skills, so AI suggestions follow the Hydrogen version you\'re actually running.',
     features: [
       'Shopify Hydrogen storefronts',
       'Next.js + Shopify Storefront API',
@@ -39,7 +39,7 @@ const SERVICES = [
   {
     title: 'Checkout Extensibility & Shopify Functions',
     description:
-      'Migrate from checkout.liquid & Shopify Scripts to Checkout UI Extensions and Functions. Discounts, GWP, bundles, and delivery logic.',
+      'Migrate from checkout.liquid & Shopify Scripts to Checkout UI Extensions and Functions. Discounts, GWP, bundles, and delivery logic. Scripts logic rebuilt as Functions with AI-drafted code and hand-written test cases for every discount, delivery and payment scenario.',
     features: [
       'Checkout UI Extensions',
       'Shopify Functions (discounts, delivery, payment)',
@@ -51,7 +51,7 @@ const SERVICES = [
   {
     title: 'CRO & A/B Testing',
     description:
-      'Hypothesis-driven A/B testing and PDP/cart redesigns for Shopify brands. Design, code, and test under one roof.',
+      'Hypothesis-driven A/B testing and PDP/cart redesigns for Shopify brands. Design, code, and test under one roof. AI helps me ship test variants faster. The hypotheses, guardrails and decisions stay human.',
     features: [
       'A/B testing program setup',
       'PDP and cart optimization',
@@ -63,7 +63,7 @@ const SERVICES = [
   {
     title: 'Speed Optimization',
     description:
-      'Fix LCP, CLS, and INP on Shopify & Hydrogen stores. Image, font, and third-party script audits with measurable before/after.',
+      'Fix LCP, CLS, and INP on Shopify & Hydrogen stores. Image, font, and third-party script audits with measurable before/after. AI agents help trace slow Liquid loops, script bloat and image issues across the whole theme. Every fix is measured before and after.',
     features: [
       'Core Web Vitals optimization',
       'Third-party script audit',
@@ -75,7 +75,7 @@ const SERVICES = [
   {
     title: 'Subscriptions & Bundles',
     description:
-      'Custom subscription portals, bundle builders, and gift-with-purchase flows. Recharge, Shopify Functions, and native checkout.',
+      'Custom subscription portals, bundle builders, and gift-with-purchase flows. Recharge, Shopify Functions, and native checkout. Bundle and box-builder logic is validated with AI-generated edge-case test plans.',
     features: [
       'Recharge integration and customization',
       'Custom bundle builders',
@@ -84,11 +84,24 @@ const SERVICES = [
       'Box builder flows',
     ],
   },
+  {
+    title: 'AI-Assisted Shopify Development',
+    description:
+      'Faster Shopify builds with Claude Code, Cursor, Gemini and ChatGPT, connected to Shopify\'s AI Toolkit and Dev MCP for current docs and schema validation. Senior review, testing and approval on every change.',
+    features: [
+      'Claude Code for multi-file theme, app and Functions work',
+      'Cursor for precise Liquid, CSS and JS edits',
+      'Gemini (Antigravity) browser QA and ChatGPT/Codex PR review',
+      'Schema validation, Theme Check and unpublished-theme previews',
+      'AI workflow setup for in-house Shopify teams',
+    ],
+    href: '/services/ai-shopify-development',
+  },
 ]
 
-function ServiceCard({ title, description, features }) {
-  return (
-    <div className="group relative flex flex-col overflow-hidden rounded-[16px] border border-line bg-paper p-8 transition-all duration-300 hover:border-green hover:shadow-[0_20px_40px_-20px_oklch(0.25_0.06_165/0.3)]">
+function ServiceCard({ title, description, features, href }) {
+  const content = (
+    <>
       <span
         aria-hidden
         className="absolute -right-8 -top-8 size-40 rounded-full bg-blue opacity-20 blur-[20px] transition-opacity group-hover:opacity-40"
@@ -110,6 +123,28 @@ function ServiceCard({ title, description, features }) {
           </li>
         ))}
       </ul>
+      {href && (
+        <span className="relative z-[1] mt-4 font-mono text-[12px] text-green transition-colors group-hover:text-green-ink">
+          Learn more →
+        </span>
+      )}
+    </>
+  )
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className="group relative flex flex-col overflow-hidden rounded-[16px] border border-line bg-paper p-8 transition-all duration-300 hover:border-green hover:shadow-[0_20px_40px_-20px_oklch(0.25_0.06_165/0.3)]"
+      >
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <div className="group relative flex flex-col overflow-hidden rounded-[16px] border border-line bg-paper p-8 transition-all duration-300 hover:border-green hover:shadow-[0_20px_40px_-20px_oklch(0.25_0.06_165/0.3)]">
+      {content}
     </div>
   )
 }
@@ -148,6 +183,7 @@ export default function ServicesPage() {
                 title={service.title}
                 description={service.description}
                 features={service.features}
+                href={service.href}
               />
             ))}
           </div>
