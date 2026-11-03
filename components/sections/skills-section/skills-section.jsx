@@ -55,8 +55,8 @@ export default function SkillsSection({ skills = [], asideChips = [] }) {
       </h2>
       <p className="mb-6 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
         Shopify Liquid, Hydrogen, Checkout Extensibility, Shopify Functions,
-        React, Next.js, Remix, Node.js, and Figma — plus the analytics and
-        testing stack to prove it works.
+        React, Next.js, Remix, Node.js and Figma, plus AI coding agents and the
+        analytics and testing stack to prove it works.
       </p>
       <div className="mt-10 grid items-start gap-12 md:grid-cols-2">
         <ul
@@ -109,7 +109,9 @@ export default function SkillsSection({ skills = [], asideChips = [] }) {
               I specialize in the overlap between storefront design, custom
               Shopify development, and the checkout flows that actually move the
               needle. I write the code, I run the A/B test, and I help translate
-              the result into a design system you can ship against.
+              the result into a design system you can ship against. AI agents
+              speed up the build. I own the review, the test and the publish
+              button.
             </p>
             <div className="flex flex-wrap gap-1.5">
               {asideChips.map((c) => (
