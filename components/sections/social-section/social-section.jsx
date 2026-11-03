@@ -1,3 +1,5 @@
+import ProjectInquiryForm from '@/components/forms/ProjectInquiryForm'
+
 const DISPLAY_SOCIALS = [
   { label: 'Email', find: 'Email' },
   { label: 'GitHub', find: 'Github' },
@@ -47,33 +49,48 @@ export default function SocialSection({ profile, socials = [] }) {
             Shopify Plus, Hydrogen, and CRO work for DTC brands.
             Remote-friendly from Miami. Currently booking new projects.
           </p>
-          <dl className="grid gap-8 border-y border-line py-9 md:grid-cols-4 max-md:grid-cols-2">
-            {DISPLAY_SOCIALS.map((d) => {
-              const s = socialByLabel[d.find]
-              if (!s) return null
-              const href =
-                d.label === 'Email' ? `mailto:${profile?.email || ''}` : s.url
-              const value = d.label === 'Email' ? profile?.email || '' : s.handle
-              return (
-                <div key={d.label}>
-                  <dt className="mb-2.5 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-mute">
-                    {d.label}
-                  </dt>
-                  <dd>
-                    <a
-                      href={href}
-                      target={d.label === 'Email' ? undefined : '_blank'}
-                      rel={d.label === 'Email' ? undefined : 'noreferrer noopener'}
-                      className="font-display text-[22px] font-medium -tracking-[0.015em] text-green-ink hover:text-green"
-                    >
-                      {value}
-                    </a>
-                  </dd>
-                </div>
-              )
-            })}
-          </dl>
-          <div className="flex items-center justify-between px-0 pb-2.5 pt-8 font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
+          <div className="mb-12 grid items-start gap-12 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 font-display text-[24px] font-medium -tracking-[0.02em] text-green-ink">
+                Start a project
+              </h3>
+              <p className="mb-6 font-openSans text-[15px] leading-[1.6] text-ink-dim">
+                Tell me about your Shopify project. Engagements start at $100/hr
+                with a $1,000 minimum.
+              </p>
+              <ProjectInquiryForm />
+            </div>
+            <dl className="grid gap-8 rounded-[14px] border border-line bg-paper p-8 md:grid-cols-2">
+              {DISPLAY_SOCIALS.map((d) => {
+                const s = socialByLabel[d.find]
+                if (!s) return null
+                const href =
+                  d.label === 'Email' ? `mailto:${profile?.email || ''}` : s.url
+                const value =
+                  d.label === 'Email' ? profile?.email || '' : s.handle
+                return (
+                  <div key={d.label}>
+                    <dt className="mb-2.5 font-mono text-[10px] uppercase tracking-[0.15em] text-ink-mute">
+                      {d.label}
+                    </dt>
+                    <dd>
+                      <a
+                        href={href}
+                        target={d.label === 'Email' ? undefined : '_blank'}
+                        rel={
+                          d.label === 'Email' ? undefined : 'noreferrer noopener'
+                        }
+                        className="font-display text-[18px] font-medium -tracking-[0.015em] text-green-ink hover:text-green"
+                      >
+                        {value}
+                      </a>
+                    </dd>
+                  </div>
+                )
+              })}
+            </dl>
+          </div>
+          <div className="flex items-center justify-between border-t border-line px-0 pb-2.5 pt-8 font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
             <div>© {new Date().getFullYear()} Logan Gelzer — made with coffee in Miami</div>
             <div>v12.0 / last deploy: today</div>
           </div>

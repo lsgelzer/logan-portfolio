@@ -1,7 +1,7 @@
 const TESTIMONIALS = [
   {
     quote:
-      "Logan is great. Very detailed and follows through on his commitments. He hears feedback and is willing to accomodate requests - but also pushes back when the feedback pushes against best practice. Would definitely work with Logan again!",
+      "Logan is great. Very detailed and follows through on his commitments. He hears feedback and is willing to accommodate requests - but also pushes back when the feedback pushes against best practice. Would definitely work with Logan again!",
     brand: 'Unitus',
   },
   {
@@ -16,7 +16,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "I asked Logan to develop a rather complex PDP page for our store and he nailed it. Worked seamless and was scalable across our products.",
+      "I asked Logan to develop a rather complex PDP page for our store and he nailed it. Worked seamlessly and was scalable across our products.",
     brand: 'Kayode',
   },
   {

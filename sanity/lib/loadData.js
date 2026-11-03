@@ -74,7 +74,7 @@ export const loadHomePageData = cache(async function loadHomePageData() {
   const defaultTitle =
     'Senior Shopify Expert & Hydrogen Developer in Miami | Logan Gelzer'
   const defaultDescription =
-    'Senior Shopify Expert with 12+ years building for DTC brands. Custom Shopify Plus themes, Hydrogen headless builds, Checkout Extensibility & CRO. Book a call.'
+    'Senior Shopify Expert with 12+ years and 200+ brands. Custom Shopify Plus themes, Hydrogen headless builds, Checkout Extensibility & CRO. Book a call.'
 
   return {
     seo: {
