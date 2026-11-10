@@ -150,11 +150,62 @@ function ServiceCard({ title, description, features, href }) {
 }
 
 export default function ServicesPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://logangelzer.com/services#webpage',
+        url: 'https://logangelzer.com/services',
+        name: 'Shopify Plus, Hydrogen & AI-Assisted Services | Logan Gelzer',
+        description:
+          'Shopify Plus themes, Hydrogen, Checkout Extensibility, CRO, speed and AI-assisted development by a Senior Shopify Expert.',
+        isPartOf: { '@id': 'https://logangelzer.com/#website' },
+        about: { '@id': 'https://logangelzer.com/#person' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://logangelzer.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Services',
+            item: 'https://logangelzer.com/services',
+          },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <TopBar />
       <main className="pt-[72px]">
-        <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">
+        <nav className="px-10 pt-8 max-md:px-5" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 font-mono text-[11px] text-ink-mute">
+            <li>
+              <Link href="/" className="hover:text-green">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden>›</li>
+            <li className="text-green-ink">Services</li>
+          </ol>
+        </nav>
+
+        <section className="relative px-10 py-[80px] max-md:px-5 max-md:py-[60px]">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-mute">
             <span
               className="size-2.5 rotate-45 border-[1.5px] border-green bg-blue"
@@ -165,7 +216,7 @@ export default function ServicesPage() {
             </span>
           </div>
 
-          <div className="mb-14 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
+          <div className="mb-10 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
             <h1 className="font-display text-[clamp(42px,6vw,92px)] font-medium leading-[0.98] -tracking-[0.035em] text-green-ink">
               Shopify services <em>I offer</em>.
             </h1>
@@ -173,6 +224,26 @@ export default function ServicesPage() {
               Senior Shopify Plus & Hydrogen development for DTC brands. Custom
               themes, headless builds, Checkout Extensibility, CRO, and
               performance optimization.
+            </p>
+          </div>
+
+          <div className="mb-14 max-w-[800px] rounded-[14px] border border-green bg-blue p-6">
+            <h2 className="mb-2 font-display text-[18px] font-medium text-green-ink">
+              What Shopify services does Logan Gelzer offer?
+            </h2>
+            <p className="font-openSans text-[16px] leading-[1.7] text-green-ink">
+              Logan Gelzer is a Senior Shopify Expert based in Homestead, FL,
+              offering <strong>custom Shopify Plus themes</strong>,{' '}
+              <strong>headless storefronts</strong> (Hydrogen, Next.js),{' '}
+              <strong>Checkout Extensibility</strong> and Shopify Functions,{' '}
+              <strong>subscription and bundle flows</strong>,{' '}
+              <strong>A/B testing and CRO</strong>, and{' '}
+              <strong>Core Web Vitals optimization</strong>. Rates start at
+              $100/hr with a $1,000 minimum project as of November 2026. 200+
+              brands served since 2014.
+            </p>
+            <p className="mt-3 font-mono text-[12px] text-ink-mute">
+              Last updated: November 2026
             </p>
           </div>
 
@@ -220,7 +291,7 @@ export default function ServicesPage() {
         <div className="flex items-center justify-between font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
           <div>
             © {new Date().getFullYear()} Logan Gelzer — made with coffee in
-            Miami
+            Homestead
           </div>
           <Link href="/" className="hover:text-green">
             ← Back to home

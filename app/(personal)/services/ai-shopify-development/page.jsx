@@ -346,12 +346,30 @@ export default function AIShopifyDevelopmentPage() {
             Change
           </h1>
 
-          <p className="mb-8 max-w-[720px] font-openSans text-[18px] leading-[1.7] text-ink-dim">
-            I'm Logan Gelzer, a Senior Shopify Expert. Since 2014 I've built for
-            200+ brands, and today I use AI coding agents (Claude Code, Cursor,
-            Gemini and ChatGPT) connected to Shopify's own docs and validation
-            tools. The result is faster delivery and more thorough QA. I still
-            review, test and ship every change myself.
+          <div className="mb-8 max-w-[800px] rounded-[14px] border border-green bg-blue p-6">
+            <h2 className="mb-2 font-display text-[18px] font-medium text-green-ink">
+              What is AI-assisted Shopify development?
+            </h2>
+            <p className="font-openSans text-[16px] leading-[1.7] text-green-ink">
+              AI-assisted Shopify development uses coding agents like{' '}
+              <strong>Claude Code</strong>, <strong>Cursor</strong>,{' '}
+              <strong>Gemini</strong>, and <strong>ChatGPT</strong> connected to
+              Shopify's AI Toolkit and Dev MCP to draft, validate, and test code
+              faster. Logan Gelzer, a Senior Shopify Expert, uses these tools
+              while reviewing and testing every change himself. Rates from
+              $100/hr, $1,000 minimum. 200+ brands since 2014.
+            </p>
+            <p className="mt-3 font-mono text-[12px] text-ink-mute">
+              Last updated: November 2026
+            </p>
+          </div>
+
+          <p className="mb-8 max-w-[720px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
+            I'm Logan Gelzer, a Senior Shopify Expert based in Homestead, FL.
+            Since 2014 I've built for 200+ brands, and today I use AI coding
+            agents connected to Shopify's own docs and validation tools. The
+            result is faster delivery and more thorough QA. I still review, test
+            and ship every change myself.
           </p>
 
           <div className="mb-8 flex flex-wrap items-center gap-4">
@@ -713,7 +731,7 @@ export default function AIShopifyDevelopmentPage() {
         <div className="flex items-center justify-between font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
           <div>
             © {new Date().getFullYear()} Logan Gelzer — made with coffee in
-            Miami
+            Homestead
           </div>
           <Link href="/" className="hover:text-green">
             ← Back to home

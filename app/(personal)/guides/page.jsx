@@ -23,11 +23,62 @@ const GUIDES = [
 ]
 
 export default function GuidesPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': 'https://logangelzer.com/guides#webpage',
+        url: 'https://logangelzer.com/guides',
+        name: 'Shopify Development Guides | Logan Gelzer',
+        description:
+          'In-depth guides on Shopify development: Claude Code workflows, Cursor setup, Shopify Functions, and AI-assisted development.',
+        isPartOf: { '@id': 'https://logangelzer.com/#website' },
+        about: { '@id': 'https://logangelzer.com/#person' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://logangelzer.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Guides',
+            item: 'https://logangelzer.com/guides',
+          },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <TopBar />
       <main className="pt-[72px]">
-        <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">
+        <nav className="px-10 pt-8 max-md:px-5" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 font-mono text-[11px] text-ink-mute">
+            <li>
+              <Link href="/" className="hover:text-green">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden>›</li>
+            <li className="text-green-ink">Guides</li>
+          </ol>
+        </nav>
+
+        <section className="relative px-10 py-[80px] max-md:px-5 max-md:py-[60px]">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-mute">
             <span
               className="size-2.5 rotate-45 border-[1.5px] border-green bg-blue"
@@ -115,7 +166,7 @@ export default function GuidesPage() {
         <div className="flex items-center justify-between font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
           <div>
             © {new Date().getFullYear()} Logan Gelzer — made with coffee in
-            Miami
+            Homestead
           </div>
           <Link href="/" className="hover:text-green">
             ← Back to home

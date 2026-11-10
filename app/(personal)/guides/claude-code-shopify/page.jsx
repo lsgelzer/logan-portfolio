@@ -539,7 +539,7 @@ export default function ClaudeCodeShopifyGuidePage() {
         <div className="flex items-center justify-between font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
           <div>
             © {new Date().getFullYear()} Logan Gelzer — made with coffee in
-            Miami
+            Homestead
           </div>
           <Link href="/" className="hover:text-green">
             ← Back to home

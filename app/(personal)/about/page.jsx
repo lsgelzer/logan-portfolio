@@ -4,13 +4,24 @@ import Link from 'next/link'
 import TopBar from '@/components/layout/topbar'
 
 export const metadata = {
-  title: 'About Logan Gelzer, Senior Shopify Expert in Miami',
+  title: 'About Logan Gelzer, Senior Shopify Expert in Homestead, FL',
   description:
-    '12+ years building ecommerce for DTC brands. Background, process, and how I work with in-house teams.',
+    '12+ years building ecommerce for DTC brands. Background, process, and how I work with in-house teams. Based in Homestead, FL.',
   alternates: {
     canonical: 'https://logangelzer.com/about',
   },
 }
+
+const FACT_SHEET = [
+  { label: 'Name', value: 'Logan Gelzer' },
+  { label: 'Title', value: 'Senior Shopify Expert' },
+  { label: 'Location', value: 'Homestead, FL, USA' },
+  { label: 'Experience', value: '12+ years (since 2014)' },
+  { label: 'Brands served', value: '200+' },
+  { label: 'Starting rate', value: '$100/hr' },
+  { label: 'Minimum project', value: '$1,000' },
+  { label: 'Email', value: 'hello@logangelzer.com' },
+]
 
 const TIMELINE = [
   {
@@ -42,11 +53,62 @@ const SPECIALTIES = [
 ]
 
 export default function AboutPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': 'https://logangelzer.com/about#webpage',
+        url: 'https://logangelzer.com/about',
+        name: 'About Logan Gelzer, Senior Shopify Expert',
+        description:
+          '12+ years building ecommerce for DTC brands. Background, process, and how I work with in-house teams.',
+        isPartOf: { '@id': 'https://logangelzer.com/#website' },
+        about: { '@id': 'https://logangelzer.com/#person' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://logangelzer.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'About',
+            item: 'https://logangelzer.com/about',
+          },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <TopBar />
       <main className="pt-[72px]">
-        <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">
+        <nav className="px-10 pt-8 max-md:px-5" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 font-mono text-[11px] text-ink-mute">
+            <li>
+              <Link href="/" className="hover:text-green">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden>›</li>
+            <li className="text-green-ink">About</li>
+          </ol>
+        </nav>
+
+        <section className="relative px-10 py-[80px] max-md:px-5 max-md:py-[60px]">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-mute">
             <span
               className="size-2.5 rotate-45 border-[1.5px] border-green bg-blue"
@@ -73,7 +135,7 @@ export default function AboutPage() {
                     Logan Gelzer
                   </h1>
                   <p className="mb-4 font-mono text-[12px] text-ink-mute">
-                    Shopify Plus & Hydrogen Developer · Miami, FL
+                    Senior Shopify Expert · Homestead, FL
                   </p>
                   <a
                     href="mailto:hello@logangelzer.com"
@@ -87,14 +149,36 @@ export default function AboutPage() {
 
             <div>
               <h2 className="mb-6 font-display text-[clamp(42px,5vw,72px)] font-medium leading-[0.98] -tracking-[0.035em] text-green-ink">
-                Senior Shopify Expert in <em>Miami</em>.
+                Senior Shopify Expert in <em>Homestead, FL</em>.
               </h2>
+
+              <div className="mb-6 rounded-[14px] border border-green bg-blue p-5">
+                <p className="font-openSans text-[15px] leading-[1.7] text-green-ink">
+                  <strong>Logan Gelzer</strong> is a Senior Shopify Expert based
+                  in Homestead, FL, who has built custom themes, headless
+                  storefronts, and checkout solutions for 200+ DTC brands since
+                  2014.
+                </p>
+              </div>
+
+              <div className="mb-10 grid grid-cols-2 gap-3 rounded-[14px] border border-line bg-paper p-5">
+                {FACT_SHEET.map((item) => (
+                  <div key={item.label} className="flex flex-col">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-ink-mute">
+                      {item.label}
+                    </span>
+                    <span className="font-display text-[14px] font-medium text-green-ink">
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
 
               <div className="mb-10 space-y-4 font-openSans text-[16px] leading-[1.7] text-ink-dim">
                 <p>
-                  I'm Logan — a Senior Shopify Expert based in Miami. For 12+
-                  years I've been building, shipping, and scaling ecommerce
-                  experiences for direct-to-consumer brands.
+                  I'm Logan — a Senior Shopify Expert based in Homestead, FL.
+                  For 12+ years I've been building, shipping, and scaling
+                  ecommerce experiences for direct-to-consumer brands.
                 </p>
                 <p>
                   I specialize in Shopify Plus and headless commerce with
@@ -113,7 +197,7 @@ export default function AboutPage() {
                   cases and press publish myself.
                 </p>
                 <p>
-                  A defining project was a Miami food brand where I took their
+                  A defining project was a local food brand where I took their
                   ecommerce channel from $200/month to $250,000/month across
                   three channels in two years — a 1,250× multiplier driven by
                   CRO, A/B testing, and a performance-first rebuild.
@@ -179,7 +263,7 @@ export default function AboutPage() {
         <div className="flex items-center justify-between font-mono text-[11px] text-ink-mute max-sm:flex-col max-sm:gap-2">
           <div>
             © {new Date().getFullYear()} Logan Gelzer — made with coffee in
-            Miami
+            Homestead
           </div>
           <Link href="/" className="hover:text-green">
             ← Back to home

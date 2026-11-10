@@ -178,8 +178,8 @@ export default function HeroSection({ profile, heroStats }) {
         <div className="flex flex-col justify-between gap-6">
           <dl className="flex flex-col gap-2 font-mono text-[12px] text-ink-dim">
             {[
-              ['/ based', 'Miami, Florida · USA'],
-              ['/ years', '12+ in ecommerce'],
+              ['/ based', 'Homestead, FL · USA'],
+              ['/ years', '12+ in ecommerce (since 2014)'],
             ].map(([k, v]) => (
               <div key={k} className="flex flex-wrap gap-3">
                 <dt className="w-[72px] shrink-0 text-ink-mute">{k}</dt>
@@ -194,7 +194,7 @@ export default function HeroSection({ profile, heroStats }) {
 
           <h1 className="flex flex-col font-display font-medium leading-[0.86] -tracking-[0.055em] text-green-ink text-[clamp(64px,11vw,180px)]">
             <span className="sr-only">
-              Logan Gelzer — Senior Shopify Expert & Hydrogen Developer in Miami
+              Logan Gelzer — Senior Shopify Expert & Hydrogen Developer in Homestead, FL
             </span>
             <span aria-hidden="true">Logan</span>
             <span
@@ -210,7 +210,7 @@ export default function HeroSection({ profile, heroStats }) {
               <span className="font-medium italic text-green-ink">
                 Senior Shopify Expert
               </span>{' '}
-              — 12+ years building for DTC brands from Miami.
+              — 12+ years building for DTC brands from Homestead, FL. 200+ brands since 2014.
             </h2>
             <ul className="mt-2 flex flex-wrap gap-2 font-mono text-[12px]">
               {roles.map((r) => (
