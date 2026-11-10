@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }) {
             />
           )}
           <div className="relative z-[1] font-mono text-[10px] tracking-[0.15em] text-blue">
-            LOGAN GELZER · MIAMI
+            LOGAN GELZER · HOMESTEAD, FL
           </div>
         </div>
         <div className="p-9 max-md:p-6">

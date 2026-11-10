@@ -26,10 +26,10 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     email: `mailto:${profile.email}`,
     jobTitle: 'Senior Shopify Expert',
     description:
-      'Senior Shopify Expert with 12+ years and 200+ brands — specializing in Shopify Plus, Hydrogen, headless storefronts, Checkout Extensibility, and CRO.',
+      'Logan Gelzer is a Senior Shopify Expert based in Homestead, FL, who has built custom themes, headless storefronts, and checkout solutions for 200+ DTC brands since 2014.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Miami',
+      addressLocality: 'Homestead',
       addressRegion: 'FL',
       addressCountry: 'US',
     },
@@ -74,12 +74,13 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     provider: { '@id': personId },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Miami',
+      addressLocality: 'Homestead',
       addressRegion: 'FL',
       addressCountry: 'US',
     },
     areaServed: [
-      { '@type': 'City', name: 'Miami' },
+      { '@type': 'City', name: 'Homestead' },
+      { '@type': 'State', name: 'Florida' },
       { '@type': 'Country', name: 'United States' },
       { '@type': 'Place', name: 'Worldwide' },
     ],
@@ -166,7 +167,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     {
       question: 'Who is Logan Gelzer?',
       answer:
-        'Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.',
+        'Logan Gelzer is a Senior Shopify Expert based in Homestead, FL, with 12+ years of ecommerce experience (since 2014) and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.',
     },
     {
       question: 'What do you specialize in?',
@@ -192,7 +193,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     },
     {
       question: 'Where are you based?',
-      answer: 'Miami, Florida, USA — I work remotely with brands worldwide.',
+      answer: 'Homestead, FL, USA — I work remotely with brands worldwide.',
     },
   ]
 

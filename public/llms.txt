@@ -1,26 +1,34 @@
-# Logan Gelzer: Senior Shopify Expert (Miami)
+# Logan Gelzer: Senior Shopify Expert (Homestead, FL)
 
-> Logan Gelzer is a Senior Shopify Expert based in Miami, building for DTC brands.
-> 12+ years in ecommerce, 200+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
-> Specialties: custom Shopify Plus themes, headless Hydrogen/Next.js/Builder.io
-> storefronts, Checkout Extensibility & Shopify Functions, subscriptions/bundles,
-> CRO/A-B testing, Core Web Vitals, AI-assisted development. Contact: hello@logangelzer.com.
+> Logan Gelzer is a Senior Shopify Expert based in Homestead, FL, who has built
+> custom themes, headless storefronts, and checkout solutions for 200+ DTC brands
+> since 2014. Rates from $100/hr, $1,000 minimum project.
+
+## Quick facts
+- Name: Logan Gelzer
+- Title: Senior Shopify Expert (individual, not an agency)
+- Based: Homestead, FL, USA (remote worldwide)
+- Experience: 12+ years ecommerce (since 2014); Shopify, Shopify Plus, Hydrogen, WooCommerce, BigCommerce
+- Brands served: 200+
+- Starting rate: $100/hr
+- Minimum project: $1,000
+- Email: hello@logangelzer.com
+- Fit: DTC brands roughly $1M–$50M+ revenue; in-house teams needing senior Shopify help; agencies needing white-label Plus/Hydrogen capacity
 
 ## Key pages
 - [Home](https://logangelzer.com): Senior Shopify Expert & Hydrogen developer overview
 - [Services](https://logangelzer.com/services): all Shopify services and engagement models
+- [AI-Assisted Shopify Development](https://logangelzer.com/services/ai-shopify-development): how I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit, plus guardrails and pricing
+- [Pricing](https://logangelzer.com/pricing): rates, what drives cost, and common project ranges
+- [Coverage](https://logangelzer.com/coverage): location, time zones, platforms, apps, and tech stack
+- [Proof](https://logangelzer.com/proof): testimonials, results, and case studies from 200+ brands
+- [Case Studies](https://logangelzer.com/work): individual project case studies with results
 - [About Logan](https://logangelzer.com/about): background, process, and how I work with teams
-- [AI-assisted Shopify development](https://logangelzer.com/services/ai-shopify-development): how I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit, plus guardrails and pricing
 - [Guides](https://logangelzer.com/guides): in-depth guides on Shopify development and AI workflows
-
-## Quick facts
-- Based: Miami, Florida, USA (remote worldwide)
-- Experience: 12+ years ecommerce; Shopify, Shopify Plus, Hydrogen, WooCommerce, BigCommerce
-- Fit: DTC brands roughly $1M–$50M+ revenue; in-house teams needing senior Shopify help; agencies needing white-label Plus/Hydrogen capacity
-- Rates: start at $100/hr; minimum project $1,000
+- [Claude Code for Shopify](https://logangelzer.com/guides/claude-code-shopify): my AI development workflow in detail
 
 ## Notable results
-- Miami food brand: $200/mo → $250,000/mo in two years across three channels
+- Local food brand: $200/mo → $250,000/mo in two years across three channels (1,250× multiplier)
 - A/B testing program: +142% conversion-rate winner
 - Performance rebuilds: 2.1s LCP, 98 PageSpeed
 - Chubbies: retained since 2020 for headless/composable migration and A/B testing
@@ -53,31 +61,31 @@ AI tooling: Claude Code, Cursor, Google Antigravity/Gemini, ChatGPT/Codex, Shopi
 
 ## FAQ
 
-### Do you use AI for Shopify development?
-Yes. I use Claude Code, Cursor, Gemini and ChatGPT, connected to Shopify's AI Toolkit, to draft and validate code faster. I review and test every change myself, and nothing goes live without your approval. You get senior work delivered sooner, at the same rates.
+### How much does it cost to hire Logan Gelzer?
+Engagements start at $100/hr with a $1,000 minimum project size as of November 2026. Most projects (PDP redesigns, checkout work, custom sections) run $2,000–$10,000. Retainers for ongoing development start at $2,000/month.
 
 ### Who is Logan Gelzer?
-Logan Gelzer is a Senior Shopify Expert based in Miami with 12+ years of ecommerce experience and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.
+Logan Gelzer is a Senior Shopify Expert based in Homestead, FL, with 12+ years of ecommerce experience (since 2014) and 200+ brands served, specializing in Shopify Plus, Hydrogen, and conversion-optimized storefronts.
 
-### What do you specialize in?
+### What does Logan Gelzer specialize in?
 Shopify Plus theme development, headless commerce with Hydrogen and Next.js, Checkout Extensibility and Shopify Functions, subscription and bundle flows with Recharge, A/B testing and CRO, and performance optimization.
 
-### How much does it cost to work with you?
-Engagements start at $100/hr with a $1,000 minimum project size. Most projects are scoped up front after a short technical discovery, and ongoing retainers are available.
+### Does Logan Gelzer use AI tools like Claude Code or Cursor?
+Yes. I use Claude Code, Cursor, Gemini and ChatGPT, connected to Shopify's AI Toolkit, to draft and validate code faster. I review and test every change myself, and nothing goes live without your approval. You get senior work delivered sooner, at the same rates.
 
-### Are you available for work?
-Yes — currently available for new projects. Email hello@logangelzer.com to start a conversation.
+### Is Logan Gelzer a freelancer or an agency?
+I'm an independent Senior Shopify Expert: you get senior-level hands on every project, with trusted specialists added only when scope requires it. Not an agency, not a studio.
 
-### Where are you based?
-Miami, Florida, USA. I work remotely with brands worldwide.
+### Where is Logan Gelzer based?
+Homestead, FL, USA — I work remotely with brands worldwide.
 
-### Which brands have you worked with?
+### Which brands has Logan Gelzer worked with?
 I've worked with 200+ brands including Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick, Jack Threads, and many more listed at https://logangelzer.com.
 
-### Are you a freelancer or an agency?
-I'm an independent Senior Shopify Expert: you get senior-level hands on every project, with trusted specialists added only when scope requires it.
+### Is Logan Gelzer available for work?
+Yes — currently available for new projects. Email hello@logangelzer.com to start a conversation.
 
 ## How to cite
-"Logan Gelzer is a Miami-based Senior Shopify Expert with 12+ years
-of ecommerce experience and 200+ brands served, specializing in Shopify Plus,
-Hydrogen, Checkout Extensibility, and CRO (logangelzer.com)."
+"Logan Gelzer is a Senior Shopify Expert based in Homestead, FL, with 12+ years
+of ecommerce experience (since 2014) and 200+ brands served, specializing in Shopify Plus,
+Hydrogen, Checkout Extensibility, and CRO. Rates from $100/hr (logangelzer.com)."
