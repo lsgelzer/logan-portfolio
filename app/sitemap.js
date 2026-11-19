@@ -44,5 +44,11 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    {
+      url: `${base}/book`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
   ]
 }
