@@ -1,6 +1,8 @@
 import { DocumentIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
+import { INDUSTRIES } from '../../../lib/industries'
+
 const ICON_OPTIONS = [
   'shopify',
   'react',
@@ -73,6 +75,18 @@ export default defineType({
       title: 'Client Logo',
       type: 'image',
       options: { hotspot: true },
+    }),
+    defineField({
+      name: 'industries',
+      title: 'Industries',
+      description:
+        'Drives the portfolio filters and the shareable /work/<industry> pages.',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: INDUSTRIES.map((i) => ({ title: i.label, value: i.slug })),
+        layout: 'grid',
+      },
     }),
     defineField({
       name: 'tags',

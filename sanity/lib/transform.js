@@ -14,6 +14,7 @@ export function shapeProject(p) {
     url: p.url,
     years: yearsLabel(p.duration, p.present),
     tags: p.tags || [],
+    industries: p.industries || [],
     stack: p.stack || [],
     mockup: p.mockup || null,
     logo: p.logo || null,

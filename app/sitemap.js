@@ -1,3 +1,4 @@
+import { INDUSTRY_SLUGS } from '@/lib/industries'
 import { loadHomePageData } from '@/sanity/lib/loadData'
 
 export default async function sitemap() {
@@ -44,5 +45,17 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    {
+      url: `${base}/work`,
+      lastModified: pagesUpdated,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    ...INDUSTRY_SLUGS.map((slug) => ({
+      url: `${base}/work/${slug}`,
+      lastModified: pagesUpdated,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    })),
   ]
 }

@@ -171,6 +171,7 @@ for (const b of batch) {
     },
     ...(logoRef && { clientImage: logoRef }),
     tags: b.tags,
+    ...(b.industries && { industries: b.industries }),
     stack: b.stack,
     overview: toBlocks(b.body, b.slug),
   })

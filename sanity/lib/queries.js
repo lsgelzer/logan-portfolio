@@ -37,6 +37,7 @@ export const projectsQuery = groq`
     present,
     duration,
     tags,
+    industries,
     stack,
     "mockup": coverImage.asset->url,
     "logo": clientImage.asset->url,

@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useCallback, useState } from 'react'
 
@@ -125,7 +126,53 @@ function ProjectCard({ project, index, onOpen }) {
   )
 }
 
-export default function ProjectsSection({ projects = [] }) {
+function IndustryFilters({ filters, activeIndustry, allCount, keepScroll }) {
+  const chip =
+    'rounded-full border px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green'
+  const on = 'border-green-ink bg-green-ink text-cream'
+  const off = 'border-line text-ink-dim hover:border-green hover:text-green-ink'
+  return (
+    <nav aria-label="Filter case studies by industry" className="mb-8">
+      <ul className="flex flex-wrap gap-2">
+        <li>
+          <Link
+            href="/work"
+            scroll={!keepScroll}
+            aria-current={!activeIndustry ? 'page' : undefined}
+            className={`${chip} ${!activeIndustry ? on : off}`}
+          >
+            All <span className="opacity-60">{allCount}</span>
+          </Link>
+        </li>
+        {filters.map((f) => (
+          <li key={f.slug}>
+            <Link
+              href={`/work/${f.slug}`}
+              scroll={!keepScroll}
+              aria-current={activeIndustry === f.slug ? 'page' : undefined}
+              className={`${chip} ${activeIndustry === f.slug ? on : off}`}
+            >
+              {f.label} <span className="opacity-60">{f.count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+export default function ProjectsSection({
+  projects = [],
+  filters = [],
+  activeIndustry = null,
+  allCount = projects.length,
+  eyebrow = 'Recent Projects',
+  title = 'Shopify Plus case studies:',
+  titleEm = 'results I shipped',
+  intro = 'Case studies across custom PDPs, headless migrations, variant switchers, subscription and bundle flows, gift-with-purchase in checkout, and performance wins. Click any card for the story.',
+  as: Heading = 'h2',
+  keepScroll = false,
+}) {
   const [activeId, setActiveId] = useState(null)
   const [showAll, setShowAll] = useState(false)
   const open = useCallback((id) => setActiveId(id), [])
@@ -144,20 +191,26 @@ export default function ProjectsSection({ projects = [] }) {
           aria-hidden
         />
         <span>
-          04 / <b className="font-semibold text-green-ink">Recent Projects</b>
+          04 / <b className="font-semibold text-green-ink">{eyebrow}</b>
         </span>
         <span>— click any card</span>
       </div>
       <div className="mb-10 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
-        <h2 className="sec-title font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-          Shopify Plus case studies: <em>results I shipped</em>.
-        </h2>
+        <Heading className="sec-title font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
+          {title} {titleEm && <em>{titleEm}</em>}.
+        </Heading>
         <p className="max-w-[520px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
-          Case studies across custom PDPs, headless migrations, variant
-          switchers, subscription and bundle flows, gift-with-purchase in
-          checkout, and performance wins. Click any card for the story.
+          {intro}
         </p>
       </div>
+      {filters.length > 0 && (
+        <IndustryFilters
+          filters={filters}
+          activeIndustry={activeIndustry}
+          allCount={allCount}
+          keepScroll={keepScroll}
+        />
+      )}
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {(showAll ? projects : projects.slice(0, INITIAL_VISIBLE)).map(
           (p, i) => (

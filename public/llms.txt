@@ -11,6 +11,8 @@
 - [Services](https://logangelzer.com/services): all Shopify services and engagement models
 - [About Logan](https://logangelzer.com/about): background, process, and how I work with teams
 - [AI-assisted Shopify development](https://logangelzer.com/services/ai-shopify-development): how I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit, plus guardrails and pricing
+- [Work by industry](https://logangelzer.com/work): all Shopify case studies, filterable by industry
+  - [Fashion & Apparel](https://logangelzer.com/work/apparel) · [Health, Wellness & Beauty](https://logangelzer.com/work/health-wellness) · [Food & Beverage](https://logangelzer.com/work/food-beverage) · [Home & Garden](https://logangelzer.com/work/home-garden) · [Sports, Fitness & Outdoors](https://logangelzer.com/work/sports-outdoors) · [Automotive & Powersports](https://logangelzer.com/work/automotive) · [Pet](https://logangelzer.com/work/pets) · [Gifts, Lifestyle & Collectibles](https://logangelzer.com/work/gifts-lifestyle) · [Agency partners](https://logangelzer.com/work/agencies)
 - [Guides](https://logangelzer.com/guides): in-depth guides on Shopify development and AI workflows
 - [Claude Code for Shopify guide](https://logangelzer.com/guides/claude-code-shopify): my AI-assisted Shopify workflow with Claude Code, Cursor, and Shopify's AI Toolkit
 

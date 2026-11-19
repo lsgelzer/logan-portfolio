@@ -9,6 +9,7 @@ import SkillsSection from '@/components/sections/skills-section/skills-section'
 import SocialSection from '@/components/sections/social-section/social-section'
 import StatsStrip from '@/components/sections/stats-strip/stats-strip'
 import TestimonialsSection from '@/components/sections/testimonials-section/testimonials-section'
+import { industryFilters } from '@/lib/industries'
 
 function structuredDataBlocks({ profile, socials, projects, clients, skills, seo }) {
   const personId = `${profile.url}/#person`
@@ -272,7 +273,10 @@ export function HomePage({ data }) {
         />
         <ClientsSection clients={clients} />
         <StatsStrip statsStrip={statsStrip} />
-        <ProjectsSection projects={projects} />
+        <ProjectsSection
+          projects={projects}
+          filters={industryFilters(projects)}
+        />
         <SkillsSection skills={skills} asideChips={asideChips} />
         <TestimonialsSection />
         <FaqSection faqData={faqData} />

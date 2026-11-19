@@ -9,9 +9,9 @@ import { getBookingHref } from '@/lib/site-config'
 const NAV = [
   { href: '/about', label: 'About', isPage: true },
   { href: '/services', label: 'Services', isPage: true },
-  { href: '#clients', label: 'Clients' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#clients', label: 'Clients' },
+  { href: '/work', label: 'Work', isPage: true },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 const CLOCK_FMT =
@@ -59,7 +59,7 @@ export default function TopBar() {
       className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line bg-paper/75 px-6 py-3.5 font-mono text-[12px] text-ink-dim backdrop-blur-lg"
       role="banner"
     >
-      <a href="#" className="inline-flex items-center gap-2.5 text-ink" aria-label="Logan Gelzer home">
+      <a href="/" className="inline-flex items-center gap-2.5 text-ink" aria-label="Logan Gelzer home">
         <Image
           src="/portfolio/logan-author-headshot.png"
           alt=""
