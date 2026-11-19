@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Unitus",
+    "slug": "unitus",
+    "site": "https://weareunitus.com",
+    "order": 20,
+    "tags": ["Full Redesign", "PDP & Cart CRO", "Horizon Theme", "Figma Design System"],
+    "stack": ["shopify", "liquid", "figma", "cart"],
+    "body": [
+      "Started with a conversion pass on Unitus' footwear funnel: a rebuilt PDP with a size and fit guide, sticky mobile add-to-cart, gallery zoom, and social proof, plus a cart drawer with a tiered free-shipping bar, upsells, and checkout trust elements.",
+      "That turned into a ground-up redesign of the whole store. I built a Figma design system and component library, then developed every page on Shopify's Horizon theme, carrying the PDP and cart work forward instead of starting over."
+    ]
+  },
+  {
+    "name": "Moto Machines",
+    "slug": "moto-machines",
+    "site": "https://www.motomachines.com",
+    "order": 21,
+    "tags": ["Shopify Migration", "Year/Make/Model Finder", "Mega Menu", "Technical SEO"],
+    "stack": ["shopify", "liquid", "javascript", "figma"],
+    "body": [
+      "Migrated Moto Machines, a motorcycle performance parts retailer, onto Shopify, from mobile-first Figma wireframes for every template through to launch.",
+      "The centerpiece is a custom \"Select Your Bike\" year/make/model finder built on metaobjects and JavaScript, alongside a mega-menu for brands and categories, Search & Discovery filtering, and a full SEO migration with schema, meta, and redirects."
+    ]
+  },
+  {
+    "name": "Turtle Fur",
+    "slug": "turtle-fur",
+    "site": "https://turtlefur.com",
+    "order": 22,
+    "tags": ["Brand Refresh", "Hero Carousel", "Theme Customization", "CRO"],
+    "stack": ["shopify", "liquid", "javascript", "palette"],
+    "body": [
+      "A phased theme engagement for Turtle Fur's headwear and neckwear brand. Phase 1 rolled out their brand refresh across the theme: new heading typography and a color-scheme system applied site-wide on desktop and mobile.",
+      "Phases 2 and 3 rebuilt the homepage hero carousel and brought the remaining modules in line with the new brand system, so merchandising teams can keep shipping campaigns without touching code."
+    ]
+  },
+  {
+    "name": "AbMat",
+    "slug": "abmat",
+    "site": "https://abmat.com",
+    "order": 23,
+    "tags": ["Horizon Theme", "Store Redesign", "PDP Customizations", "Figma Design System"],
+    "stack": ["shopify", "liquid", "figma", "cart"],
+    "body": [
+      "Designed and built a new storefront for AbMat's fitness equipment line. Discovery and a brand audit fed a custom Figma design system and high-fidelity desktop and mobile mockups for the homepage, PDP, collection, and cart.",
+      "I then developed it on Shopify's Horizon theme, with conversion-focused PDP components built in from the start rather than bolted on after launch."
+    ]
+  },
+  {
+    "name": "TruLabs",
+    "slug": "trulabs",
+    "site": "https://trulabs.com",
+    "order": 24,
+    "tags": ["B2B Migration", "Shopify Functions", "Bundle Builder", "Theme Upgrade"],
+    "stack": ["shopify", "liquid", "javascript", "cart"],
+    "body": [
+      "Ongoing partner to TruLabs since 2024. I've built a custom influencer discount on Shopify Functions with monthly usage limits and caps, a metafield-driven quantity selector tied to Recharge pricing, Rebuy bundles with a cart progress bar, and flavor and color swatch logic on the PDP.",
+      "I also migrated their wholesale business to native Shopify B2B (customers, catalogs, and checkout validation) and upgraded their Impulse theme to the latest version with every customization carried over."
+    ]
+  },
+  {
+    "name": "Cotton Citizen",
+    "slug": "cotton-citizen",
+    "site": "https://cottoncitizen.com",
+    "order": 25,
+    "tags": ["B2B Quick Order", "Shopify Functions", "Inventory Logic", "PDP Customizations"],
+    "stack": ["shopify", "liquid", "javascript", "cart"],
+    "body": [
+      "Built a B2B ordering experience into Cotton Citizen's existing theme. Logged-in wholesale buyers get a quick-order grid on the PDP with every size, live inventory, and per-size quantities in a single add to bag.",
+      "To protect direct-to-consumer stock, I added product- and variant-level inventory floors for B2B accounts, enforced server-side with a Shopify Functions checkout validation. I also shipped PLP image controls and tabbed PDP content."
+    ]
+  },
+  {
+    "name": "Strong Cell",
+    "slug": "strong-cell",
+    "site": "https://strongcell.com",
+    "order": 26,
+    "tags": ["PDP Customizations", "Subscription Widget", "Landing Page", "Bug Fixes"],
+    "stack": ["shopify", "liquid", "javascript", "figma"],
+    "body": [
+      "Rebuilt Strong Cell's product hero and landing pages around a modern supplement buy box with subscribe-and-save, supply-length options, and one-time purchase, designed in Figma and built natively into the theme.",
+      "Later I generalized the buy box so it works across every product and fixed edge cases in the subscription and one-time purchase selection logic."
+    ]
+  },
+  {
+    "name": "Bulbs Direct",
+    "slug": "bulbs-direct",
+    "site": "https://bulbsdirect.co.nz",
+    "order": 27,
+    "tags": ["Quantity Breaks", "Scripts to Functions", "Custom Discounts", "Metafield Migration"],
+    "stack": ["shopify", "liquid", "javascript", "cart"],
+    "body": [
+      "Working with New Zealand's Bulbs Direct since 2022. I consolidated their variants and built configurable quantity breaks with stepped quantity selectors on the PDP and in the cart, capped to available inventory.",
+      "When Shopify Scripts was retired, I migrated their tiered quantity discounts to an automatic Shopify Functions discount and moved the tag-based rules into metafields."
+    ]
+  },
+  {
+    "name": "Shut Up & Love Your Neighbor",
+    "slug": "shut-up-love-your-neighbor",
+    "site": "https://shutupandloveyourneighbor.com",
+    "order": 28,
+    "tags": ["Store Redesign", "Brand Style Guide", "Theme Customization", "Print on Demand"],
+    "stack": ["shopify", "liquid", "palette", "cart"],
+    "body": [
+      "Redesigned the store for a message-driven apparel brand. I sourced and customized a premium theme, set up a brand style guide for typography, color, and imagery, and built the homepage, collection, product, and about pages.",
+      "The layout leads with the brand's message and keeps the path to purchase low-friction, all running on their Printify print-on-demand catalog."
+    ]
+  },
+  {
+    "name": "Sela Vie Creative",
+    "slug": "sela-vie-creative",
+    "site": "https://www.selaviecreative.com",
+    "order": 29,
+    "tags": ["Trade Portal", "Multi-Brand Storefront", "Custom Discounts", "Theme Customization"],
+    "stack": ["shopify", "liquid", "javascript", "palette"],
+    "body": [
+      "Development partner to Sela Vie Creative, a creative studio for founder-led brands, on Shopify builds for their clients since 2024.",
+      "Work includes a multi-brand storefront with its own layouts, templates, and brand switcher, and a full trade center: a dashboard for trade customers, collection-based trade pricing, project wishlists, order tracking, and printable PDP tearsheets."
+    ]
+  },
+  {
+    "name": "Cali Poke House",
+    "slug": "cali-poke-house",
+    "site": "https://calipokehouse.com",
+    "order": 30,
+    "tags": ["Shopify Build", "Custom Theme", "Mobile Navigation", "Collections Setup"],
+    "stack": ["shopify", "liquid", "react", "javascript"],
+    "body": [
+      "Took Cali Poke House, a trading card and collectibles shop, from React prototypes to a live Shopify store. I finished and deployed their custom theme, wired every setting to live storefront output, and connected the homepage sections to real collections.",
+      "I also built the mobile slide-out navigation from scratch, with nested categories for Pokémon, One Piece, blind boxes, and plush."
+    ]
+  }
+]

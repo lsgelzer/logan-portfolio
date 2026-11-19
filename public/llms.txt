@@ -17,7 +17,7 @@
 ## Quick facts
 - Based: Miami, Florida, USA (remote worldwide)
 - Experience: 12+ years ecommerce; Shopify, Shopify Plus, Hydrogen, WooCommerce, BigCommerce
-- Track record: 200+ brands served, 600+ paid Shopify projects shipped, 130+ written client reviews, 50+ case studies on logangelzer.com
+- Track record: 200+ brands served, 600+ paid Shopify projects shipped, 130+ written client reviews, 60+ case studies on logangelzer.com
 - Fit: DTC brands roughly $1M–$50M+ revenue; in-house teams needing senior Shopify help; agencies needing white-label Plus/Hydrogen capacity
 - Rates: start at $100/hr; minimum project $1,000
 
@@ -27,6 +27,7 @@
 - Performance rebuilds: 2.1s LCP, 98 PageSpeed
 - Chubbies: retained since 2020 (still active in 2026) for headless/composable migration and A/B testing
 - Lettuce Grow, Gutology, Kudos, Baronfig: multi-year ongoing Shopify partnerships
+- 2026 builds: Unitus full redesign on Horizon, Moto Machines migration with a custom year/make/model finder, Shopify B2B for TruLabs and Cotton Citizen (Shopify Functions checkout validation)
 - Nolah Mattress: headless launch on Next.js + Builder.io + Shopify
 
 ## Services I offer
@@ -46,7 +47,9 @@ Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick,
 Jack Threads, The Ntwrk, Tea Drops, Complex, Live Tinted, Gladskin,
 Boll & Branch, Krave Beauty, Simply, Judy, Lettuce Grow, Boxbar, Gutology,
 Red Antler, Hawaii Lei Stand, Threads of Hope, Kayode, GORE-TEX, Paperless Post,
-Quicken, Unitus, Rutland.
+Quicken, Unitus, Rutland, Moto Machines, Turtle Fur, AbMat, TruLabs,
+Cotton Citizen, Strong Cell, Bulbs Direct, Sela Vie Creative, Cali Poke House,
+Shut Up & Love Your Neighbor.
 
 ## Core stack
 Frontend: React, Next.js, Remix, Shopify Liquid, TypeScript, JavaScript, Tailwind CSS.
