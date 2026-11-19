@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { breadcrumbList, JsonLd, pageMetadata, PERSON_ID, SITE_URL } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Shopify Plus, Hydrogen & AI-Assisted Services | Logan Gelzer',
+export const metadata = pageMetadata({
+  title: 'Shopify Plus, Hydrogen & AI-Assisted Development Services',
   description:
     'Shopify Plus themes, Hydrogen, Checkout Extensibility, CRO, speed and AI-assisted development by a Senior Shopify Expert. From $100/hr, $1,000 minimum.',
-  alternates: {
-    canonical: 'https://logangelzer.com/services',
-  },
-}
+  path: '/services',
+})
 
 const SERVICES = [
   {
@@ -149,9 +148,34 @@ function ServiceCard({ title, description, features, href }) {
   )
 }
 
+const SERVICES_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ItemList',
+      '@id': `${SITE_URL}/services#services`,
+      name: 'Shopify development services by Logan Gelzer',
+      itemListElement: SERVICES.map((s, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.description,
+          serviceType: s.title,
+          provider: { '@id': PERSON_ID },
+          areaServed: 'Worldwide',
+        },
+      })),
+    },
+    breadcrumbList([{ name: 'Services', path: '/services' }]),
+  ],
+}
+
 export default function ServicesPage() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <JsonLd data={SERVICES_JSON_LD} />
       <TopBar />
       <main className="pt-[72px]">
         <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">

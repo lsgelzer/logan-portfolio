@@ -76,11 +76,18 @@ export const loadHomePageData = cache(async function loadHomePageData() {
   const defaultDescription =
     'Senior Shopify Expert with 12+ years and 200+ brands. Custom Shopify Plus themes, Hydrogen headless builds, Checkout Extensibility & CRO. Book a call.'
 
+  const rawOgImage = settings?.ogImage
+  const ogImage = rawOgImage
+    ? rawOgImage.includes('cdn.sanity.io')
+      ? `${rawOgImage}?w=1200&h=630&fit=crop`
+      : rawOgImage
+    : '/og-image.png'
+
   return {
     seo: {
       title: settings?.title || defaultTitle,
       description: settings?.overview || defaultDescription,
-      ogImage: settings?.ogImage || '/og-image.png',
+      ogImage,
       url: profile.url,
     },
     profile,

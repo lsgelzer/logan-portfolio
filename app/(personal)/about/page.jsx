@@ -2,14 +2,31 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { breadcrumbList, JsonLd, pageMetadata, PERSON_ID, SITE_URL } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'About Logan Gelzer, Senior Shopify Expert in Miami',
   description:
-    '12+ years building ecommerce for DTC brands. Background, process, and how I work with in-house teams.',
-  alternates: {
-    canonical: 'https://logangelzer.com/about',
-  },
+    '12+ years building ecommerce for DTC brands, 200+ brands and 600+ Shopify projects shipped. Background, process, and how I work with in-house teams.',
+  path: '/about',
+  absoluteTitle: true,
+  type: 'profile',
+})
+
+const ABOUT_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': `${SITE_URL}/about#webpage`,
+      url: `${SITE_URL}/about`,
+      name: 'About Logan Gelzer',
+      mainEntity: { '@id': PERSON_ID },
+      about: { '@id': PERSON_ID },
+      inLanguage: 'en-US',
+    },
+    breadcrumbList([{ name: 'About', path: '/about' }]),
+  ],
 }
 
 const TIMELINE = [
@@ -44,6 +61,7 @@ const SPECIALTIES = [
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <JsonLd data={ABOUT_JSON_LD} />
       <TopBar />
       <main className="pt-[72px]">
         <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">

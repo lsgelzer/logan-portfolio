@@ -1,6 +1,3 @@
-/**
- * Shape a Sanity project into the flat shape the UI components expect.
- */
 export function yearsLabel(duration, present) {
   if (!duration?.start) return ''
   const start = new Date(duration.start).getFullYear()

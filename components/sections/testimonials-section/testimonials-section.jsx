@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]"
+      className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px] [content-visibility:auto] [contain-intrinsic-size:auto_900px]"
       aria-label="What clients say"
     >
       <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-mute">

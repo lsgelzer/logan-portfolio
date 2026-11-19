@@ -8,6 +8,11 @@ import { ICONS } from '@/components/shared/icons'
 
 const ProjectModal = dynamic(() => import('./project-modal'), { ssr: false })
 
+// Render a first page of cards; the rest mount on demand. Keeps the initial
+// DOM small (each card is ~34 nodes). Every project is still listed in the
+// homepage ItemList JSON-LD for crawlers.
+const INITIAL_VISIBLE = 12
+
 const ART_GRADIENTS = [
   'bg-gradient-to-br from-[var(--green)] to-[var(--green-deep)]',
   'bg-gradient-to-br from-[var(--blue-deep)] to-[var(--green)]',
@@ -122,6 +127,7 @@ function ProjectCard({ project, index, onOpen }) {
 
 export default function ProjectsSection({ projects = [] }) {
   const [activeId, setActiveId] = useState(null)
+  const [showAll, setShowAll] = useState(false)
   const open = useCallback((id) => setActiveId(id), [])
   const close = useCallback(() => setActiveId(null), [])
   const active = activeId ? projects.find((p) => p.id === activeId) : null
@@ -153,10 +159,23 @@ export default function ProjectsSection({ projects = [] }) {
         </p>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} index={i} onOpen={open} />
-        ))}
+        {(showAll ? projects : projects.slice(0, INITIAL_VISIBLE)).map(
+          (p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} onOpen={open} />
+          ),
+        )}
       </div>
+      {!showAll && projects.length > INITIAL_VISIBLE && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(true)}
+            className="rounded-full border border-green-ink px-6 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-green-ink transition-colors hover:bg-green-ink hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green"
+          >
+            View all {projects.length} case studies
+          </button>
+        </div>
+      )}
       {active && <ProjectModal project={active} onClose={close} />}
     </section>
   )

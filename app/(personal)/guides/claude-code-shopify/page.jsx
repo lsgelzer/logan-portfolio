@@ -1,23 +1,22 @@
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { pageMetadata } from '@/lib/seo'
 import { getBookingHref } from '@/lib/site-config'
 
-export const metadata = {
-  title: 'Claude Code for Shopify: A Senior Dev\'s AI Workflow (2026)',
+const PUBLISHED = '2026-10-29'
+const MODIFIED = '2026-11-19'
+
+export const metadata = pageMetadata({
+  title: "Claude Code for Shopify: A Senior Dev's AI Workflow (2026)",
+  ogTitle: "Claude Code for Shopify: A Senior Dev's AI Workflow",
   description:
-    'How I use Claude Code, Cursor, Gemini and ChatGPT with Shopify\'s AI Toolkit and CLI to ship themes, Functions and apps faster, without breaking stores.',
-  alternates: {
-    canonical: 'https://logangelzer.com/guides/claude-code-shopify',
-  },
-  openGraph: {
-    title: 'Claude Code for Shopify: A Senior Dev\'s AI Workflow',
-    description:
-      'How I use Claude Code, Cursor, Gemini and ChatGPT with Shopify\'s AI Toolkit and CLI to ship themes, Functions and apps faster, without breaking stores.',
-    url: 'https://logangelzer.com/guides/claude-code-shopify',
-    type: 'article',
-  },
-}
+    "How I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit and CLI to ship themes, Functions and apps faster, without breaking stores.",
+  path: '/guides/claude-code-shopify',
+  type: 'article',
+  publishedTime: PUBLISHED,
+  modifiedTime: MODIFIED,
+})
 
 const FAQ_ITEMS = [
   {
@@ -185,8 +184,8 @@ export default function ClaudeCodeShopifyGuidePage() {
           "How I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit and CLI to ship themes, Functions and apps faster, without breaking stores.",
         author: { '@id': 'https://logangelzer.com/#person' },
         publisher: { '@id': 'https://logangelzer.com/#person' },
-        datePublished: new Date().toISOString().split('T')[0],
-        dateModified: new Date().toISOString().split('T')[0],
+        datePublished: PUBLISHED,
+        dateModified: MODIFIED,
         mainEntityOfPage: 'https://logangelzer.com/guides/claude-code-shopify',
         image: 'https://logangelzer.com/og-image.png',
       },

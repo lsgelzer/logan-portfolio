@@ -1,23 +1,16 @@
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { pageMetadata } from '@/lib/seo'
 import { getBookingHref } from '@/lib/site-config'
 
-export const metadata = {
-  title: 'AI Shopify Developer: Claude Code & Cursor | Logan Gelzer',
+export const metadata = pageMetadata({
+  title: 'AI Shopify Developer: Claude Code & Cursor',
+  ogTitle: 'AI-Assisted Shopify Development, Reviewed by a Senior Expert',
   description:
     'Senior Shopify Expert using Claude Code, Cursor, Gemini & ChatGPT to ship themes, Hydrogen, Functions and apps faster, with senior review on every change.',
-  alternates: {
-    canonical: 'https://logangelzer.com/services/ai-shopify-development',
-  },
-  openGraph: {
-    title: 'AI-Assisted Shopify Development, Reviewed by a Senior Expert',
-    description:
-      'Senior Shopify Expert using Claude Code, Cursor, Gemini & ChatGPT to ship themes, Hydrogen, Functions and apps faster, with senior review on every change.',
-    url: 'https://logangelzer.com/services/ai-shopify-development',
-    type: 'website',
-  },
-}
+  path: '/services/ai-shopify-development',
+})
 
 const FAQ_ITEMS = [
   {

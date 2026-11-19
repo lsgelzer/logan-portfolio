@@ -3,41 +3,44 @@ import { loadHomePageData } from '@/sanity/lib/loadData'
 export default async function sitemap() {
   const { profile } = await loadHomePageData()
   const base = profile.url
-  const now = new Date()
+  // Bump these when page content changes; a build timestamp tells crawlers
+  // every page changed on every deploy, which erodes trust in lastmod.
+  const homeUpdated = new Date('2026-11-19')
+  const pagesUpdated = new Date('2026-11-19')
   return [
     {
       url: base,
-      lastModified: now,
+      lastModified: homeUpdated,
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
       url: `${base}/services`,
-      lastModified: now,
+      lastModified: pagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${base}/services/ai-shopify-development`,
-      lastModified: now,
+      lastModified: pagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${base}/about`,
-      lastModified: now,
+      lastModified: pagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${base}/guides`,
-      lastModified: now,
+      lastModified: pagesUpdated,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${base}/guides/claude-code-shopify`,
-      lastModified: now,
+      lastModified: pagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.85,
     },

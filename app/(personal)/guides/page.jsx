@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { breadcrumbList, JsonLd, pageMetadata, PERSON_ID, SITE_URL } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Shopify Development Guides | Logan Gelzer',
+export const metadata = pageMetadata({
+  title: 'Shopify Development Guides',
   description:
     'In-depth guides on Shopify development: Claude Code workflows, Cursor setup, Shopify Functions, and AI-assisted development for themes and apps.',
-  alternates: {
-    canonical: 'https://logangelzer.com/guides',
-  },
-}
+  path: '/guides',
+})
 
 const GUIDES = [
   {
@@ -22,9 +21,33 @@ const GUIDES = [
   },
 ]
 
+const GUIDES_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${SITE_URL}/guides#webpage`,
+      url: `${SITE_URL}/guides`,
+      name: 'Shopify Development Guides',
+      author: { '@id': PERSON_ID },
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: GUIDES.map((g, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: `${SITE_URL}/guides/${g.slug}`,
+          name: g.title,
+        })),
+      },
+    },
+    breadcrumbList([{ name: 'Guides', path: '/guides' }]),
+  ],
+}
+
 export default function GuidesPage() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <JsonLd data={GUIDES_JSON_LD} />
       <TopBar />
       <main className="pt-[72px]">
         <section className="relative px-10 py-[120px] max-md:px-5 max-md:py-[80px]">

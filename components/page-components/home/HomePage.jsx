@@ -10,7 +10,7 @@ import SocialSection from '@/components/sections/social-section/social-section'
 import StatsStrip from '@/components/sections/stats-strip/stats-strip'
 import TestimonialsSection from '@/components/sections/testimonials-section/testimonials-section'
 
-function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
+function structuredDataBlocks({ profile, socials, projects, clients, skills, seo }) {
   const personId = `${profile.url}/#person`
   const serviceId = `${profile.url}/#service`
   const websiteId = `${profile.url}/#website`
@@ -68,10 +68,19 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
     '@id': serviceId,
     name: 'Logan Gelzer: Senior Shopify Expert',
     url: profile.url,
-    image: `${profile.url}/og-image.png`,
+    image: seo?.ogImage
+      ? seo.ogImage.startsWith('http')
+        ? seo.ogImage
+        : `${profile.url}${seo.ogImage}`
+      : `${profile.url}/og-image.png`,
     email: profile.email,
     priceRange: '$$$',
     provider: { '@id': personId },
+    founder: { '@id': personId },
+    serviceType: 'Shopify Development, Ecommerce Consulting',
+    description:
+      'Freelance Shopify Plus, Hydrogen, and custom theme development, plus CRO for direct-to-consumer brands.',
+    knowsLanguage: 'English',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Miami',
@@ -217,6 +226,7 @@ function structuredDataBlocks({ profile, socials, projects, clients, skills }) {
 
 export function HomePage({ data }) {
   const {
+    seo,
     profile,
     socials,
     about,
@@ -235,6 +245,7 @@ export function HomePage({ data }) {
     projects,
     clients,
     skills,
+    seo,
   })
 
   return (

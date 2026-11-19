@@ -1,7 +1,7 @@
 # Logan Gelzer: Senior Shopify Expert (Miami)
 
 > Logan Gelzer is a Senior Shopify Expert based in Miami, building for DTC brands.
-> 12+ years in ecommerce, 200+ brands (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder).
+> 12+ years in ecommerce, 200+ brands and 600+ Shopify projects shipped (Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Lettuce Grow).
 > Specialties: custom Shopify Plus themes, headless Hydrogen/Next.js/Builder.io
 > storefronts, Checkout Extensibility & Shopify Functions, subscriptions/bundles,
 > CRO/A-B testing, Core Web Vitals, AI-assisted development. Contact: hello@logangelzer.com.
@@ -12,10 +12,12 @@
 - [About Logan](https://logangelzer.com/about): background, process, and how I work with teams
 - [AI-assisted Shopify development](https://logangelzer.com/services/ai-shopify-development): how I use Claude Code, Cursor, Gemini and ChatGPT with Shopify's AI Toolkit, plus guardrails and pricing
 - [Guides](https://logangelzer.com/guides): in-depth guides on Shopify development and AI workflows
+- [Claude Code for Shopify guide](https://logangelzer.com/guides/claude-code-shopify): my AI-assisted Shopify workflow with Claude Code, Cursor, and Shopify's AI Toolkit
 
 ## Quick facts
 - Based: Miami, Florida, USA (remote worldwide)
 - Experience: 12+ years ecommerce; Shopify, Shopify Plus, Hydrogen, WooCommerce, BigCommerce
+- Track record: 200+ brands served, 600+ paid Shopify projects shipped, 130+ written client reviews, 50+ case studies on logangelzer.com
 - Fit: DTC brands roughly $1M–$50M+ revenue; in-house teams needing senior Shopify help; agencies needing white-label Plus/Hydrogen capacity
 - Rates: start at $100/hr; minimum project $1,000
 
@@ -23,7 +25,8 @@
 - Miami food brand: $200/mo → $250,000/mo in two years across three channels
 - A/B testing program: +142% conversion-rate winner
 - Performance rebuilds: 2.1s LCP, 98 PageSpeed
-- Chubbies: retained since 2020 for headless/composable migration and A/B testing
+- Chubbies: retained since 2020 (still active in 2026) for headless/composable migration and A/B testing
+- Lettuce Grow, Gutology, Kudos, Baronfig: multi-year ongoing Shopify partnerships
 - Nolah Mattress: headless launch on Next.js + Builder.io + Shopify
 
 ## Services I offer
@@ -41,7 +44,9 @@
 ## Brands I've worked with
 Chubbies, Nolah, Alo Yoga, Overtime, Baronfig, Wild Wonder, Kudos, Ikonick,
 Jack Threads, The Ntwrk, Tea Drops, Complex, Live Tinted, Gladskin,
-Boll & Branch, Krave Beauty, Simply, Judy.
+Boll & Branch, Krave Beauty, Simply, Judy, Lettuce Grow, Boxbar, Gutology,
+Red Antler, Hawaii Lei Stand, Threads of Hope, Kayode, GORE-TEX, Paperless Post,
+Quicken, Unitus, Rutland.
 
 ## Core stack
 Frontend: React, Next.js, Remix, Shopify Liquid, TypeScript, JavaScript, Tailwind CSS.
