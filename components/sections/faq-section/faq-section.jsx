@@ -32,7 +32,12 @@ function FaqItem({ question, answer, isOpen, onToggle }) {
   )
 }
 
-export default function FaqSection({ faqData = [] }) {
+export default function FaqSection({
+  faqData = [],
+  eyebrow = '07 / ',
+  title = 'Shopify development',
+  intro = 'Questions about working together, pricing, timelines, and what makes Logan Gelzer different from other Shopify developers.',
+}) {
   const [openIndex, setOpenIndex] = useState(0)
 
   const handleToggle = (index) => {
@@ -51,17 +56,17 @@ export default function FaqSection({ faqData = [] }) {
           aria-hidden
         />
         <span>
-          07 / <b className="font-semibold text-green-ink">FAQ</b>
+          {eyebrow}
+          <b className="font-semibold text-green-ink">FAQ</b>
         </span>
         <span>— common questions</span>
       </div>
       <div className="mb-10 grid items-end gap-14 md:grid-cols-[1.2fr_1fr]">
         <h2 className="sec-title font-display font-medium leading-[0.98] -tracking-[0.035em] text-green-ink text-[clamp(42px,6vw,92px)] text-balance">
-          Shopify development <em>FAQ</em>.
+          {title} <em>FAQ</em>.
         </h2>
         <p className="max-w-[520px] font-openSans text-[16px] leading-[1.7] text-ink-dim">
-          Questions about working together, pricing, timelines, and what makes
-          Logan Gelzer different from other Shopify developers.
+          {intro}
         </p>
       </div>
       <div className="mx-auto max-w-[800px] rounded-[14px] border border-line bg-paper px-8 py-2">

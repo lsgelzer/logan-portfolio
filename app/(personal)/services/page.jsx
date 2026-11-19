@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import TopBar from '@/components/layout/topbar'
+import { INDUSTRIES } from '@/lib/industries'
 import { breadcrumbList, JsonLd, pageMetadata, PERSON_ID, SITE_URL } from '@/lib/seo'
 
 export const metadata = pageMetadata({
@@ -211,6 +212,27 @@ export default function ServicesPage() {
               />
             ))}
           </div>
+
+          <nav aria-labelledby="work-by-industry" className="mt-16">
+            <h2
+              id="work-by-industry"
+              className="mb-5 font-display text-[28px] font-medium -tracking-[0.02em] text-green-ink"
+            >
+              See my Shopify work in your industry
+            </h2>
+            <ul className="flex flex-wrap gap-2">
+              {INDUSTRIES.map((i) => (
+                <li key={i.slug}>
+                  <Link
+                    href={`/work/${i.slug}`}
+                    className="inline-block rounded-full border border-line px-4 py-2 font-mono text-[12px] text-ink-dim transition-colors hover:border-green hover:text-green-ink"
+                  >
+                    {i.title.replace(/^(White-Label )?Shopify Developer for /, '')}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div className="mt-16 rounded-[18px] bg-green-ink p-10 text-cream">
             <div className="grid items-center gap-8 md:grid-cols-[1.5fr_1fr]">

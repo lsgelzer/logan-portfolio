@@ -2,6 +2,7 @@ import { parseBody } from 'next-sanity/webhook'
 import { revalidateTag } from 'next/cache'
 import { NextResponse } from 'next/server'
 
+import { INDUSTRY_SLUGS } from '@/lib/industries'
 import { pingIndexNow } from '@/lib/indexnow'
 import { revalidateSecret } from '@/sanity/env'
 
@@ -17,10 +18,17 @@ export async function POST(req) {
     revalidateTag(body._type)
     // Notify search engines that content changed. Non-blocking — failures
     // are logged in the response but don't fail the webhook.
-    const indexnow = await pingIndexNow([
+    const urls = [
       'https://logangelzer.com/',
       'https://logangelzer.com/sitemap.xml',
-    ])
+    ]
+    if (body._type === 'project') {
+      urls.push(
+        'https://logangelzer.com/work',
+        ...INDUSTRY_SLUGS.map((s) => `https://logangelzer.com/work/${s}`),
+      )
+    }
+    const indexnow = await pingIndexNow(urls)
     return NextResponse.json({
       revalidated: true,
       type: body._type,

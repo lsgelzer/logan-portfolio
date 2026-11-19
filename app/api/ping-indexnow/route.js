@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 
+import sitemap from '@/app/sitemap'
 import { pingIndexNow } from '@/lib/indexnow'
 import { revalidateSecret } from '@/sanity/env'
 
@@ -21,17 +22,18 @@ export async function GET(req) {
   const cronSecret = process.env.CRON_SECRET
 
   const isSecretValid = revalidateSecret && secret === revalidateSecret
-  const isCronValid =
-    cronSecret && authHeader === `Bearer ${cronSecret}`
+  const isCronValid = cronSecret && authHeader === `Bearer ${cronSecret}`
 
   if (!isSecretValid && !isCronValid) {
     return new NextResponse('Unauthorized', { status: 401 })
   }
 
   const singleUrl = searchParams.get('url')
+  // Default: every URL in the sitemap, so new pages (e.g. /work/<industry>)
+  // are submitted individually rather than relying on a sitemap re-crawl.
   const urlList = singleUrl
     ? [singleUrl]
-    : ['https://logangelzer.com/', 'https://logangelzer.com/sitemap.xml']
+    : (await sitemap()).map((entry) => entry.url)
 
   const result = await pingIndexNow(urlList)
   return NextResponse.json(result)

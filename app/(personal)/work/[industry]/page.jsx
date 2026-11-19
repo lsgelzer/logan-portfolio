@@ -1,8 +1,12 @@
 import { notFound } from 'next/navigation'
 
-import { WorkPage } from '@/components/page-components/work/WorkPage'
-import { getIndustry, INDUSTRY_SLUGS } from '@/lib/industries'
+import {
+  filterByIndustry,
+  WorkPage,
+} from '@/components/page-components/work/WorkPage'
+import { getIndustry, industryContent, INDUSTRY_SLUGS } from '@/lib/industries'
 import { pageMetadata } from '@/lib/seo'
+import { siteConfig } from '@/lib/site-config'
 import { loadHomePageData } from '@/sanity/lib/loadData'
 
 export const revalidate = 3600
@@ -16,10 +20,17 @@ export async function generateMetadata({ params }) {
   const { industry: slug } = await params
   const industry = getIndustry(slug)
   if (!industry) return {}
+  const { projects } = await loadHomePageData()
+  const { description } = industryContent(
+    industry,
+    filterByIndustry(projects, industry.slug),
+    siteConfig.rates,
+  )
   return pageMetadata({
     title: industry.title,
-    description: industry.intro,
+    description,
     path: `/work/${industry.slug}`,
+    images: false,
   })
 }
 
